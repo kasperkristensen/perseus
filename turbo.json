@@ -2,7 +2,13 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build",
+        "$FIGMA_BASE_URL",
+        "$FIGMA_ACCESS_TOKEN",
+        "$FIGMA_PROJECT_ID",
+        "$FIGMA_PROJECT_NODE_ID"
+      ],
       "outputs": ["dist/**", ".next/**"]
     },
     "lint": {

@@ -1,5 +1,5 @@
 {
-  "name": "tsconfig",
+  "name": "@perseus/tsconfig",
   "version": "0.0.0",
   "private": true,
   "files": [
