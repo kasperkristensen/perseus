@@ -14,7 +14,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@perseus/eslint-config-perseus": "*",
+    "@perseus/eslint-config": "*",
     "prettier": "latest",
     "turbo": "latest"
   },
