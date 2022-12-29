@@ -15,6 +15,10 @@ class Reporter {
     this._log("error", colors.red(message));
   };
 
+  public warn = (message: string) => {
+    this._log("error", colors.yellow(message));
+  };
+
   public prettyError = (error: Error) => {
     this.error("An unexpected error occurred. See below for details.");
     console.log(this._errorFormatter.render(error));
@@ -48,30 +52,17 @@ class Reporter {
     bar.stop();
   };
 
-  public invalidEnvVariables = (variables: Record<string, boolean>) => {
+  public invalidEnvVariables = () => {
     this.error(
-      "Invalid environment variables. See below what variables are missing:\n"
-    );
-
-    const maxKeyLength = Math.max(
-      ...Object.keys(variables).map((key) => key.length)
-    );
-
-    const state = Object.entries(variables).reduce((acc, [key, value]) => {
-      const color = value ? colors.green : colors.red;
-      const space = " ".repeat(maxKeyLength - key.length + 6);
-      acc[key] = color(
-        `${colors.white(colors.bold(key))}${space}${value ? "✔" : "✖"}`
-      );
-      return acc;
-    }, {} as Record<string, string>);
-
-    Object.values(state).map((value) =>
-      console.log(`${colors.cyan("➜")} ${value}`)
+      `Invalid environment variables. See below what variables are missing:\n`
     );
 
     console.log(
-      colors.red("\nPlease add the missing variables to your .env file.\n")
+      `${colors.red("✖")}  ${colors.white(colors.bold("FIGMA_ACCESS_TOKEN"))}`
+    );
+
+    console.log(
+      colors.red("\nPlease set the missing variables and try again.\n")
     );
   };
 

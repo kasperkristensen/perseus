@@ -1,10 +1,10 @@
 {
-  "name": "@perseus/generate-icons",
+  "name": "@perseus/generate-design-tokens",
   "version": "1.0.0",
   "description": "CLI that generates React icon components from Figma",
   "author": "Kasper Kristensen <kasper@medusajs.com>",
   "bin": {
-    "perseus-gi": "cli.js"
+    "perseus-generate": "cli.js"
   },
   "exports": {
     "./package.json": "./package.json"
@@ -27,6 +27,7 @@
     "@svgr/plugin-svgo": "^6.5.1",
     "axios": "^1.2.1",
     "cli-progress": "^3.11.2",
+    "commander": "^9.4.1",
     "dotenv": "^16.0.3",
     "fs-extra": "^11.1.0",
     "picocolors": "^1.0.0",

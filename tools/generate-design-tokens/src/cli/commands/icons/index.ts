@@ -6,26 +6,25 @@ import fse from "fs-extra";
 import os from "os";
 import { resolve } from "path";
 import Figma from "../../../api";
-import { RATE_LIMIT, WAIT_TIME } from "../../../constants";
+import { FIGMA_ICONS_NODE_ID, RATE_LIMIT, WAIT_TIME } from "../../../constants";
 import { reporter } from "../../../reporter";
 import { FigmaEntry } from "../../../typings";
 import defaultTemplate from "./templates/default-template";
 import fixedColorTemplate from "./templates/fixed-color-template";
 
-export async function generate() {
+export async function icons() {
   const api = new Figma();
   const path = resolve(process.cwd(), "src", "icons");
 
   reporter.introduction();
 
   try {
-    const { data } = await api.getFile();
-    const children =
-      data.nodes[process.env.FIGMA_PROJECT_NODE_ID!]!.document.children;
+    const { data } = await api.getPage(FIGMA_ICONS_NODE_ID);
+    const children = data.nodes[FIGMA_ICONS_NODE_ID]!.document.children;
 
     if (!children) {
       reporter.error(
-        "No children found in the Figma file. Ensure that you have the correct project id and node id set in the .env file"
+        "No children found in the Figma file. Ensure that FIGMA_ICONS_NODE_ID is set to the correct node."
       );
       process.exit(1);
     }
