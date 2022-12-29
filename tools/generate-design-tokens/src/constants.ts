@@ -18,3 +18,8 @@ export const RATE_LIMIT = 20;
  * This value has been determined by trial and error.
  */
 export const WAIT_TIME = 60;
+
+export const FIGMA_BASE_URL = "https://api.figma.com/v1/";
+export const FIGMA_FILE_ID = "TW0kRpjhpsi3sR1u4a4wF8";
+export const FIGMA_ICONS_NODE_ID = "109:599";
+export const FIGMA_COLORS_NODE_ID = "109:596";

@@ -1,10 +1,10 @@
 {
-  "name": "@perseus/icons",
+  "name": "@perseus/colors",
   "version": "1.0.0",
-  "description": "Icon library for the Perseus design system.",
+  "description": "Color tokens for the Perseus Design System.",
   "author": "Kasper Kristensen <kasper@medusajs.com>",
   "scripts": {
-    "generate": "perseus-generate icons",
+    "generate": "perseus-generate colors",
     "build": "rollup -c --bundleConfigAsCjs"
   },
   "main": "build/index.js",
@@ -15,21 +15,12 @@
   "types": "build/index.d.ts",
   "devDependencies": {
     "@perseus/generate-design-tokens": "*",
+    "rollup": "^3.9.0",
+    "rollup-plugin-typescript2": "^0.34.1",
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^16.9.14",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rollup": "^3.9.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.34.1",
     "typescript": "^4.9.4"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
   },
   "license": "MIT"
 }
