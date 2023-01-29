@@ -10,6 +10,7 @@ const main = async () => {
 
   const content = `
     import { ${imports.join(", ")} } from "@perseus/icons"
+    import CopyButton from "./copy-button"
 
     const Overview = () => {
         return (
@@ -21,7 +22,9 @@ const main = async () => {
                 ${imports
                   .map(
                     (icon) =>
-                      `<div style={{
+                      `
+                      <CopyButton>
+                      <div style={{
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -29,7 +32,8 @@ const main = async () => {
                         height: "2rem",
                     }}>
                             <${icon} />
-                    </div>`
+                    </div>
+                    </CopyButton>`
                   )
                   .join(os.EOL)}
             </div>

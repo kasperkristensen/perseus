@@ -1,9 +1,5 @@
 import Overview from "@/components/overview";
-import styles from "@/styles/Home.module.css";
-import { Inter } from "@next/font/google";
 import Head from "next/head";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -14,7 +10,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main className="bg-backgrounds-subtle text-text-primary p-8 flex flex-col items-center justify-center">
+        <div>
+          <h1 className="text-4xl font-bold">Perseus Icons</h1>
+        </div>
         <Overview />
       </main>
     </>
