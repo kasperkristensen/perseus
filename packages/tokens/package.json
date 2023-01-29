@@ -1,0 +1,23 @@
+{
+  "name": "@perseus/tokens",
+  "version": "0.0.0",
+  "description": "Design tokens for the Perseus design system",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "author": "Kasper Kristensen <kasper@medusajs.com>",
+  "license": "MIT",
+  "scripts": {
+    "generate": "perseus tokens",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "@perseus/cli": "*",
+    "@perseus/eslint-config": "*",
+    "@perseus/tsconfig": "*",
+    "@swc/core": "^1.3.30",
+    "eslint": "^8.32.0",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4"
+  }
+}
