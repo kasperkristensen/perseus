@@ -6,7 +6,7 @@ class Reporter {
   private _errorFormatter: typeof PrettyError;
 
   constructor() {
-    this._prefix = "[perseus-gi]:";
+    this._prefix = "[medusa-ui]:";
     this._errorFormatter = new PrettyError();
   }
 

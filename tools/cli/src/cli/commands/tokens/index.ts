@@ -1,10 +1,10 @@
-import type { Style, StyleType } from "@perseus/figma-api";
+import type { Style, StyleType } from "@medusa-ui/figma-api";
 import { resolve } from "path";
 import { FIGMA_FILE_ID } from "../../../constants";
 import { oraPromise } from "../../util";
 import { figma } from "../../util/figma";
 import { reporter } from "../../util/reporter";
-import { generateColors, generateEffects } from "./helpers";
+import { generateColors, generateEffects, generateTypography } from "./helpers";
 
 const src = resolve(process.cwd(), "src");
 
@@ -38,5 +38,11 @@ export const generateTokens = async () => {
     text: "Generating effect tokens",
     onError: "Failed to generate effect tokens",
     onSuccess: "Generated effect tokens",
+  });
+
+  await oraPromise(generateTypography(styleMap.TEXT, src), {
+    text: "Generating typography tokens",
+    onError: "Failed to generate typography tokens",
+    onSuccess: "Generated typography tokens",
   });
 };

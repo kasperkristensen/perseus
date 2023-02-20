@@ -4,6 +4,7 @@
 export * from "./backgrounds";
 export * from "./borders";
 export * from "./buttons";
+export * from "./code";
 export * from "./icons";
 export * from "./index";
 export * from "./support";

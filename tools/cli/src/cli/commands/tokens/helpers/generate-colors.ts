@@ -1,4 +1,4 @@
-import { RectangleNode, Style } from "@perseus/figma-api";
+import { RectangleNode, Style } from "@medusa-ui/figma-api";
 import * as fse from "fs-extra";
 import * as os from "os";
 import { resolve } from "path";

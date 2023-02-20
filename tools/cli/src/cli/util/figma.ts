@@ -1,4 +1,4 @@
-import { Figma } from "@perseus/figma-api";
+import { Figma } from "@medusa-ui/figma-api";
 import * as dotenv from "dotenv";
 import { resolve } from "path";
 

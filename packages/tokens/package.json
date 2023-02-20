@@ -1,20 +1,20 @@
 {
-  "name": "@perseus/tokens",
+  "name": "@medusa-ui/tokens",
   "version": "0.0.0",
-  "description": "Design tokens for the Perseus design system",
+  "description": "Design tokens for the Medusa UI design system",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "author": "Kasper Kristensen <kasper@medusajs.com>",
   "license": "MIT",
   "scripts": {
-    "generate": "perseus tokens",
+    "generate": "medusa-ui tokens",
     "build": "tsup"
   },
   "devDependencies": {
-    "@perseus/cli": "*",
-    "@perseus/eslint-config": "*",
-    "@perseus/tsconfig": "*",
+    "@medusa-ui/cli": "*",
+    "@medusa-ui/eslint-config": "*",
+    "@medusa-ui/tsconfig": "*",
     "@swc/core": "^1.3.30",
     "eslint": "^8.32.0",
     "tsup": "^6.5.0",

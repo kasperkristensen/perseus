@@ -1,5 +1,9 @@
 {
-  "extends": "@perseus/tsconfig/react-library.json",
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declarationDir": "dist",
+    "baseUrl": "."
+  },
+  "extends": "@medusa-ui/tsconfig/react-library.json",
+  "include": ["src"]
 }

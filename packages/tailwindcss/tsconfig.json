@@ -1,5 +1,5 @@
 {
-  "extends": "@perseus/tsconfig/base.json",
+  "extends": "@medusa-ui/tsconfig/base.json",
   "compilerOptions": {
     "rootDir": "src",
     "declaration": true,

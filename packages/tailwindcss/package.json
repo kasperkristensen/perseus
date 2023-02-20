@@ -1,7 +1,7 @@
 {
-  "name": "@perseus/tailwindcss",
+  "name": "@medusa-ui/tailwindcss",
   "version": "0.0.0",
-  "description": "Tailwind CSS plugin for the Perseus design system",
+  "description": "Tailwind CSS plugin for the Medusa UI design system",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -14,7 +14,7 @@
     "build": "tsup src/index.ts --format cjs --dts --external tailwindcss"
   },
   "dependencies": {
-    "@perseus/tokens": "*",
+    "@medusa-ui/tokens": "*",
     "@radix-ui/colors": "^0.1.8"
   },
   "peerDependencies": {

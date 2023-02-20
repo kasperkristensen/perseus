@@ -8,6 +8,7 @@ export { default as CheckCircleMiniSolid } from "./check-circle-mini-solid";
 export { default as CheckCircleSolid } from "./check-circle-solid";
 export { default as CircleDottedLine } from "./circle-dotted-line";
 export { default as CircleHalfSolid } from "./circle-half-solid";
+export { default as CircleMiniSolid } from "./circle-mini-solid";
 export { default as CircleQuarterSolid } from "./circle-quarter-solid";
 export { default as CircleSolid } from "./circle-solid";
 export { default as CircleThreeQuartersSolid } from "./circle-three-quarters-solid";

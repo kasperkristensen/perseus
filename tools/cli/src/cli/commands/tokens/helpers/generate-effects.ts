@@ -1,4 +1,4 @@
-import { RectangleNode, Style } from "@perseus/figma-api";
+import { RectangleNode, Style } from "@medusa-ui/figma-api";
 import { resolve } from "path";
 import { FIGMA_FILE_ID } from "../../../../constants";
 import { figma, reporter } from "../../../util";

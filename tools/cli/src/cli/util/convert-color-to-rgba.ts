@@ -1,4 +1,4 @@
-import { Color } from "@perseus/figma-api";
+import { Color } from "@medusa-ui/figma-api";
 
 export const convertColorToRGBA = (color: Color) => {
   const { r, g, b, a } = color;
