@@ -1,6 +1,4 @@
-import "./css/atoms";
+import "./lib/css/atoms";
 
-export * from "./css";
-export * from "./theme";
-export * from "./theme-provider";
-export * from "./themes";
+export * from "./components";
+export * from "./lib";

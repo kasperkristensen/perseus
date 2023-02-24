@@ -8,7 +8,7 @@
   "author": "Kasper Kristensen <kasper@medusajs.com>",
   "license": "MIT",
   "scripts": {
-    "generate": "medusa-ui tokens",
+    "generate": "rimraf ./src && medusa-ui tokens",
     "build": "tsup"
   },
   "devDependencies": {
@@ -17,6 +17,7 @@
     "@medusa-ui/tsconfig": "*",
     "@swc/core": "^1.3.30",
     "eslint": "^8.32.0",
+    "rimraf": "^4.1.2",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
   }

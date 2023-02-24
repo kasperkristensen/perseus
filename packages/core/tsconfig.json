@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "declarationDir": "dist",
-    "baseUrl": "."
+    "declarationDir": "dist"
   },
   "extends": "@medusa-ui/tsconfig/react-library.json",
   "include": ["src"]

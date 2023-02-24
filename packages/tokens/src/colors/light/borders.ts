@@ -7,4 +7,5 @@ export const borders = {
   borderBase: "rgba(230, 232, 235, 1)",
   borderFocus: "rgba(110, 86, 207, 1)",
   borderFocusInset: "rgba(255, 255, 255, 1)",
+  borderError: "rgba(229, 72, 77, 1)",
 };

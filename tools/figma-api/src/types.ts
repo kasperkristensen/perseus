@@ -426,7 +426,7 @@ type LayoutGrid = {
 /**
  * A visual effect such as a shadow or blur
  */
-type Effect = {
+export type Effect = {
   /**
    * Type of effect as a string enum
    */
@@ -960,7 +960,7 @@ export type TextNode = Omit<VectorNode, "fillOverrideTable"> & {
   /**
    * Style of text including font family and weight (see type style section for more information)
    */
-  styleType: Style;
+  style: TypeStyle;
   /**
    * Array with same number of elements as characters in text box, each element is a reference to the styleOverrideTable defined below and maps to the corresponding character in the characters field. Elements with value 0 have the default type style
    */

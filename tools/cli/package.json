@@ -28,6 +28,7 @@
     "@svgr/plugin-svgo": "^6.5.1",
     "cli-progress": "^3.11.2",
     "commander": "^9.4.1",
+    "dedent": "^0.7.0",
     "dotenv": "^16.0.3",
     "fs-extra": "^11.1.0",
     "ora": "5.4.0",

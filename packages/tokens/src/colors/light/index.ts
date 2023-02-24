@@ -6,7 +6,6 @@ export * from "./borders";
 export * from "./buttons";
 export * from "./code";
 export * from "./icons";
-export * from "./index";
 export * from "./support";
 export * from "./tags";
-export * from "./text";
+export * from "./texts";

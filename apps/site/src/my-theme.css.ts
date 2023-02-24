@@ -6,7 +6,7 @@ export const myTheme = createTheme({
   base: "light",
   overrides: {
     buttons: {
-      buttonPrimary: "purple",
+      buttonPrimary: "red",
     },
   },
 });

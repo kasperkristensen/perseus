@@ -5,5 +5,7 @@ export const convertColorToRGBA = (color: Color) => {
 
   const value = (v: number) => Math.round(v * 255);
 
-  return `rgba(${value(r)}, ${value(g)}, ${value(b)}, ${a})`;
+  const alpha = a < 1 && a > 0 ? a.toFixed(2) : a;
+
+  return `rgba(${value(r)}, ${value(g)}, ${value(b)}, ${alpha})`;
 };
