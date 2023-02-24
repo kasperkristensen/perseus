@@ -1,4 +1,4 @@
-import { RectangleNode, Style } from "@perseus/figma-api";
+import { RectangleNode, Style } from "@medusa-ui/figma-api";
 import * as fse from "fs-extra";
 import * as os from "os";
 import { resolve } from "path";
@@ -52,7 +52,7 @@ export const generateColors = async (fills: Style[], basePath: string) => {
       colors[theme]![domain]![cleanIdentifier] = rgba;
     } else {
       reporter.warn(
-        `The color style "${node.name}" is not in the correct format. It should be in the format of "theme/domain/identifier". The passed value was "${theme}/${domain}/${identifier}". Skipping`
+        `The color style "${node.name}" is not in the correct format. It should be in the format of "theme/domain/identifier". The passed value was "${node.name}". Skipping`
       );
     }
   });
@@ -72,7 +72,7 @@ export const generateColors = async (fills: Style[], basePath: string) => {
     }
 
     if (!dirExists) {
-      fse.mkdir(themePath);
+      await fse.mkdir(themePath);
     }
 
     const subpromises = Object.entries(domains).map(
@@ -112,6 +112,4 @@ export const generateColors = async (fills: Style[], basePath: string) => {
   const indexContent = `/**${os.EOL} * This file is auto-generated. Do not edit.${os.EOL} */${os.EOL}export * from "./light";${os.EOL}export * from "./dark";${os.EOL}`;
 
   await fse.outputFile(resolve(path, "index.ts"), indexContent);
-
-  reporter.success("Generated color tokens");
 };

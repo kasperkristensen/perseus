@@ -1,4 +1,4 @@
-import { FrameInfo } from "@perseus/figma-api";
+import { FrameInfo } from "@medusa-ui/figma-api";
 import * as fse from "fs-extra";
 import { resolve } from "path";
 import {

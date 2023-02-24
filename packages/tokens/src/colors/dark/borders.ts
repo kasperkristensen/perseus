@@ -7,4 +7,5 @@ export const bordersDark = {
   borderStrong: "rgba(62, 62, 68, 1)",
   borderFocus: "rgba(110, 86, 207, 1)",
   borderFocusInset: "rgba(28, 28, 31, 1)",
+  borderError: "rgba(229, 72, 77, 1)",
 };

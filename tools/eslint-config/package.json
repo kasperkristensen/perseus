@@ -1,5 +1,5 @@
 {
-  "name": "@perseus/eslint-config",
+  "name": "@medusa-ui/eslint-config",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",

@@ -154,7 +154,7 @@ import {
   XCircleSolid,
   XMark,
   XMarkMini,
-} from "@perseus/icons";
+} from "@medusa-ui/icons";
 import CopyButton from "./copy-button";
 
 const Overview = () => {

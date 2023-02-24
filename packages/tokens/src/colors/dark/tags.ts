@@ -2,6 +2,11 @@
  * This file is auto-generated. Do not edit.
  */
 export const tagsDark = {
+  tagPinkBgHover: "rgba(80, 27, 63, 1)",
+  tagPinkDot: "rgba(214, 64, 159, 1)",
+  tagPinkBorder: "rgba(96, 29, 72, 1)",
+  tagPinkBg: "rgba(69, 26, 55, 1)",
+  tagPinkText: "rgba(246, 92, 182, 1)",
   tagNeutralBgHover: "rgba(46, 46, 50, 1)",
   tagBlueDot: "rgba(0, 145, 255, 1)",
   tagOrangeBorder: "rgba(87, 51, 0, 1)",

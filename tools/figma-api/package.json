@@ -1,5 +1,5 @@
 {
-  "name": "@perseus/figma-api",
+  "name": "@medusa-ui/figma-api",
   "version": "0.0.0",
   "description": "Figma API client",
   "author": "Kasper Kristensen <kasper@medusajs.com>",

@@ -9,25 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@medusa-ui/core": "*",
     "@next/font": "13.1.5",
-    "@perseus/icons": "*",
+    "@medusa-ui/icons": "*",
+    "@vanilla-extract/css": "^1.9.5",
+    "@vanilla-extract/sprinkles": "^1.5.1",
     "next": "13.1.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@perseus/eslint-config": "*",
-    "@perseus/tailwindcss": "*",
+    "@medusa-ui/eslint-config": "*",
     "@radix-ui/colors": "^0.1.8",
     "@types/node": "18.11.18",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "autoprefixer": "^10.4.13",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vanilla-extract/next-plugin": "^2.1.1",
     "eslint": "8.32.0",
-    "postcss": "^8.4.21",
-    "prettier": "^2.8.3",
-    "tailwindcss": "^3.2.4",
-    "typescript": "4.9.4",
-    "windy-radix-palette": "^0.5.0"
+    "typescript": "4.9.4"
   }
 }

@@ -8,7 +8,7 @@ export async function createCli(): Promise<Command> {
 
   program
     .command("tokens")
-    .description("Generate Perseus theme tokens")
+    .description("Generate Medusa UI tokens")
     .action(generateTokens);
   program
     .command("icons")

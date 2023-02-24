@@ -1,5 +1,5 @@
 {
-  "name": "perseus",
+  "name": "medusa-ui",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -14,7 +14,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@perseus/eslint-config": "*",
+    "@medusa-ui/eslint-config": "*",
     "prettier": "latest",
     "turbo": "latest"
   },

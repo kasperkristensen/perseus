@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ["@perseus/eslint-config"],
+  extends: ["@medusa-ui/eslint-config"],
 };

@@ -3,6 +3,11 @@
  */
 export const tags = {
   tagTransparentBgHover: "rgba(248, 249, 250, 1)",
+  tagPinkBgHover: "rgba(249, 216, 236, 1)",
+  tagPinkBg: "rgba(252, 229, 243, 1)",
+  tagPinkText: "rgba(205, 29, 141, 1)",
+  tagPinkDot: "rgba(214, 64, 159, 1)",
+  tagPinkBorder: "rgba(243, 198, 226, 1)",
   tagNeutralBorder: "rgba(223, 227, 230, 1)",
   tagGreenBgHover: "rgba(204, 235, 215, 1)",
   tagBlueBgHover: "rgba(206, 231, 254, 1)",

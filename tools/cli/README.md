@@ -1,4 +1,4 @@
-# @perseus/generate-design-tokens
+# @medusa-ui/generate-design-tokens
 
 CLI tool for generating design tokens and icons from Figma.
 

@@ -1,10 +1,10 @@
 {
-  "name": "@perseus/cli",
+  "name": "@medusa-ui/cli",
   "version": "1.0.0",
-  "description": "CLI that generates React icon components from Figma",
+  "description": "CLI for generating desing tokens for the Medusa UI design system",
   "author": "Kasper Kristensen <kasper@medusajs.com>",
   "bin": {
-    "perseus": "cli.js"
+    "medusa-ui": "cli.js"
   },
   "exports": {
     "./package.json": "./package.json"
@@ -21,13 +21,14 @@
     "build:cjs": "tsc --project ./tsconfig.json --module CommonJS --outDir ./dist/cjs"
   },
   "dependencies": {
-    "@perseus/figma-api": "*",
+    "@medusa-ui/figma-api": "*",
     "@svgr/core": "^6.5.1",
     "@svgr/plugin-jsx": "^6.5.1",
     "@svgr/plugin-prettier": "^6.5.1",
     "@svgr/plugin-svgo": "^6.5.1",
     "cli-progress": "^3.11.2",
     "commander": "^9.4.1",
+    "dedent": "^0.7.0",
     "dotenv": "^16.0.3",
     "fs-extra": "^11.1.0",
     "ora": "5.4.0",

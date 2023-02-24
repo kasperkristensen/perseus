@@ -1,19 +1,19 @@
-# @perseus/icons
+# @medusa-ui/icons
 
-Icons used in the Perseus Design System.
+Icons used in the Medusa UI design system.
 
 ---
 
 ## Installation
 
 ```sh
-yarn add @perseus/icons
+yarn add @medusa-ui/icons
 ```
 
 ## Usage
 
 ```tsx
-import { Adjustment } from "@perseus/icons";
+import { Adjustment } from "@medusa-ui/icons";
 
 const App = () => (
   <div>

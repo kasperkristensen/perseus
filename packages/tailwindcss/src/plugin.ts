@@ -1,4 +1,4 @@
-// import { colors } from "@perseus/tokens";
+// import { colors } from "@medusa-ui/tokens";
 // import plugin from "tailwindcss/plugin";
 // import { kebabCaseIdentifier } from "./utils/kebab-case-identifier";
 
@@ -94,7 +94,7 @@
 //   }
 // );
 
-import { colors } from "@perseus/tokens";
+import { colors } from "@medusa-ui/tokens";
 import plugin from "tailwindcss/plugin";
 import {
   getDomain,

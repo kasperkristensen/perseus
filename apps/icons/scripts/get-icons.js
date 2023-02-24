@@ -1,4 +1,4 @@
-const Root = require("@perseus/icons");
+const Root = require("@medusa-ui/icons");
 const fs = require("fs").promises;
 const os = require("os");
 const path = require("path");
@@ -9,7 +9,7 @@ const main = async () => {
   const to = path.resolve(__dirname, "../src/components/overview.tsx");
 
   const content = `
-    import { ${imports.join(", ")} } from "@perseus/icons"
+    import { ${imports.join(", ")} } from "@medusa-ui/icons"
     import CopyButton from "./copy-button"
 
     const Overview = () => {

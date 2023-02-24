@@ -13,4 +13,6 @@ export const backgrounds = {
   bgBase: "rgba(255, 255, 255, 1)",
   bgSubtle: "rgba(248, 249, 250, 1)",
   bgField: "rgba(248, 249, 250, 1)",
+  bgSubtlePressed: "rgba(236, 238, 240, 1)",
+  bgSubtleHover: "rgba(241, 243, 245, 1)",
 };

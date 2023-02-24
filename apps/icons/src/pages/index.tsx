@@ -1,4 +1,6 @@
 import Overview from "@/components/overview";
+import { TestButton } from "@/components/TestButton/TestButton";
+import { ThemeProvider } from "@medusa-ui/core";
 import Head from "next/head";
 
 export default function Home() {
@@ -10,12 +12,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-backgrounds-subtle text-text-primary p-8 flex flex-col items-center justify-center">
-        <div>
-          <h1 className="text-4xl font-bold">Perseus Icons</h1>
-        </div>
-        <Overview />
-      </main>
+      <ThemeProvider>
+        <main className="bg-backgrounds-subtle text-text-primary p-8 flex flex-col items-center justify-center">
+          <div>
+            <h1 className="text-4xl font-bold">Medusa UI Icons</h1>
+          </div>
+          <Overview />
+          <TestButton />
+        </main>
+      </ThemeProvider>
     </>
   );
 }
