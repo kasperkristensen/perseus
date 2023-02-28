@@ -118,7 +118,7 @@ export const generateIcons = async () => {
           {
             text: `Transforming ${componentName}`,
             onError: `Failed to transform ${componentName}`,
-            onSuccess: `Transformed ${componentName} to React component`,
+            onSuccess: `Transformed ${componentName}`,
           }
         );
 
@@ -131,7 +131,7 @@ export const generateIcons = async () => {
 
         await fse.ensureDir(framePath);
         await oraPromise(fse.outputFile(filePath, reactComponent), {
-          text: `\nWriting ${componentName} to ${filePath}`,
+          text: `Writing ${componentName} to ${filePath}`,
           onError: `Failed to write ${componentName} to ${filePath}`,
           onSuccess: `Wrote ${componentName} to ${filePath}`,
         });

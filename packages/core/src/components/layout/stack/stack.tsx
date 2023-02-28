@@ -1,18 +1,19 @@
+import clsx from "clsx";
 import * as React from "react";
 import { Box, BoxProps } from "../box";
 import { StackVariants, variants } from "./styles.css";
 
-const validElements = ["div", "ul", "ol", "dl", "section", "article"] as const;
-
-type Props = BoxProps & StackVariants;
+export type StackProps = BoxProps & StackVariants;
 
 /**
  * A stack is a layout component that arranges its children in a row or column.
  */
-export const Stack = React.forwardRef<HTMLDivElement, Props>(
-  ({ as = "div", direction = "row", children, ...rest }, ref) => {
+export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
+  ({ as = "div", direction = "row", children, className, ...rest }, ref) => {
+    const combinedClasses = clsx(variants({ direction }), className);
+
     return (
-      <Box ref={ref} as={as} className={variants({ direction })} {...rest}>
+      <Box ref={ref} as={as} className={combinedClasses} {...rest}>
         {children}
       </Box>
     );

@@ -57,23 +57,47 @@ export const generateEffects = async (styles: Style[], basePath: string) => {
 
       let boxShadow = "";
 
-      // If a node has multiple shadows, we need to combine them into a single box-shadow value
+      /**
+       * If there is more than one shadow effect, we need to create a box-shadow value that contains
+       * all of the shadow effects.
+       */
       if (shadowEffects.length > 1) {
-        boxShadow = shadowEffects
-          .map((effect) => {
-            const rgba = convertColorToRGBA(effect.color);
-            const { x, y } = effect.offset;
-            const radius = effect.radius;
+        /**
+         * We need to sort the shadows by radius so that the box-shadow value is in the correct order.
+         * If we don't do this, the box-shadow value will be incorrect, and the lesser/inner shadow will
+         * be behind the greater/outer shadow.
+         */
+        const sorted = shadowEffects.sort(
+          ({ spread: spreadA = 0 }, { spread: spreadB = 0 }) => {
+            return spreadA - spreadB;
+          }
+        );
 
-            return `${x}px ${y}px ${radius}px ${rgba}`;
+        boxShadow = sorted
+          .map((effect) => {
+            const {
+              color,
+              offset: { x, y },
+              radius,
+              spread = 0,
+            } = effect;
+
+            const rgba = convertColorToRGBA(color);
+
+            return `${x}px ${y}px ${radius}px ${spread}px ${rgba}`;
           })
           .join(", ");
       } else {
-        const { color, offset, radius } = node.effects[0]!;
+        const {
+          color,
+          offset: { x, y },
+          radius,
+          spread = 0,
+        } = node.effects[0]!;
 
         const rgba = convertColorToRGBA(color);
 
-        boxShadow = `${offset.x}px ${offset.y}px ${radius}px ${rgba}`;
+        boxShadow = `${x}px ${y}px ${radius}px ${spread}px ${rgba}`;
       }
 
       effects[theme]["shadows"][identifier] = boxShadow;

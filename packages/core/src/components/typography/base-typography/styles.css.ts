@@ -2,6 +2,9 @@ import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
 import { vars } from "../../../lib";
 
 export const colorVariants = recipe({
+  base: {
+    cursor: "inherit",
+  },
   variants: {
     color: {
       primary: {

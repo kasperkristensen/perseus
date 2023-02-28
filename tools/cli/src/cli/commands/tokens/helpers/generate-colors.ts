@@ -30,7 +30,7 @@ export const generateColors = async (fills: Style[], basePath: string) => {
     const node = value.document as RectangleNode;
 
     const [theme, domain, identifier] = node.name.toLowerCase().split("/");
-    const { color } = node.fills[0]!;
+    const { color, opacity } = node.fills[0]!;
 
     if (!color) {
       reporter.warn(`No color found for ${node.name}`);
@@ -46,7 +46,7 @@ export const generateColors = async (fills: Style[], basePath: string) => {
         colors[theme]![domain] = {};
       }
 
-      const rgba = convertColorToRGBA(color);
+      const rgba = convertColorToRGBA(color, opacity);
       const cleanIdentifier = identifier.replace(/\$/g, "");
 
       colors[theme]![domain]![cleanIdentifier] = rgba;

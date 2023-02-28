@@ -168,9 +168,12 @@ const ThemeProvider = ({
   React.useEffect(() => {
     // add the theme class to the body
     if (appliedTheme) {
+      const classNamesToRemove = themes.map((t) => t.className);
+
+      document.body.classList.remove(...classNamesToRemove);
       document.body.classList.add(appliedTheme);
     }
-  }, [appliedTheme]);
+  }, [appliedTheme, themes]);
 
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>

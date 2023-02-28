@@ -5,7 +5,7 @@
   "author": "Kasper Kristensen <kasper@medusajs.com>",
   "scripts": {
     "generate": "rimraf ./src/icons && medusa-ui icons",
-    "build": "rollup -c --bundleConfigAsCjs"
+    "build": "rimraf ./build && rollup -c --bundleConfigAsCjs"
   },
   "main": "build/index.js",
   "module": "build/index.esm.js",

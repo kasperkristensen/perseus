@@ -4,7 +4,7 @@
 export const buttons = {
   buttonPrimaryHover: "rgba(100, 79, 193, 1)",
   buttonPrimaryPressed: "rgba(87, 70, 175, 1)",
-  buttonTransparent: "rgba(255, 255, 255, 1)",
+  buttonTransparent: "rgba(255, 255, 255, 0)",
   buttonTransparentHover: "rgba(248, 249, 250, 1)",
   buttonSecondary: "rgba(255, 255, 255, 1)",
   buttonTransparentPressed: "rgba(241, 243, 245, 1)",

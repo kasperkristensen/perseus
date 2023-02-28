@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@medusa-ui/core": "*",
+    "@medusa-ui/icons": "*",
     "@vanilla-extract/css": "^1.9.5",
     "@vanilla-extract/sprinkles": "^1.5.1",
     "react": "^18.2.0",
