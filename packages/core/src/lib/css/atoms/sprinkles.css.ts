@@ -7,6 +7,7 @@ const spacing = {
   xsmall: 8,
   small: 12,
   base: 16,
+  medium: 20,
   large: 24,
   xlarge: 32,
   "2xlarge": 40,
@@ -51,7 +52,7 @@ const breakpointConditions = {
   desktop: { "@media": "screen and (min-width: 1464px)" },
 };
 
-const spaceProperties = defineProperties({
+const layoutProperties = defineProperties({
   conditions: breakpointConditions,
   defaultCondition: "mobile",
   properties: {
@@ -65,33 +66,50 @@ const spaceProperties = defineProperties({
     paddingRight: spacing,
     paddingBottom: spacing,
     paddingLeft: spacing,
-    gap: spacing,
-    columnGap: spacing,
-    rowGap: spacing,
-    gridGap: spacing,
-    gridColumnGap: spacing,
-    gridRowGap: spacing,
     width: sizes,
     height: sizes,
     minWidth: sizes,
     minHeight: sizes,
     maxWidth: sizes,
     maxHeight: sizes,
-    inset: spacing,
   },
   shorthands: {
     mx: ["marginLeft", "marginRight"],
     my: ["marginTop", "marginBottom"],
+    mt: ["marginTop"],
+    mr: ["marginRight"],
+    mb: ["marginBottom"],
+    ml: ["marginLeft"],
     m: ["marginTop", "marginRight", "marginBottom", "marginLeft"],
     px: ["paddingLeft", "paddingRight"],
     py: ["paddingTop", "paddingBottom"],
+    pt: ["paddingTop"],
+    pr: ["paddingRight"],
+    pb: ["paddingBottom"],
+    pl: ["paddingLeft"],
     p: ["paddingTop", "paddingRight", "paddingBottom", "paddingLeft"],
-    gapX: ["rowGap"],
-    gapY: ["columnGap"],
     w: ["width"],
     h: ["height"],
     minW: ["minWidth"],
     minH: ["minHeight"],
+  },
+});
+
+const positioningProperties = defineProperties({
+  conditions: breakpointConditions,
+  defaultCondition: "mobile",
+  properties: {
+    gap: spacing,
+    columnGap: spacing,
+    rowGap: spacing,
+    gridGap: spacing,
+    gridColumnGap: spacing,
+    gridRowGap: spacing,
+    inset: spacing,
+  },
+  shorthands: {
+    gapX: ["rowGap"],
+    gapY: ["columnGap"],
   },
 });
 
@@ -114,6 +132,33 @@ const responsiveProperties = defineProperties({
       baseline: "baseline",
       stretch: "stretch",
     },
+    alignSelf: {
+      start: "flex-start",
+      end: "flex-end",
+      center: "center",
+      baseline: "baseline",
+      stretch: "stretch",
+    },
+    justifyItems: {
+      start: "flex-start",
+      end: "flex-end",
+      center: "center",
+      baseline: "baseline",
+      stretch: "stretch",
+    },
+    alignContent: {
+      start: "flex-start",
+      end: "flex-end",
+      center: "center",
+      between: "space-between",
+      around: "space-around",
+      evenly: "space-evenly",
+      stretch: "stretch",
+    },
+    flex: {
+      0: 0,
+      1: 1,
+    },
     gridTemplateColumns: {
       4: "repeat(4, minmax(0, 1fr))",
       8: "repeat(8, minmax(0, 1fr))",
@@ -132,7 +177,8 @@ const unresponsiveProperties = defineProperties({
 });
 
 export const sprinkles = createSprinkles(
-  spaceProperties,
+  layoutProperties,
+  positioningProperties,
   responsiveProperties,
   unresponsiveProperties
 );

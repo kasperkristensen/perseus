@@ -1,7 +1,7 @@
 import { Stack } from "../../layout/stack";
-import { Base, BaseProps } from "./base";
+import { Tooltip, TooltipProps } from "./tooltip";
 
-type Props = BaseProps & {
+type Props = TooltipProps & {
   description: string;
   keyboardShortcut: string;
 };
@@ -12,12 +12,12 @@ export const ShortcutTooltip = ({
   children,
 }: Props) => {
   return (
-    <Base
+    <Tooltip
       usage="shortcut"
       content={renderContent({ description, keyboardShortcut })}
     >
       {children}
-    </Base>
+    </Tooltip>
   );
 };
 

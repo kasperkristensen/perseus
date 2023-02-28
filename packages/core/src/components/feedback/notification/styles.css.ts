@@ -39,6 +39,7 @@ export const notification = style([
     borderStyle: "solid",
     borderColor: vars.colors.borders.borderBase,
     boxShadow: vars.effects.shadows.overlay,
+    width: "320px",
   },
   sprinkles({
     p: "base",

@@ -11,12 +11,12 @@ import { icon, notification, NotificationVariants } from "./styles.css";
 
 type Props = {
   title: string;
-  description: string;
+  message: string;
   action?: () => void;
 } & NotificationVariants;
 
 export const Notification = React.forwardRef<HTMLDivElement, Props>(
-  ({ variant = "info", title, description, action }, ref) => {
+  ({ variant = "info", title, message, action }, ref) => {
     const role = {
       info: "dialog",
       success: "dialog",
@@ -39,7 +39,7 @@ export const Notification = React.forwardRef<HTMLDivElement, Props>(
               {title}
             </Label>
             <Label as="p" size="small" color="secondary">
-              {description}
+              {message}
             </Label>
           </Stack>
         </Stack>

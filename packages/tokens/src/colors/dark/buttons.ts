@@ -8,7 +8,7 @@ export const buttonsDark = {
   buttonSecondary: "rgba(35, 35, 38, 1)",
   buttonDisabled: "rgba(40, 40, 44, 1)",
   buttonPrimary: "rgba(110, 86, 207, 1)",
-  buttonTransparent: "rgba(0, 0, 0, 1)",
+  buttonTransparent: "rgba(0, 0, 0, 0)",
   buttonTransparentPressed: "rgba(46, 46, 50, 1)",
   buttonTransparentHover: "rgba(46, 46, 50, 1)",
   buttonSecondaryPressed: "rgba(52, 52, 58, 1)",

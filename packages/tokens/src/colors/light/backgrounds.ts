@@ -2,7 +2,7 @@
  * This file is auto-generated. Do not edit.
  */
 export const backgrounds = {
-  bgOverlay: "rgba(17, 24, 28, 1)",
+  bgOverlay: "rgba(17, 24, 28, 0.40)",
   bgToggleOff: "rgba(193, 200, 205, 1)",
   bgBasePressed: "rgba(241, 243, 245, 1)",
   bgFieldHover: "rgba(241, 243, 245, 1)",

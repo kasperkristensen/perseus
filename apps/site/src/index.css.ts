@@ -1,13 +1,15 @@
 import { vars } from "@medusa-ui/core";
-import { globalStyle } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
-globalStyle("body", {
+export const app = style({
   fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
   color: vars.colors.texts.textPrimary,
-  backgroundColor: vars.colors.backgrounds.bgBase,
+  backgroundColor: vars.colors.backgrounds.bgSubtle,
   margin: 0,
-  display: "flex",
-  placeItems: "center",
-  minWidth: "320px",
+  width: "100vw",
   minHeight: "100vh",
+});
+
+globalStyle("Body", {
+  margin: 0,
 });
