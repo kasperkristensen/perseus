@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@medusa-ui/eslint-config": "*",
-    "prettier": "latest",
+    "prettier": "^2.8.4",
     "turbo": "latest"
   },
   "engines": {

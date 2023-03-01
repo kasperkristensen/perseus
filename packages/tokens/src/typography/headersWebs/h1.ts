@@ -7,4 +7,4 @@ export const h1 = {
   fontWeight: "500",
   letterSpacing: "0px",
   lineHeight: "88px",
-};
+}

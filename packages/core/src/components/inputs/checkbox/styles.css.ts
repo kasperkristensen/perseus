@@ -1,5 +1,5 @@
-import { style } from "@vanilla-extract/css";
-import { sprinkles, vars } from "../../../lib";
+import { style } from "@vanilla-extract/css"
+import { sprinkles, vars } from "../../../lib"
 
 export const iconContainer = style([
   {
@@ -11,7 +11,7 @@ export const iconContainer = style([
     w: "full",
     h: "full",
   }),
-]);
+])
 
 export const checkmark = style({
   display: "none",
@@ -20,7 +20,7 @@ export const checkmark = style({
       display: "block",
     },
   },
-});
+})
 
 export const indeterminate = style({
   display: "none",
@@ -29,7 +29,7 @@ export const indeterminate = style({
       display: "block",
     },
   },
-});
+})
 
 export const checkbox = style([
   {
@@ -71,4 +71,4 @@ export const checkbox = style([
     h: "medium",
     borderRadius: "soft",
   }),
-]);
+])

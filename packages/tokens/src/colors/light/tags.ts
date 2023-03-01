@@ -41,4 +41,4 @@ export const tags = {
   tagBlueBg: "rgba(225, 240, 255, 1)",
   tagTransparentText: "rgba(104, 112, 118, 1)",
   tagBlueDot: "rgba(0, 145, 255, 1)",
-};
+}

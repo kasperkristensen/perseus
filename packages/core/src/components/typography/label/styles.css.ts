@@ -1,7 +1,7 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { vars } from "../../../lib";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { vars } from "../../../lib"
 
-const labelFontFamily = `${vars.typography.labels.large.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`;
+const labelFontFamily = `${vars.typography.labels.large.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`
 
 export const label = recipe({
   base: [
@@ -79,6 +79,6 @@ export const label = recipe({
       },
     },
   ],
-});
+})
 
-export type LabelVariants = RecipeVariants<typeof label>;
+export type LabelVariants = RecipeVariants<typeof label>

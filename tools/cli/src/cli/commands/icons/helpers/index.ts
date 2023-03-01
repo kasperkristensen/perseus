@@ -1,2 +1,2 @@
-export * from "./get-icon-data";
-export * from "./transform-svg";
+export * from "./get-icon-data"
+export * from "./transform-svg"

@@ -1,14 +1,14 @@
-import type { Style, StyleType } from "@medusa-ui/figma-api";
-import * as dedent from "dedent";
-import * as fse from "fs-extra";
-import { resolve } from "path";
-import { FIGMA_FILE_ID } from "../../../constants";
-import { oraPromise } from "../../util";
-import { figma } from "../../util/figma";
-import { reporter } from "../../util/reporter";
-import { generateColors, generateEffects, generateTypography } from "./helpers";
+import type { Style, StyleType } from "@medusa-ui/figma-api"
+import * as dedent from "dedent"
+import * as fse from "fs-extra"
+import { resolve } from "path"
+import { FIGMA_FILE_ID } from "../../../constants"
+import { oraPromise } from "../../util"
+import { figma } from "../../util/figma"
+import { reporter } from "../../util/reporter"
+import { generateColors, generateEffects, generateTypography } from "./helpers"
 
-const src = resolve(process.cwd(), "src");
+const src = resolve(process.cwd(), "src")
 
 export const generateTokens = async () => {
   const {
@@ -17,49 +17,49 @@ export const generateTokens = async () => {
     .getFileStyles(FIGMA_FILE_ID)
     .then(({ data }) => data)
     .catch((err) => {
-      reporter.prettyError(err);
-      process.exit(1);
-    });
+      reporter.prettyError(err)
+      process.exit(1)
+    })
 
   const styleMap = styles.reduce((acc, style) => {
     if (acc[style.style_type]) {
-      acc[style.style_type].push(style);
+      acc[style.style_type].push(style)
     } else {
-      acc[style.style_type] = [style];
+      acc[style.style_type] = [style]
     }
-    return acc;
-  }, {} as Record<StyleType, Style[]>);
+    return acc
+  }, {} as Record<StyleType, Style[]>)
 
-  let dirExists = false;
+  let dirExists = false
 
   try {
-    await fse.ensureDir(src);
-    dirExists = true;
+    await fse.ensureDir(src)
+    dirExists = true
   } catch (_) {
-    dirExists = false;
+    dirExists = false
   }
 
   if (!dirExists) {
-    await fse.mkdir(src);
+    await fse.mkdir(src)
   }
 
   await oraPromise(generateColors(styleMap.FILL, src), {
     text: "Generating color tokens",
     onError: "Failed to generate color tokens",
     onSuccess: "Generated color tokens",
-  });
+  })
 
   await oraPromise(generateEffects(styleMap.EFFECT, src), {
     text: "Generating effect tokens",
     onError: "Failed to generate effect tokens",
     onSuccess: "Generated effect tokens",
-  });
+  })
 
   await oraPromise(generateTypography(styleMap.TEXT, src), {
     text: "Generating typography tokens",
     onError: "Failed to generate typography tokens",
     onSuccess: "Generated typography tokens",
-  });
+  })
 
   const indexContent = dedent`
     /**
@@ -70,7 +70,7 @@ export const generateTokens = async () => {
     export * as colors from "./colors"; 
     export * as effects from "./effects";
     export * as typography from "./typography";
-  `;
+  `
 
-  await fse.outputFile(resolve(src, "index.ts"), indexContent);
-};
+  await fse.outputFile(resolve(src, "index.ts"), indexContent)
+}

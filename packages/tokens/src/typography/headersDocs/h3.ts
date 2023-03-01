@@ -7,4 +7,4 @@ export const h3 = {
   fontWeight: "500",
   letterSpacing: "0px",
   lineHeight: "28px",
-};
+}

@@ -1,7 +1,7 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { vars } from "../../../lib";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { vars } from "../../../lib"
 
-const headingFontFamily = `${vars.typography.heading.h1.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`;
+const headingFontFamily = `${vars.typography.heading.h1.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`
 
 export const heading = recipe({
   base: [
@@ -31,6 +31,6 @@ export const heading = recipe({
       },
     },
   },
-});
+})
 
-export type HeadingVariants = RecipeVariants<typeof heading>;
+export type HeadingVariants = RecipeVariants<typeof heading>

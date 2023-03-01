@@ -2,21 +2,21 @@ export const kebabCaseIdentifier = (string: string) =>
   string
     .replace(/([a-z])([A-Z])/g, "$1-$2")
     .replace(/[\s_]+/g, "-")
-    .toLowerCase();
+    .toLowerCase()
 
 export const getDomain = (string: string) => {
-  const [domain] = string.replace(/([a-z])([A-Z])/g, "$1 $2").split(" ");
+  const [domain] = string.replace(/([a-z])([A-Z])/g, "$1 $2").split(" ")
 
-  return domain;
-};
+  return domain
+}
 
 export const getIdentifier = (string: string) => {
-  const domain = getDomain(string);
+  const domain = getDomain(string)
 
   const identifier = string
     .replace(domain, "")
     .replace(/([a-z])([A-Z])/g, "$1-$2")
-    .toLowerCase();
+    .toLowerCase()
 
-  return identifier;
-};
+  return identifier
+}

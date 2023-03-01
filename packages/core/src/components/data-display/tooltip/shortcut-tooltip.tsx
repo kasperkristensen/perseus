@@ -1,10 +1,10 @@
-import { Stack } from "../../layout/stack";
-import { Tooltip, TooltipProps } from "./tooltip";
+import { Stack } from "../../layout/stack"
+import { Tooltip, TooltipProps } from "./tooltip"
 
 type Props = TooltipProps & {
-  description: string;
-  keyboardShortcut: string;
-};
+  description: string
+  keyboardShortcut: string
+}
 
 export const ShortcutTooltip = ({
   description,
@@ -18,12 +18,12 @@ export const ShortcutTooltip = ({
     >
       {children}
     </Tooltip>
-  );
-};
+  )
+}
 
 const renderContent = ({
   description,
   keyboardShortcut,
 }: Pick<Props, "description" | "keyboardShortcut">) => {
-  return <Stack></Stack>;
-};
+  return <Stack></Stack>
+}

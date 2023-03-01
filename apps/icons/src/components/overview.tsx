@@ -154,8 +154,8 @@ import {
   XCircleSolid,
   XMark,
   XMarkMini,
-} from "@medusa-ui/icons";
-import CopyButton from "./copy-button";
+} from "@medusa-ui/icons"
+import CopyButton from "./copy-button"
 
 const Overview = () => {
   return (
@@ -2332,7 +2332,7 @@ const Overview = () => {
         </CopyButton>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Overview;
+export default Overview

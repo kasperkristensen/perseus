@@ -1,8 +1,8 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import React from "react";
-import { Body } from "../../typography";
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import React from "react"
+import { Body } from "../../typography"
 
-import { Modal } from "./modal";
+import { Modal } from "./modal"
 
 export default {
   title: "Feedback/Modal",
@@ -10,14 +10,14 @@ export default {
   parameters: {
     layout: "centered",
   },
-} as ComponentMeta<typeof Modal.Root>;
+} as ComponentMeta<typeof Modal.Root>
 
 const Template: ComponentStory<typeof Modal.Root> = (args) => {
-  const [open, setOpen] = React.useState(args.open ?? false);
+  const [open, setOpen] = React.useState(args.open ?? false)
 
   React.useEffect(() => {
-    setOpen(args.open ?? false);
-  }, [args.open]);
+    setOpen(args.open ?? false)
+  }, [args.open])
 
   return (
     <Modal.Root open={open} close={() => setOpen(false)}>
@@ -33,10 +33,10 @@ const Template: ComponentStory<typeof Modal.Root> = (args) => {
         <button>Save</button>
       </Modal.Footer>
     </Modal.Root>
-  );
-};
+  )
+}
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   open: true,
-};
+}

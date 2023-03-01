@@ -1,23 +1,23 @@
-import clsx from "clsx";
-import * as React from "react";
-import { Box } from "../../layout";
-import { buttonColors, ButtonColorVariants } from "../button/styles.css";
-import { iconButton, IconButtonVariants } from "./styles.css";
+import clsx from "clsx"
+import * as React from "react"
+import { Box } from "../../layout"
+import { buttonColors, ButtonColorVariants } from "../button/styles.css"
+import { iconButton, IconButtonVariants } from "./styles.css"
 
 export type IconButtonProps = React.ComponentPropsWithoutRef<"button"> &
   ButtonColorVariants &
-  IconButtonVariants;
+  IconButtonVariants
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   (
     { children, className, variant = "primary", size = "base", ...props },
-    forwardedRef
+    forwardedRef,
   ) => {
     const combinedClasses = clsx(
       iconButton({ size }),
       buttonColors({ variant }),
-      className
-    );
+      className,
+    )
 
     return (
       <Box
@@ -28,8 +28,8 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       >
         {children}
       </Box>
-    );
-  }
-);
+    )
+  },
+)
 
-IconButton.displayName = "IconButton";
+IconButton.displayName = "IconButton"

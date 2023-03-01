@@ -1,22 +1,22 @@
-import * as Icons from "@medusa-ui/icons";
-import { CheckMini } from "@medusa-ui/icons";
-import * as Primitive from "@radix-ui/react-dropdown-menu";
-import clsx from "clsx";
-import * as React from "react";
-import { useHotkeys } from "react-hotkeys-hook";
-import { Kbd } from "../../data-display";
-import { Box, Stack } from "../../layout";
-import { Label } from "../../typography";
-import { iconContainer, item, menu, separator, trigger } from "./styles.css";
+import * as Icons from "@medusa-ui/icons"
+import { CheckMini } from "@medusa-ui/icons"
+import * as Primitive from "@radix-ui/react-dropdown-menu"
+import clsx from "clsx"
+import * as React from "react"
+import { useHotkeys } from "react-hotkeys-hook"
+import { Kbd } from "../../data-display"
+import { Box, Stack } from "../../layout"
+import { Label } from "../../typography"
+import { iconContainer, item, menu, separator, trigger } from "./styles.css"
 
-const Root = Primitive.Root;
-Root.displayName = "Menu.Root";
+const Root = Primitive.Root
+Root.displayName = "Menu.Root"
 
-type MenuTriggerProps = React.ComponentPropsWithoutRef<"button">;
+type MenuTriggerProps = React.ComponentPropsWithoutRef<"button">
 
 const Trigger = React.forwardRef<HTMLButtonElement, MenuTriggerProps>(
   ({ children, className, ...props }, forwardedRef) => {
-    const combinedClasses = clsx(trigger, className);
+    const combinedClasses = clsx(trigger, className)
 
     return (
       <Primitive.Trigger asChild ref={forwardedRef} {...props}>
@@ -24,10 +24,10 @@ const Trigger = React.forwardRef<HTMLButtonElement, MenuTriggerProps>(
           {children}
         </Box>
       </Primitive.Trigger>
-    );
-  }
-);
-Trigger.displayName = "Menu.Trigger";
+    )
+  },
+)
+Trigger.displayName = "Menu.Trigger"
 
 const Content = React.forwardRef<
   HTMLDivElement,
@@ -35,14 +35,14 @@ const Content = React.forwardRef<
 >(
   (
     { children, className, side = "bottom", sideOffset = 8, ...rest },
-    forwardedRef
+    forwardedRef,
   ) => {
     const combinedClasses = clsx(
       menu({
         variant: "default",
       }),
-      className
-    );
+      className,
+    )
 
     return (
       <Primitive.Portal>
@@ -58,11 +58,11 @@ const Content = React.forwardRef<
           </Stack>
         </Primitive.Content>
       </Primitive.Portal>
-    );
-  }
-);
+    )
+  },
+)
 
-Content.displayName = "Menu.Content";
+Content.displayName = "Menu.Content"
 
 type IconProps = {
   /**
@@ -71,39 +71,39 @@ type IconProps = {
    * or a React element.
    * @default undefined
    */
-  icon?: keyof typeof Icons | React.ReactElement;
-};
+  icon?: keyof typeof Icons | React.ReactElement
+}
 
 const Icon = ({ icon }: IconProps) => {
   if (typeof icon === "string" && Icons[icon as keyof typeof Icons]) {
-    const Icon = Icons[icon as keyof typeof Icons];
+    const Icon = Icons[icon as keyof typeof Icons]
     return (
       <Box className={iconContainer}>
         <Icon />
       </Box>
-    );
+    )
   }
 
   if (!React.isValidElement(icon)) {
-    return null;
+    return null
   }
 
-  return <Box className={iconContainer}>{icon}</Box>;
-};
+  return <Box className={iconContainer}>{icon}</Box>
+}
 
 type KeyboardShortcutProps = {
-  keys: string[];
-  onTrigger?: (event: Event) => void;
-};
+  keys: string[]
+  onTrigger?: (event: Event) => void
+}
 
 const KeyboardShortcut = ({ keys, onTrigger }: KeyboardShortcutProps) => {
   const handleTrigger = React.useCallback(() => {
     if (onTrigger) {
-      onTrigger(new Event("click"));
+      onTrigger(new Event("click"))
     }
-  }, [onTrigger]);
+  }, [onTrigger])
 
-  useHotkeys(keys.join("+"), handleTrigger);
+  useHotkeys(keys.join("+"), handleTrigger)
 
   return (
     <Stack gap="2xsmall">
@@ -112,29 +112,29 @@ const KeyboardShortcut = ({ keys, onTrigger }: KeyboardShortcutProps) => {
           <React.Fragment key={index}>
             <Kbd variant="ghost">{key}</Kbd>
           </React.Fragment>
-        );
+        )
       })}
     </Stack>
-  );
-};
+  )
+}
 
 type ItemProps = Omit<Primitive.MenuItemProps, "children"> &
   IconProps & {
     /**
      * The label of the menu item.
      */
-    label: string;
+    label: string
     /**
      * The keyboard shortcut to trigger the menu item.
      * Accepts an array of strings that will be displayed as a list of keys.
      * @default undefined
      */
-    keyboardShortcut?: string[];
-  };
+    keyboardShortcut?: string[]
+  }
 
 const Item = React.forwardRef<HTMLDivElement, ItemProps>(
   ({ className, label, icon, keyboardShortcut, ...props }, forwardedRef) => {
-    const combinedClasses = clsx(item, className);
+    const combinedClasses = clsx(item, className)
 
     return (
       <Primitive.Item ref={forwardedRef} {...props} asChild>
@@ -158,17 +158,17 @@ const Item = React.forwardRef<HTMLDivElement, ItemProps>(
           )}
         </Stack>
       </Primitive.Item>
-    );
-  }
-);
+    )
+  },
+)
 
-Item.displayName = "Menu.Item";
+Item.displayName = "Menu.Item"
 
 type ExternalLinkProps = ItemProps & {
-  href: string;
-  target?: string;
-  rel?: string;
-};
+  href: string
+  target?: string
+  rel?: string
+}
 
 /**
  * An external link is a menu item that opens a link in a new tab.
@@ -185,9 +185,9 @@ const ExternalLink = React.forwardRef<HTMLDivElement, ExternalLinkProps>(
       rel = "norefferrer noopener",
       ...props
     },
-    forwardedRef
+    forwardedRef,
   ) => {
-    const combinedClasses = clsx(item, className);
+    const combinedClasses = clsx(item, className)
     return (
       <Primitive.Item ref={forwardedRef} {...props} asChild>
         <Stack
@@ -209,17 +209,17 @@ const ExternalLink = React.forwardRef<HTMLDivElement, ExternalLinkProps>(
           <Icon icon="ArrowUpRightMini" />
         </Stack>
       </Primitive.Item>
-    );
-  }
-);
+    )
+  },
+)
 
-ExternalLink.displayName = "Menu.ExternalLink";
+ExternalLink.displayName = "Menu.ExternalLink"
 
 const Separator = React.forwardRef<
   HTMLDivElement,
   Primitive.MenuSeparatorProps
 >(({ className, ...props }, forwardedRef) => {
-  const combinedClasses = clsx(separator, className);
+  const combinedClasses = clsx(separator, className)
 
   return (
     <Primitive.Separator
@@ -230,25 +230,25 @@ const Separator = React.forwardRef<
     >
       <Box role="separator" />
     </Primitive.Separator>
-  );
-});
+  )
+})
 
-Separator.displayName = "Menu.Separator";
+Separator.displayName = "Menu.Separator"
 
-const Sub = Primitive.Sub;
-Sub.displayName = "Menu.Sub";
+const Sub = Primitive.Sub
+Sub.displayName = "Menu.Sub"
 
 type SubTriggerProps = Omit<
   Primitive.DropdownMenuSubTriggerProps,
   "children" | "asChild"
 > &
   IconProps & {
-    label: string;
-  };
+    label: string
+  }
 
 const SubTrigger = React.forwardRef<HTMLDivElement, SubTriggerProps>(
   ({ className, icon, label, ...props }, forwardedRef) => {
-    const combinedClasses = clsx(item, className);
+    const combinedClasses = clsx(item, className)
 
     return (
       <Primitive.SubTrigger
@@ -267,11 +267,11 @@ const SubTrigger = React.forwardRef<HTMLDivElement, SubTriggerProps>(
           <Icon icon={"ChevronRightMini"} />
         </Stack>
       </Primitive.SubTrigger>
-    );
-  }
-);
+    )
+  },
+)
 
-SubTrigger.displayName = "Menu.SubTrigger";
+SubTrigger.displayName = "Menu.SubTrigger"
 
 const SubContent = React.forwardRef<
   HTMLDivElement,
@@ -286,14 +286,14 @@ const SubContent = React.forwardRef<
       hideWhenDetached = true,
       ...rest
     },
-    forwardedRef
+    forwardedRef,
   ) => {
     const combinedClasses = clsx(
       menu({
         variant: "sub",
       }),
-      className
-    );
+      className,
+    )
 
     return (
       <Primitive.Portal>
@@ -310,13 +310,13 @@ const SubContent = React.forwardRef<
           </Stack>
         </Primitive.SubContent>
       </Primitive.Portal>
-    );
-  }
-);
+    )
+  },
+)
 
-SubContent.displayName = "Menu.SubContent";
+SubContent.displayName = "Menu.SubContent"
 
-type OptionGroupProps = Omit<Primitive.MenuRadioGroupProps, "asChild">;
+type OptionGroupProps = Omit<Primitive.MenuRadioGroupProps, "asChild">
 
 const OptionGroup = React.forwardRef<HTMLDivElement, OptionGroupProps>(
   ({ children, ...props }, ref) => {
@@ -326,19 +326,19 @@ const OptionGroup = React.forwardRef<HTMLDivElement, OptionGroupProps>(
           {children}
         </Stack>
       </Primitive.RadioGroup>
-    );
-  }
-);
+    )
+  },
+)
 
-OptionGroup.displayName = "Menu.OptionGroup";
+OptionGroup.displayName = "Menu.OptionGroup"
 
 type OptionItemsProps = Omit<Primitive.MenuRadioItemProps, "children"> & {
-  label: string;
-};
+  label: string
+}
 
 const OptionItem = React.forwardRef<HTMLDivElement, OptionItemsProps>(
   ({ label, className, ...rest }, ref) => {
-    const combinedClasses = clsx(item, className);
+    const combinedClasses = clsx(item, className)
 
     return (
       <Primitive.RadioItem ref={ref} asChild {...rest}>
@@ -353,11 +353,11 @@ const OptionItem = React.forwardRef<HTMLDivElement, OptionItemsProps>(
           </Label>
         </Stack>
       </Primitive.RadioItem>
-    );
-  }
-);
+    )
+  },
+)
 
-OptionItem.displayName = "Menu.OptionItem";
+OptionItem.displayName = "Menu.OptionItem"
 
 export const Menu = {
   Root,
@@ -371,4 +371,4 @@ export const Menu = {
   SubContent,
   OptionGroup,
   OptionItem,
-};
+}

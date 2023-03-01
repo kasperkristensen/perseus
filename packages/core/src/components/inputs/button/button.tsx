@@ -1,14 +1,14 @@
-import clsx from "clsx";
-import * as React from "react";
-import { Box } from "../../layout";
-import { button, buttonColors, ButtonColorVariants } from "./styles.css";
+import clsx from "clsx"
+import * as React from "react"
+import { Box } from "../../layout"
+import { button, buttonColors, ButtonColorVariants } from "./styles.css"
 
 export type ButtonProps = React.ComponentPropsWithoutRef<"button"> &
-  ButtonColorVariants;
+  ButtonColorVariants
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = "primary", className, children, ...props }, forwardedRef) => {
-    const combinedClasses = clsx(button, buttonColors({ variant }), className);
+    const combinedClasses = clsx(button, buttonColors({ variant }), className)
 
     return (
       <Box
@@ -19,8 +19,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {children}
       </Box>
-    );
-  }
-);
+    )
+  },
+)
 
-Button.displayName = "Button";
+Button.displayName = "Button"

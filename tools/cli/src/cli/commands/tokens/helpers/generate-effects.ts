@@ -1,10 +1,10 @@
-import { Effect, RectangleNode, Style } from "@medusa-ui/figma-api";
-import * as fse from "fs-extra";
-import * as os from "os";
-import { resolve } from "path";
-import { FIGMA_FILE_ID } from "../../../../constants";
-import { camelCase, figma, reporter } from "../../../util";
-import { convertColorToRGBA } from "../../../util/convert-color-to-rgba";
+import { Effect, RectangleNode, Style } from "@medusa-ui/figma-api"
+import * as fse from "fs-extra"
+import * as os from "os"
+import { resolve } from "path"
+import { FIGMA_FILE_ID } from "../../../../constants"
+import { camelCase, figma, reporter } from "../../../util"
+import { convertColorToRGBA } from "../../../util/convert-color-to-rgba"
 
 /**
  * Generates effects tokens
@@ -13,49 +13,49 @@ import { convertColorToRGBA } from "../../../util/convert-color-to-rgba";
  *
  */
 export const generateEffects = async (styles: Style[], basePath: string) => {
-  const path = resolve(basePath, "effects");
+  const path = resolve(basePath, "effects")
 
   const nodes = await figma
     .getFileNodes(FIGMA_FILE_ID, {
       ids: styles.map((effect) => effect.node_id),
     })
     .then(({ data }) => {
-      return data.nodes;
+      return data.nodes
     })
     .catch((err) => {
-      reporter.prettyError(err);
-      process.exit(1);
-    });
+      reporter.prettyError(err)
+      process.exit(1)
+    })
 
-  const effects: Record<string, Record<string, Record<string, string>>> = {};
+  const effects: Record<string, Record<string, Record<string, string>>> = {}
 
   Object.values(nodes).forEach((value) => {
-    const node = value.document as RectangleNode;
+    const node = value.document as RectangleNode
 
-    const [theme, domain_, identifier] = node.name.toLowerCase().split("/");
+    const [theme, domain_, identifier] = node.name.toLowerCase().split("/")
 
     if (theme && identifier) {
       if (!effects[theme]) {
-        effects[theme] = {};
+        effects[theme] = {}
       }
 
       if (!effects[theme]!["shadows"]) {
-        effects[theme]!["shadows"] = {};
+        effects[theme]!["shadows"] = {}
       }
 
-      const shadowEffects = node.effects.filter(filterShadows);
+      const shadowEffects = node.effects.filter(filterShadows)
 
       const hasNonDropShadow = node.effects.some(
-        (e) => e.type !== "DROP_SHADOW"
-      );
+        (e) => e.type !== "DROP_SHADOW",
+      )
 
       if (hasNonDropShadow) {
         reporter.warn(
-          "The CLI currently only supports drop shadows. Only the drop shadow styles will be generated."
-        );
+          "The CLI currently only supports drop shadows. Only the drop shadow styles will be generated.",
+        )
       }
 
-      let boxShadow = "";
+      let boxShadow = ""
 
       /**
        * If there is more than one shadow effect, we need to create a box-shadow value that contains
@@ -69,9 +69,9 @@ export const generateEffects = async (styles: Style[], basePath: string) => {
          */
         const sorted = shadowEffects.sort(
           ({ spread: spreadA = 0 }, { spread: spreadB = 0 }) => {
-            return spreadA - spreadB;
-          }
-        );
+            return spreadA - spreadB
+          },
+        )
 
         boxShadow = sorted
           .map((effect) => {
@@ -80,90 +80,90 @@ export const generateEffects = async (styles: Style[], basePath: string) => {
               offset: { x, y },
               radius,
               spread = 0,
-            } = effect;
+            } = effect
 
-            const rgba = convertColorToRGBA(color);
+            const rgba = convertColorToRGBA(color)
 
-            return `${x}px ${y}px ${radius}px ${spread}px ${rgba}`;
+            return `${x}px ${y}px ${radius}px ${spread}px ${rgba}`
           })
-          .join(", ");
+          .join(", ")
       } else {
         const {
           color,
           offset: { x, y },
           radius,
           spread = 0,
-        } = node.effects[0]!;
+        } = node.effects[0]!
 
-        const rgba = convertColorToRGBA(color);
+        const rgba = convertColorToRGBA(color)
 
-        boxShadow = `${x}px ${y}px ${radius}px ${spread}px ${rgba}`;
+        boxShadow = `${x}px ${y}px ${radius}px ${spread}px ${rgba}`
       }
 
-      effects[theme]["shadows"][identifier] = boxShadow;
+      effects[theme]["shadows"][identifier] = boxShadow
     } else {
       reporter.warn(
-        `The shadow style "${node.name}" is not in the correct format. It should be in the format of "domain/identifier". The passed value was "${node.name}". Skipping`
-      );
+        `The shadow style "${node.name}" is not in the correct format. It should be in the format of "domain/identifier". The passed value was "${node.name}". Skipping`,
+      )
     }
-  });
+  })
 
   const promises = Object.entries(effects).map(async ([theme, domains]) => {
-    const themePath = resolve(path, theme);
+    const themePath = resolve(path, theme)
     const suffix =
-      theme === "light" ? "" : `${theme[0]?.toUpperCase()}${theme.slice(1)}`;
-    let dirExists = false;
+      theme === "light" ? "" : `${theme[0]?.toUpperCase()}${theme.slice(1)}`
+    let dirExists = false
 
     try {
-      await fse.ensureDir(themePath);
-      dirExists = true;
+      await fse.ensureDir(themePath)
+      dirExists = true
     } catch (_) {
-      dirExists = false;
+      dirExists = false
     }
 
     if (!dirExists) {
-      await fse.mkdir(themePath);
+      await fse.mkdir(themePath)
     }
 
     const subpromises = Object.entries(domains).map(
       async ([domain, identifiers]) => {
-        const fileName = `${domain}.ts`;
-        const objectName = `${camelCase(domain)}${suffix}`;
+        const fileName = `${domain}.ts`
+        const objectName = `${camelCase(domain)}${suffix}`
 
         let fileContent =
           `/**${os.EOL} * This file is auto-generated. Do not edit.${os.EOL} */${os.EOL}export const ${objectName} = {` +
-          os.EOL;
+          os.EOL
 
         Object.entries(identifiers).forEach(([identifier, value]) => {
-          fileContent += `  ${camelCase(identifier)}: "${value}",` + os.EOL;
-        });
+          fileContent += `  ${camelCase(identifier)}: "${value}",` + os.EOL
+        })
 
-        fileContent += `};` + os.EOL;
+        fileContent += `};` + os.EOL
 
-        fse.outputFileSync(resolve(themePath, fileName), fileContent);
-      }
-    );
+        fse.outputFileSync(resolve(themePath, fileName), fileContent)
+      },
+    )
 
-    await Promise.all(subpromises);
+    await Promise.all(subpromises)
 
-    const files = await fse.readdir(themePath);
+    const files = await fse.readdir(themePath)
 
     const themeIndexContent = `/**${
       os.EOL
     } * This file is auto-generated. Do not edit.${os.EOL} */${os.EOL}${files
       .map((file) => `export * from "./${file.replace(".ts", "")}";`)
-      .join(os.EOL)}`;
+      .join(os.EOL)}`
 
-    await fse.outputFile(resolve(themePath, "index.ts"), themeIndexContent);
-  });
+    await fse.outputFile(resolve(themePath, "index.ts"), themeIndexContent)
+  })
 
-  await Promise.all(promises);
+  await Promise.all(promises)
 
-  const indexContent = `/**${os.EOL} * This file is auto-generated. Do not edit.${os.EOL} */${os.EOL}export * from "./light";${os.EOL}export * from "./dark";${os.EOL}`;
+  const indexContent = `/**${os.EOL} * This file is auto-generated. Do not edit.${os.EOL} */${os.EOL}export * from "./light";${os.EOL}export * from "./dark";${os.EOL}`
 
-  await fse.outputFile(resolve(path, "index.ts"), indexContent);
-};
+  await fse.outputFile(resolve(path, "index.ts"), indexContent)
+}
 
 const filterShadows = (effect: Effect) => {
-  return effect.type === "DROP_SHADOW" && effect.visible;
-};
+  return effect.type === "DROP_SHADOW" && effect.visible
+}

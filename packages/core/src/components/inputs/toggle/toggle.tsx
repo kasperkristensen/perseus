@@ -1,9 +1,9 @@
-import * as Primitive from "@radix-ui/react-switch";
-import * as React from "react";
-import { Box } from "../../layout";
-import { thumb, track } from "./styles.css";
+import * as Primitive from "@radix-ui/react-switch"
+import * as React from "react"
+import { Box } from "../../layout"
+import { thumb, track } from "./styles.css"
 
-type Props = Omit<React.ComponentProps<typeof Primitive.Root>, "asChild">;
+type Props = Omit<React.ComponentProps<typeof Primitive.Root>, "asChild">
 
 export const Toggle = React.forwardRef<HTMLButtonElement, Props>(
   (props, ref) => {
@@ -15,8 +15,8 @@ export const Toggle = React.forwardRef<HTMLButtonElement, Props>(
           </Primitive.Thumb>
         </Box>
       </Primitive.Root>
-    );
-  }
-);
+    )
+  },
+)
 
-Toggle.displayName = "Toggle";
+Toggle.displayName = "Toggle"

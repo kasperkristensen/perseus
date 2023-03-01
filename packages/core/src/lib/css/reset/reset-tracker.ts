@@ -1,10 +1,10 @@
-import dedent from "dedent";
+import dedent from "dedent"
 
-let resetImported = false;
+let resetImported = false
 
 export const markResetImported = () => {
-  resetImported = true;
-};
+  resetImported = true
+}
 
 export const isResetImported = () => {
   if (!resetImported) {
@@ -18,6 +18,6 @@ export const isResetImported = () => {
       
       import '@medusa-ui/core/reset'; // <-- Must be first
       import { ThemeProvider, Box } from '@medusa-ui/core';
-    `);
+    `)
   }
-};
+}

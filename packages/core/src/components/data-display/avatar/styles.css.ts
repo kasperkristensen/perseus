@@ -1,6 +1,6 @@
-import { style } from "@vanilla-extract/css";
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { sprinkles, vars } from "../../../lib";
+import { style } from "@vanilla-extract/css"
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { sprinkles, vars } from "../../../lib"
 
 export const avatar = recipe({
   base: [
@@ -32,7 +32,7 @@ export const avatar = recipe({
   defaultVariants: {
     size: "large",
   },
-});
+})
 
 export const inner = style([
   {
@@ -46,7 +46,7 @@ export const inner = style([
   sprinkles({
     borderRadius: "circle",
   }),
-]);
+])
 
 export const image = style([
   {
@@ -58,7 +58,7 @@ export const image = style([
     w: "full",
     h: "full",
   }),
-]);
+])
 
 export const fallback = style([
   {
@@ -69,6 +69,6 @@ export const fallback = style([
     w: "full",
     h: "full",
   }),
-]);
+])
 
-export type AvatarVariants = RecipeVariants<typeof avatar>;
+export type AvatarVariants = RecipeVariants<typeof avatar>

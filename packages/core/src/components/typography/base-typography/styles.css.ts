@@ -1,5 +1,5 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { vars } from "../../../lib";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { vars } from "../../../lib"
 
 export const colorVariants = recipe({
   base: {
@@ -36,6 +36,6 @@ export const colorVariants = recipe({
   defaultVariants: {
     color: "primary",
   },
-});
+})
 
-export type TypographyColorVariants = RecipeVariants<typeof colorVariants>;
+export type TypographyColorVariants = RecipeVariants<typeof colorVariants>

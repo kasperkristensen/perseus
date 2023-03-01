@@ -7,4 +7,4 @@ export const small = {
   fontWeight: "400",
   letterSpacing: "0px",
   lineHeight: "20px",
-};
+}

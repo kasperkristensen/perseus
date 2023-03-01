@@ -1,5 +1,5 @@
-import { vars } from "@medusa-ui/core";
-import { globalStyle, style } from "@vanilla-extract/css";
+import { vars } from "@medusa-ui/core"
+import { globalStyle, style } from "@vanilla-extract/css"
 
 export const app = style({
   fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
@@ -8,8 +8,8 @@ export const app = style({
   margin: 0,
   width: "100vw",
   minHeight: "100vh",
-});
+})
 
 globalStyle("Body", {
   margin: 0,
-});
+})

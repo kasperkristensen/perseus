@@ -1,3 +1,3 @@
-export * from "./avatar";
-export * from "./kbd";
-export * from "./tooltip";
+export * from "./avatar"
+export * from "./kbd"
+export * from "./tooltip"

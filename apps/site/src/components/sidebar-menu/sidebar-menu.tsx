@@ -1,7 +1,7 @@
-import { Avatar, Menu, useTheme } from "@medusa-ui/core";
+import { Avatar, Menu, useTheme } from "@medusa-ui/core"
 
 export const SidebarMenu = () => {
-  const { theme, setTheme, themes } = useTheme();
+  const { theme, setTheme, themes } = useTheme()
 
   return (
     <Menu.Root>
@@ -37,11 +37,11 @@ export const SidebarMenu = () => {
           icon={"ArrowRightOnRectangle"}
           keyboardShortcut={["Alt", "Shift", "Q"]}
           onSelect={() => {
-            alert("You logged out!");
+            alert("You logged out!")
           }}
           label="Log out"
         />
       </Menu.Content>
     </Menu.Root>
-  );
-};
+  )
+}

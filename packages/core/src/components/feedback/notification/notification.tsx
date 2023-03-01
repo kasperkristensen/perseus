@@ -3,17 +3,17 @@ import {
   ExclamationCircleSolid,
   InformationCircle,
   XCircleSolid,
-} from "@medusa-ui/icons";
-import * as React from "react";
-import { Box, Stack } from "../../layout";
-import { Label } from "../../typography";
-import { icon, notification, NotificationVariants } from "./styles.css";
+} from "@medusa-ui/icons"
+import * as React from "react"
+import { Box, Stack } from "../../layout"
+import { Label } from "../../typography"
+import { icon, notification, NotificationVariants } from "./styles.css"
 
 type Props = {
-  title: string;
-  message: string;
-  action?: () => void;
-} & NotificationVariants;
+  title: string
+  message: string
+  action?: () => void
+} & NotificationVariants
 
 export const Notification = React.forwardRef<HTMLDivElement, Props>(
   ({ variant = "info", title, message, action }, ref) => {
@@ -22,7 +22,7 @@ export const Notification = React.forwardRef<HTMLDivElement, Props>(
       success: "dialog",
       warning: action !== undefined ? "alertdialog" : "alert",
       error: action !== undefined ? "alertdialog" : "alert",
-    }[variant];
+    }[variant]
 
     return (
       <Stack
@@ -44,9 +44,9 @@ export const Notification = React.forwardRef<HTMLDivElement, Props>(
           </Stack>
         </Stack>
       </Stack>
-    );
-  }
-);
+    )
+  },
+)
 
 const Icon = ({ variant = "info" }: {} & NotificationVariants) => {
   const Component = {
@@ -54,13 +54,13 @@ const Icon = ({ variant = "info" }: {} & NotificationVariants) => {
     info: InformationCircle,
     error: XCircleSolid,
     warning: ExclamationCircleSolid,
-  }[variant];
+  }[variant]
 
   return (
     <Box as="span" className={icon({ variant })}>
       <Component role="img" />
     </Box>
-  );
-};
+  )
+}
 
-Notification.displayName = "Notification";
+Notification.displayName = "Notification"

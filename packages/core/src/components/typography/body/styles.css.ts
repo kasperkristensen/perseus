@@ -1,7 +1,7 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { vars } from "../../../lib";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { vars } from "../../../lib"
 
-const bodyFontFamily = `${vars.typography.body.large.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`;
+const bodyFontFamily = `${vars.typography.body.large.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`
 
 export const body = recipe({
   base: [
@@ -64,6 +64,6 @@ export const body = recipe({
       },
     },
   ],
-});
+})
 
-export type BodyVariants = RecipeVariants<typeof body>;
+export type BodyVariants = RecipeVariants<typeof body>

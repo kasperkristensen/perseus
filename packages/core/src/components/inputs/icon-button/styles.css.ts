@@ -1,5 +1,5 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { sprinkles } from "../../../lib";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { sprinkles } from "../../../lib"
 
 export const iconButton = recipe({
   base: [
@@ -22,6 +22,6 @@ export const iconButton = recipe({
       ],
     },
   },
-});
+})
 
-export type IconButtonVariants = RecipeVariants<typeof iconButton>;
+export type IconButtonVariants = RecipeVariants<typeof iconButton>

@@ -18,4 +18,4 @@ export const buttonsDark = {
   buttonTertiaryHover: "rgba(244, 242, 244, 1)",
   buttonDangerPressed: "rgba(255, 99, 105, 1)",
   buttonDangerHover: "rgba(242, 85, 90, 1)",
-};
+}

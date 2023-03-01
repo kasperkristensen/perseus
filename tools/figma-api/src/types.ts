@@ -1,4 +1,4 @@
-import { HttpStatusCode } from "axios";
+import { HttpStatusCode } from "axios"
 
 /**
  * An RGBA color
@@ -7,20 +7,20 @@ export type Color = {
   /**
    * Red channel value, between 0 and 1
    */
-  r: number;
+  r: number
   /**
    * Green channel value, between 0 and 1
    */
-  g: number;
+  g: number
   /**
    * Blue channel value, between 0 and 1
    */
-  b: number;
+  b: number
   /**
    * Alpha channel value, between 0 and 1
    */
-  a: number;
-};
+  a: number
+}
 
 /**
  * A solid color, gradient, or image texture that can be applied as fills or strokes
@@ -37,27 +37,27 @@ type Paint = {
     | "GRADIENT_DIAMOND"
     | "IMAGE"
     | "EMOJI"
-    | "VIDEO";
+    | "VIDEO"
   /**
    * Is the paint enabled?
    * @default true
    */
-  visible: boolean;
+  visible: boolean
   /**
    * Overall opacity of paint (colors within the paint can also have opacity values which would blend with this)
    * @default 1
    */
-  opacity: number;
+  opacity: number
   /**
    * Solid color of the paint
    * - Only present if type is `SOLID`
    */
-  color?: Color;
+  color?: Color
   /**
    * How this node blends with nodes behind it in the scene
    * - Only present if type is `GRADIENT_*`
    */
-  blendMode?: BlendMode;
+  blendMode?: BlendMode
   /**
    * This field contains three vectors, each of which are a position in normalized object space
    * (normalized object space is if the top left corner of the bounding box of the object is
@@ -66,50 +66,50 @@ type Paint = {
    * the end of the gradient (value 1), and the third handle position determines the width of the gradient.
    * - Only present if type is `GRADIENT_*`
    */
-  gradientHandlePositions?: Vector[];
+  gradientHandlePositions?: Vector[]
   /**
    * Positions of key points along the gradient axis with the colors anchored there. Colors along the gradient
    * are interpolated smoothly between neighboring gradient stops.
    * - Only present if type is `GRADIENT_*`
    */
-  gradientStops?: ColorStop[];
+  gradientStops?: ColorStop[]
   /**
    * Image scaling mode
    * - Only present if type is `IMAGE`
    */
-  scaleMode?: "FILL" | "FIT" | "TILE" | "STRETCH";
+  scaleMode?: "FILL" | "FIT" | "TILE" | "STRETCH"
   /**
    * Affine transform applied to the image
    * - Only present if scaleMode is `STRETCH`
    */
-  imageTransform?: Transform;
+  imageTransform?: Transform
   /**
    * Amount image is scaled by in tiling
    * - Only present if scaleMode is `TILE`
    */
-  scalingFactor?: number;
+  scalingFactor?: number
   /**
    * Image rotation in degrees
    * - Only present if type is `IMAGE`
    */
-  rotation?: number;
+  rotation?: number
   /**
    * A reference to an image embedded in this node. To download the image using this reference, use the GET file images endpoint to retrieve the mapping from image references to image URLs
    * - Only present if type is `IMAGE`
    */
-  imageRef?: string;
+  imageRef?: string
   /**
    * Defines what image filters have been applied to this paint, if any. If this property is not defined, no filters have been applied.
    * @default {}
    * - Only present if type is `IMAGE`
    */
-  filters?: ImageFilters;
+  filters?: ImageFilters
   /**
    * A reference to the GIF embedded in this node, if the image is a GIF. To download the image using this reference, use the GET file images endpoint to retrieve the mapping from image references to image URLs
    * - Only present if type is `IMAGE`
    */
-  gifRef?: string;
-};
+  gifRef?: string
+}
 
 /**
  * Defines the image filters applied to an image paint. All values are from -1 to 1
@@ -118,32 +118,32 @@ type ImageFilters = {
   /**
    * @default 0
    */
-  contrast: number;
+  contrast: number
   /**
    * @default 0
    */
-  exposure: number;
+  exposure: number
   /**
    * @default 0
    */
-  saturation: number;
+  saturation: number
   /**
    * @default 0
    */
-  temperature: number;
+  temperature: number
   /**
    * @default 0
    */
-  tint: number;
+  tint: number
   /**
    * @default 0
    */
-  highlights: number;
+  highlights: number
   /**
    * @default 0
    */
-  shadows: number;
-};
+  shadows: number
+}
 
 /**
  * A position color pair representing a gradient stop
@@ -152,12 +152,12 @@ type ColorStop = {
   /**
    * Value between 0 and 1 representing position along the gradient axis
    */
-  position: number;
+  position: number
   /**
    * Color attached to corresponding position
    */
-  color: Color;
-};
+  color: Color
+}
 
 /**
  * A width and height
@@ -166,14 +166,14 @@ type Size = {
   /**
    * The width of a size
    */
-  width: number;
+  width: number
   /**
    * The height of a size
    */
-  height: number;
-};
+  height: number
+}
 
-type FileFormat = "PNG" | "JPG" | "SVG";
+type FileFormat = "PNG" | "JPG" | "SVG"
 
 /**
  * Sizing constraint for exports
@@ -185,12 +185,12 @@ type Constraint = {
    * - `WIDTH`: Scale proportionally and set width to value
    * - `HEIGHT`: Scale proportionally and set height to value
    */
-  type: "SCALE" | "WIDTH" | "HEIGHT";
+  type: "SCALE" | "WIDTH" | "HEIGHT"
   /**
    * See `type` property for effect of this field
    */
-  value: number;
-};
+  value: number
+}
 
 /**
  * Format and size to export an asset at
@@ -199,16 +199,16 @@ type ExportSetting = {
   /**
    * File suffix to append to all filenames
    */
-  suffix: string;
+  suffix: string
   /**
    * Image type, string enum that supports values `JPG`, `PNG`, and `SVG`
    */
-  format: FileFormat;
+  format: FileFormat
   /**
    * Constraint that determines sizing of exported asset
    */
-  constraint: Constraint;
-};
+  constraint: Constraint
+}
 
 /**
  * A flow starting point used when launching a prototype to enter Presentation view.
@@ -217,19 +217,19 @@ type FlowStartingPoint = {
   /**
    * Unique identifier specifying the frame
    */
-  nodeId: string;
+  nodeId: string
   /**
    * Name of flow
    */
-  name: string;
-};
+  name: string
+}
 
 type PrototypeDevice = {
-  type: "NONE" | "PRESET" | "CUSTOM" | "PRESENTATION";
-  size: Size;
-  presetIdentifier: string;
-  rotation: "NONE" | "CCW_90";
-};
+  type: "NONE" | "PRESET" | "CUSTOM" | "PRESENTATION"
+  size: Size
+  presetIdentifier: string
+  rotation: "NONE" | "CCW_90"
+}
 
 /**
  * Position of stroke relative to vector outline, as a string enum with possible values:
@@ -237,7 +237,7 @@ type PrototypeDevice = {
  * - OUTSIDE: stroke drawn outside the shape boundary
  * - CENTER: stroke drawn centered along the shape boundary
  */
-type StrokeAlign = "INSIDE" | "OUTSIDE" | "CENTER";
+type StrokeAlign = "INSIDE" | "OUTSIDE" | "CENTER"
 
 /**
  * Determines if the layer should stretch along the parent’s counter axis. This property is only provided for direct children of auto-layout frames.
@@ -250,38 +250,38 @@ type StrokeAlign = "INSIDE" | "OUTSIDE" | "CENTER";
  * - STRETCH
  * In horizontal auto-layout frames, "MIN" and "MAX" correspond to "TOP" and "BOTTOM". In vertical auto-layout frames, "MIN" and "MAX" correspond to "LEFT" and "RIGHT".
  */
-type LayoutAlign = "INHERIT" | "STRETCH" | "MIN" | "CENTER" | "MAX";
+type LayoutAlign = "INHERIT" | "STRETCH" | "MIN" | "CENTER" | "MAX"
 
-type LayoutMode = "NONE" | "HORIZONTAL" | "VERTICAL";
+type LayoutMode = "NONE" | "HORIZONTAL" | "VERTICAL"
 
 /**
  * Whether the primary axis has a fixed length (determined by the user) or an automatic length (determined by the layout engine). This property is only applicable for auto-layout frames.
  * @default "AUTO"
  */
-type PrimaryAxisSizingMode = "FIXED" | "AUTO";
+type PrimaryAxisSizingMode = "FIXED" | "AUTO"
 
 /**
  * Whether the counter axis has a fixed length (determined by the user) or an automatic length (determined by the layout engine). This property is only applicable for auto-layout frames.
  * @default "AUTO"
  */
-type CounterAxisSizingMode = "FIXED" | "AUTO";
+type CounterAxisSizingMode = "FIXED" | "AUTO"
 
 /**
  * Determines how the auto-layout frame’s children should be aligned in the primary axis direction. This property is only applicable for auto-layout frames.
  * @default "MIN"
  */
-type PrimaryAxisAlignItems = "MIN" | "CENTER" | "MAX" | "SPACE_BETWEEN";
+type PrimaryAxisAlignItems = "MIN" | "CENTER" | "MAX" | "SPACE_BETWEEN"
 
 /**
  * Determines how the auto-layout frame’s children should be aligned in the counter axis direction. This property is only applicable for auto-layout frames.
  * @default "MIN"
  */
-type CounterAxisAlignItems = "MIN" | "CENTER" | "MAX" | "STRETCH" | "BASELINE";
+type CounterAxisAlignItems = "MIN" | "CENTER" | "MAX" | "STRETCH" | "BASELINE"
 
 /**
  * Determines whether a layer's size and position should be determined by auto-layout settings or manually adjustable
  */
-type LayoutPosition = "ABSOLUTE" | "AUTO";
+type LayoutPosition = "ABSOLUTE" | "AUTO"
 
 /**
  * Defines the scrolling behavior of the frame, if there exist contents outside of the frame boundaries.
@@ -291,7 +291,7 @@ type LayoutPosition = "ABSOLUTE" | "AUTO";
 type OverflowDirection =
   | "HORIZONTAL_SCROLLING"
   | "VERTICAL_SCROLLING"
-  | "HORIZONTAL_AND_VERTICAL_SCROLLING";
+  | "HORIZONTAL_AND_VERTICAL_SCROLLING"
 
 /**
  * Enum describing how layer blends with layers below
@@ -315,16 +315,16 @@ type BlendMode =
   | "HUE"
   | "SATURATION"
   | "COLOR"
-  | "LUMINOSITY";
+  | "LUMINOSITY"
 
-type LayoutConstraint = "TOP" | "BOTTOM" | "CENTER" | "TOP_BOTTOM" | "SCALE";
+type LayoutConstraint = "TOP" | "BOTTOM" | "CENTER" | "TOP_BOTTOM" | "SCALE"
 
 type EasingType =
   | "EASE_IN"
   | "EASE_OUT"
   | "EASE_IN_AND_OUT"
   | "LINEAR"
-  | "GENTLE_SPRING";
+  | "GENTLE_SPRING"
 
 /**
  * A rectangle that expresses a bounding box in absolute coordinates
@@ -333,20 +333,20 @@ type Rectangle = {
   /**
    * X coordinate of top left corner of the rectangle
    */
-  x: number;
+  x: number
   /**
    * Y coordinate of top left corner of the rectangle
    */
-  y: number;
+  y: number
   /**
    * Width of the rectangle
    */
-  width: number;
+  width: number
   /**
    * Height of the rectangle
    */
-  height: number;
-};
+  height: number
+}
 
 /**
  * A 2d vector
@@ -355,18 +355,18 @@ type Vector = {
   /**
    * X coordinate of the vector
    */
-  x: number;
+  x: number
   /**
    * Y coordinate of the vector
    */
-  y: number;
-};
+  y: number
+}
 
 /**
  * A 2x3 affine transformation matrix
  * @example [[1, 0, 0], [0, 1, 0]]
  */
-type Transform = [[number, number, number], [number, number, number]];
+type Transform = [[number, number, number], [number, number, number]]
 
 /**
  * Orientation of the grid as a string enum
@@ -374,9 +374,9 @@ type Transform = [[number, number, number], [number, number, number]];
  * - COLUMNS: Vertical grid
  * - GRID: Square grid
  */
-type GridPattern = "ROWS" | "COLUMNS" | "GRID";
+type GridPattern = "ROWS" | "COLUMNS" | "GRID"
 
-type GridAlignment = "MIN" | "CENTER" | "STRETCH";
+type GridAlignment = "MIN" | "CENTER" | "STRETCH"
 
 /**
  * Guides to align and place objects within a frame
@@ -388,40 +388,40 @@ type LayoutGrid = {
    * - COLUMNS: Vertical grid
    * - GRID: Square grid
    */
-  pattern: GridPattern;
+  pattern: GridPattern
   /**
    * Width of column grid or height of row grid or square grid spacing
    */
-  sectionSize: number;
+  sectionSize: number
   /**
    * Is the grid currently visible?
    */
-  visible: boolean;
+  visible: boolean
   /**
    * Color of the grid
    */
-  color: Color;
+  color: Color
   /**
    * Positioning of grid as a string enum
    * Only meaningful for directional grids (COLUMNS or ROWS)
    */
-  alignment: GridAlignment;
+  alignment: GridAlignment
   /**
    * Spacing in between columns and rows
    * Only meaningful for non-directional grids (GRID)
    */
-  gutterSize: number;
+  gutterSize: number
   /**
    * Spacing before the first column or row
    * Only meaningful for non-directional grids (GRID)
    */
-  offset: number;
+  offset: number
   /**
    * Number of columns or rows
    * Only meaningful for non-directional grids (GRID)
    */
-  count: number;
-};
+  count: number
+}
 
 /**
  * A visual effect such as a shadow or blur
@@ -430,38 +430,38 @@ export type Effect = {
   /**
    * Type of effect as a string enum
    */
-  type: "DROP_SHADOW" | "INNER_SHADOW" | "LAYER_BLUR" | "BACKGROUND_BLUR";
+  type: "DROP_SHADOW" | "INNER_SHADOW" | "LAYER_BLUR" | "BACKGROUND_BLUR"
   /**
    * Is the effect active?
    */
-  visible: boolean;
+  visible: boolean
   /**
    * Radius of the blur effect (applies to shadows as well)
    */
-  radius: number;
+  radius: number
   /**
    * The color of the shadow
    * Only applies to shadow effects
    */
-  color: Color;
+  color: Color
   /**
    * The blend mode of the shadow
    * Only applies to shadow effects
    */
-  blendMode: BlendMode;
+  blendMode: BlendMode
   /**
    * How far the shadow is projected in the x and y directions
    */
-  offset: Vector;
+  offset: Vector
   /**
    * How far the shadow spreads
    */
-  spread: number;
+  spread: number
   /**
    * Whether to show the shadow behind translucent or transparent pixels (applies only to drop shadows)
    */
-  showShadowBehindNode: boolean;
-};
+  showShadowBehindNode: boolean
+}
 
 type NodeType =
   | "CANVAS"
@@ -479,566 +479,566 @@ type NodeType =
   | "GROUP"
   | "SLICE"
   | "STICKY"
-  | "POLYGON";
+  | "POLYGON"
 
 export type Node = {
   /**
    * A string uniquely identifying this node within the document
    */
-  id: string;
+  id: string
   /**
    * The name given to the node by the user in the tool.
    */
-  name: string;
+  name: string
   /**
    * Whether or not the node is visible on the canvas
    * @default true
    */
-  visible: boolean;
+  visible: boolean
   /**
    * The type of the node
    */
-  type: NodeType;
+  type: NodeType
   /**
    * The rotation of the node, if not 0.
    */
-  rotation: number;
+  rotation: number
   /**
    * Data written by plugins that is visible only to the plugin that wrote it. Requires the `pluginData` to include the ID of the plugin.
    */
-  pluginData: any;
+  pluginData: any
   /**
    * Data written by plugins that is visible to all plugins. Requires the `pluginData` parameter to include the string "shared".
    */
-  sharedPluginData: any;
+  sharedPluginData: any
   /**
    * A mapping of a layer's property to component property name of component properties attached to this node.
    * The component property name can be used to look up more information on the node's containing component's
    * or component set's componentPropertyDefinitions.
    */
-  componentPropertyReferences: Record<string, string>;
-};
+  componentPropertyReferences: Record<string, string>
+}
 
 export type DocumentNode = Node & {
   /**
    * An array of canvases attached to the document
    */
-  children: Node[];
-};
+  children: Node[]
+}
 
 export type CanvasNode = Node & {
   /**
    * An array of top level layers on the canvas
    */
-  children: Node[];
+  children: Node[]
   /**
    * Background color of the canvas.
    */
-  backgroundColor: Color;
+  backgroundColor: Color
   /**
    * Node ID that corresponds to the start frame for prototypes. This is deprecated with the introduction of multiple flows. Please use the flowStartingPoints field.
    * @deprecated
    */
-  prototypeStartNodeID: string;
+  prototypeStartNodeID: string
   /**
    * A array of flow starting points sorted by its position in the prototype settings panel.
    * @default []
    */
-  flowStartingPoints: FlowStartingPoint[];
+  flowStartingPoints: FlowStartingPoint[]
   /**
    * The device used to view a prototype
    */
-  prototypeDevice: PrototypeDevice;
+  prototypeDevice: PrototypeDevice
   /**
    * An array of export settings representing images to export from the canvas
    * @default []
    */
-  exportSettings: ExportSetting[];
-};
+  exportSettings: ExportSetting[]
+}
 
 export type FrameNode = Node & {
   /**
    * An array of nodes that are direct children of this node
    */
-  children: Node[];
+  children: Node[]
   /**
    * If true, layer is locked and cannot be edited or selected
    * @default false
    */
-  locked: boolean;
+  locked: boolean
   /**
    * Background of the node. This is deprecated, as backgrounds for frames are now in the fills field.
    * @deprecated
    */
-  background: Paint[];
+  background: Paint[]
 
   /**
    * [DEPRECATED] Background color of the node. This is deprecated, as frames now support more than a solid color as a background. Please use the fills field instead.
    */
-  backgroundColor: Color;
+  backgroundColor: Color
   /**
    * An array of fill paints applied to the node
    * @default []
    */
-  fills: Paint[];
+  fills: Paint[]
   /**
    * An array of stroke paints applied to the node
    * @default []
    */
-  strokes: Paint[];
+  strokes: Paint[]
   /**
    * The weight of strokes on the node
    */
-  strokeWeight: number;
+  strokeWeight: number
   /**
    * Position of stroke relative to vector outline, as a string enum
    */
-  strokeAlign: StrokeAlign;
+  strokeAlign: StrokeAlign
   /**
    * Radius of each corner of the frame if a single radius is set for all corners
    */
-  cornerRadius: number;
+  cornerRadius: number
   /**
    * Array of length 4 of the radius of each corner of the frame, starting in the top left and proceeding clockwise
    * @default same as cornerRadius
    */
-  rectangleCornerRadii: number[];
+  rectangleCornerRadii: number[]
   /**
    * An array of export settings representing images to export from the node
    * @default []
    */
-  exportSettings: ExportSetting[];
+  exportSettings: ExportSetting[]
   /**
    * How this node blends with nodes behind it in the scene (see blend mode section for more details)
    */
-  blendMode: BlendMode;
+  blendMode: BlendMode
   /**
    * Keep height and width constrained to same ratio
    * @default false
    */
-  preserveRatio: boolean;
+  preserveRatio: boolean
   /**
    * Horizontal and vertical layout constraints for node
    */
-  constraints: LayoutConstraint;
+  constraints: LayoutConstraint
   /**
    * Determines if the layer should stretch along the parent’s counter axis. This property is only provided for direct children of auto-layout frames.
    */
-  layoutAlign: LayoutAlign;
+  layoutAlign: LayoutAlign
   /**
    * Node ID of node to transition to in prototyping
    * @default null
    */
-  transitionNodeID: string | null;
+  transitionNodeID: string | null
   /**
    * The duration of the prototyping transition on this node (in milliseconds)
    * @default null
    */
-  transitionDuration: number | null;
+  transitionDuration: number | null
   /**
    * The easing curve used in the prototyping transition on this node
    * @default null
    */
-  transitionEasing: EasingType | null;
+  transitionEasing: EasingType | null
   /**
    * Opacity of the node
    * @default 1
    */
-  opacity: number;
+  opacity: number
   /**
    * Bounding box of the node in absolute space coordinates
    */
-  absoluteBoundingBox: Rectangle;
+  absoluteBoundingBox: Rectangle
   /**
    * The bounds of the rendered node in the file in absolute space coordinates
    */
-  absoluteRenderBounds: Rectangle;
+  absoluteRenderBounds: Rectangle
   /**
    * Width and height of element. This is different from the width and height of the bounding box
    * in that the absolute bounding box represents the element after scaling and rotation.
    * Only present if geometry=paths is passed
    */
-  size: Vector;
+  size: Vector
   /**
    * The top two rows of a matrix that represents the 2D transform of this node relative to its parent. The bottom row of the matrix is implicitly always (0, 0, 1). Use to transform coordinates in geometry. Only present if geometry=paths is passed
    */
-  relativeTransform: Transform;
+  relativeTransform: Transform
   /**
    * Whether or not this node clip content outside of its bounds
    */
-  clipsContent: boolean;
+  clipsContent: boolean
   /**
    * Whether this layer uses auto-layout to position its children.
    * @default "NONE"
    */
-  layoutMode: LayoutMode;
+  layoutMode: LayoutMode
   /**
    * Whether the primary axis has a fixed length (determined by the user) or an automatic length (determined by the layout engine). This property is only applicable for auto-layout frames.
    * @default "AUTO"
    */
-  primaryAxisSizingMode: PrimaryAxisSizingMode;
+  primaryAxisSizingMode: PrimaryAxisSizingMode
   /**
    * Whether the counter axis has a fixed length (determined by the user) or an automatic length (determined by the layout engine). This property is only applicable for auto-layout frames.
    * @default "AUTO"
    */
-  counterAxisSizingMode: CounterAxisSizingMode;
+  counterAxisSizingMode: CounterAxisSizingMode
   /**
    * Determines how the auto-layout frame’s children should be aligned in the primary axis direction. This property is only applicable for auto-layout frames.
    * @default "MIN"
    */
-  primaryAxisAlignItems: PrimaryAxisAlignItems;
+  primaryAxisAlignItems: PrimaryAxisAlignItems
   /**
    * Determines how the auto-layout frame’s children should be aligned in the counter axis direction. This property is only applicable for auto-layout frames.
    * @default "MIN"
    */
-  counterAxisAlignItems: CounterAxisAlignItems;
+  counterAxisAlignItems: CounterAxisAlignItems
   /**
    * The padding between the left border of the frame and its children. This property is only applicable for auto-layout frames.
    * @default 0
    */
-  paddingLeft: number;
+  paddingLeft: number
   /**
    * The padding between the right border of the frame and its children. This property is only applicable for auto-layout frames.
    * @default 0
    */
-  paddingRight: number;
+  paddingRight: number
   /**
    * The padding between the top border of the frame and its children. This property is only applicable for auto-layout frames.
    * @default 0
    */
-  paddingTop: number;
+  paddingTop: number
   /**
    * The padding between the bottom border of the frame and its children. This property is only applicable for auto-layout frames.
    * @default 0
    */
-  paddingBottom: number;
+  paddingBottom: number
   /**
    * The horizontal padding between the borders of the frame and its children. This property is only applicable for auto-layout frames. Deprecated in favor of setting individual paddings.
    * @default 0
    * @deprecated
    */
-  horizontalPadding: number;
+  horizontalPadding: number
   /**
    * The vertical padding between the borders of the frame and its children. This property is only applicable for auto-layout frames. Deprecated in favor of setting individual paddings.
    * @default 0
    * @deprecated
    */
-  verticalPadding: number;
+  verticalPadding: number
   /**
    * The distance between children of the frame. Can be negative. This property is only applicable for auto-layout frames.
    * @default 0
    */
-  itemSpacing: number;
+  itemSpacing: number
   /**
    * Determines whether a layer's size and position should be determined by auto-layout settings or manually adjustable.
    * @default "AUTO"
    */
-  layoutPositioning: LayoutPosition;
+  layoutPositioning: LayoutPosition
   /**
    * Determines the canvas stacking order of layers in this frame. When true, the first layer will be draw on top. This property is only applicable for auto-layout frames.
    * @default false
    */
-  itemReverseZIndex: boolean;
+  itemReverseZIndex: boolean
   /**
    * Determines whether strokes are included in layout calculations. When true, auto-layout frames behave like css "box-sizing: border-box". This property is only applicable for auto-layout frames.
    * @default false
    */
-  strokesIncludedInLayout: boolean;
+  strokesIncludedInLayout: boolean
   /**
    * An array of layout grids attached to this node (see layout grids section for more details).GROUP nodes do not have this attribute
    * @default []
    */
-  layoutGrids: LayoutGrid[];
+  layoutGrids: LayoutGrid[]
   /**
    * Defines the scrolling behavior of the frame, if there exist contents outside of the frame boundaries. The frame can either scroll vertically, horizontally, or in both directions to the extents of the content contained within it. This behavior can be observed in a prototype.
    * @default "NONE"
    */
-  overflowDirection: OverflowDirection;
+  overflowDirection: OverflowDirection
   /**
    * An array of effects attached to this node (see effects section for more details)
    * @default []
    */
-  effects: Effect[];
+  effects: Effect[]
   /**
    * Does this node mask sibling nodes in front of it?
    * @default false
    */
-  isMask: boolean;
+  isMask: boolean
   /**
    * Does this mask ignore fill style (like gradients) and effects?
    * @default false
    */
-  isMaskOutline: boolean;
+  isMaskOutline: boolean
   /**
    * A mapping of a StyleType to style ID (see Style) of styles present on this node. The style ID can be used to look up more information about the style in the top-level styles field.
    */
-  styles: Record<StyleType, string>;
-};
+  styles: Record<StyleType, string>
+}
 
-export type GroupNode = FrameNode;
+export type GroupNode = FrameNode
 
 export type VectorNode = Node & {
   /**
    * If true, layer is locked and cannot be edited
    * @default false
    */
-  locked: boolean;
+  locked: boolean
   /**
    * An array of export settings representing images to export from the node
    * @default []
    */
-  exportSettings: ExportSetting[];
+  exportSettings: ExportSetting[]
   /**
    * How this node blends with nodes behind it in the scene (see blend mode section for more details)
    */
-  blendMode: BlendMode;
+  blendMode: BlendMode
   /**
    * Keep height and width constrained to same ratio
    * @default false
    */
-  preserveRatio: boolean;
+  preserveRatio: boolean
   /**
    * Determines if the layer should stretch along the parent’s counter axis. This property is only provided for direct children of auto-layout frames.
    */
-  layoutAlign: LayoutAlign;
+  layoutAlign: LayoutAlign
 
   /**
    * This property is applicable only for direct children of auto-layout frames, ignored otherwise. Determines whether a layer should stretch along the parent’s primary axis. A 0 corresponds to a fixed size and 1 corresponds to stretch
    * @default 0
    */
-  layoutGrow: number;
+  layoutGrow: number
   /**
    * Horizontal and vertical layout constraints for node
    */
-  constraints: LayoutConstraint;
+  constraints: LayoutConstraint
   /**
    * Node ID of node to transition to in prototyping
    * @default null
    */
-  transitionNodeID: string | null;
+  transitionNodeID: string | null
   /**
    * The duration of the prototyping transition on this node (in milliseconds)
    * @default null
    */
-  transitionDuration: number | null;
+  transitionDuration: number | null
   /**
    * The easing curve used in the prototyping transition on this node
    * @default null
    */
-  transitionEasing: EasingType | null;
+  transitionEasing: EasingType | null
   /**
    * Opacity of the node
    * @default 1
    */
-  opacity: number;
+  opacity: number
   /**
    * Bounding box of the node in absolute space coordinates
    */
-  absoluteBoundingBox: Rectangle;
+  absoluteBoundingBox: Rectangle
   /**
    * The bounds of the rendered node in the file in absolute space coordinates
    */
-  absoluteRenderBounds: Rectangle;
+  absoluteRenderBounds: Rectangle
   /**
    * An array of effects attached to this node (see effects section for more details)
    * @default []
    */
-  effects: Effect[];
+  effects: Effect[]
   /**
    * Width and height of element. This is different from the width and height of the bounding box in that the absolute bounding box represents the element after scaling and rotation. Only present if geometry=paths is passed
    */
-  size: Vector;
+  size: Vector
   /**
    * The top two rows of a matrix that represents the 2D transform of this node relative to its parent. The bottom row of the matrix is implicitly always (0, 0, 1). Use to transform coordinates in geometry. Only present if geometry=paths is passed
    */
-  relativeTransform: Transform;
+  relativeTransform: Transform
   /**
    * Does this node mask sibling nodes in front of it?
    * @default false
    */
-  isMask: boolean;
+  isMask: boolean
   /**
    * An array of fill paints applied to the node
    * @default []
    */
-  fills: Paint[];
+  fills: Paint[]
   /**
    * Only specified if parameter geometry=paths is used. An array of paths representing the object fill
    */
-  fillGeometry: Path[];
+  fillGeometry: Path[]
   /**
    * Map from ID to PaintOverride for looking up fill overrides. To see which regions are overriden, you must use the geometry=paths option. Each path returned may have an overrideId which maps to this table.
    */
-  fillOverrideTable: Record<number, PaintOverride>;
+  fillOverrideTable: Record<number, PaintOverride>
   /**
    * An array of stroke paints applied to the node
    * @default []
    */
-  strokes: Paint[];
+  strokes: Paint[]
   /**
    * The weight of strokes on the node
    */
-  strokeWeight: number;
+  strokeWeight: number
   /**
    * An object including the top, bottom, left, and right stroke weights. Only returned if individual stroke weights are used.
    */
-  individualStrokeWeights: StrokeWeights;
+  individualStrokeWeights: StrokeWeights
   /**
    * A string enum with value of "NONE", "ROUND", "SQUARE", "LINE_ARROW", or "TRIANGLE_ARROW", describing the end caps of vector paths.
    * @default "NONE"
    */
-  strokeCap: "NONE" | "ROUND" | "SQUARE" | "LINE_ARROW" | "TRIANGLE_ARROW";
+  strokeCap: "NONE" | "ROUND" | "SQUARE" | "LINE_ARROW" | "TRIANGLE_ARROW"
   /**
    * A string enum with value of "MITER", "BEVEL", or "ROUND", describing how corners in vector paths are rendered.
    * @default "MITER"
    */
-  strokeJoin: "MITER" | "BEVEL" | "ROUND";
+  strokeJoin: "MITER" | "BEVEL" | "ROUND"
   /**
    * An array of floating point numbers describing the pattern of dash length and gap lengths that the vector path follows. For example a value of [1, 2] indicates that the path has a dash of length 1 followed by a gap of length 2, repeated.
    * @default []
    */
-  strokeDashes: number[];
+  strokeDashes: number[]
   /**
    * Only valid if strokeJoin is "MITER". The corner angle, in degrees, below which strokeJoin will be set to "BEVEL" to avoid super sharp corners. By default this is 28.96 degrees.
    * @default 28.96
    */
-  strokeMiterAngle: number;
+  strokeMiterAngle: number
   /**
    * Only specified if parameter geometry=paths is used. An array of paths representing the object stroke
    */
-  strokeGeometry: Path[];
+  strokeGeometry: Path[]
   /**
    * Position of stroke relative to vector outline, as a string enum
    */
-  strokeAlign: StrokeAlign;
+  strokeAlign: StrokeAlign
   /**
    * A mapping of a StyleType to style ID (see Style) of styles present on this node. The style ID can be used to look up more information about the style in the top-level styles field.
    */
-  styles: Record<StyleType, string>;
-};
+  styles: Record<StyleType, string>
+}
 
 export type BooleanOperationNode = VectorNode & {
   /**
    * An array of nodes that are being boolean operated on
    */
-  children: Node[];
+  children: Node[]
   /**
    * A string enum with value of "UNION", "INTERSECT", "SUBTRACT", or "EXCLUDE" indicating the type of boolean operation applied
    */
-  booleanOperation: "UNION" | "INTERSECT" | "SUBTRACT" | "EXCLUDE";
-};
+  booleanOperation: "UNION" | "INTERSECT" | "SUBTRACT" | "EXCLUDE"
+}
 
-export type StarNode = VectorNode;
+export type StarNode = VectorNode
 
-export type LineNode = VectorNode;
+export type LineNode = VectorNode
 
 export type EllipseNode = VectorNode & {
   /**
    * Start and end angles of the ellipse measured clockwise from the x axis, plus the inner radius for donuts
    */
-  arcData: ArcData;
-};
+  arcData: ArcData
+}
 
-export type RegularPolygonNode = VectorNode;
+export type RegularPolygonNode = VectorNode
 
 export type RectangleNode = VectorNode & {
   /**
    * Radius of each corner of the rectangle if a single radius is set for all corners
    */
-  cornerRadius: number;
+  cornerRadius: number
   /**
    * Array of length 4 of the radius of each corner of the rectangle, starting in the top left and proceeding clockwise
    */
-  rectangleCornerRadii: [number, number, number, number];
-};
+  rectangleCornerRadii: [number, number, number, number]
+}
 
 export type TextNode = Omit<VectorNode, "fillOverrideTable"> & {
   /**
    * Text contained within a text box
    */
-  characters: string;
+  characters: string
   /**
    * Style of text including font family and weight (see type style section for more information)
    */
-  style: TypeStyle;
+  style: TypeStyle
   /**
    * Array with same number of elements as characters in text box, each element is a reference to the styleOverrideTable defined below and maps to the corresponding character in the characters field. Elements with value 0 have the default type style
    */
-  characterStyleOverrides: number[];
+  characterStyleOverrides: number[]
   /**
    * Map from ID to TypeStyle for looking up style overrides
    */
-  styleOverrideTable: Record<number, TypeStyle>;
+  styleOverrideTable: Record<number, TypeStyle>
   /**
    * An array with the same number of elements as lines in the text node, where lines are delimited by newline or paragraph separator characters. Each element in the array corresponds to the list type of a specific line. List types are represented as string enums with one of these possible values:
    * - ORDERED: Text is an ordered list (numbered)
    * - UNORDERED: Text is an unordered list (bulleted)
    * - NONE: Text is plain text and not part of any list
    */
-  lineTypes: ("ORDERED" | "UNORDERED" | "NONE")[];
+  lineTypes: ("ORDERED" | "UNORDERED" | "NONE")[]
   /**
    * An array with the same number of elements as lines in the text node, where lines are delimited by newline or paragraph separator characters. Each element in the array corresponds to the indentation level of a specific line.
    */
-  lineIndentations: number[];
-};
+  lineIndentations: number[]
+}
 
 export type SliceNode = {
   /**
    * An array of export settings representing images to export from this node
    */
-  exportSettings: ExportSetting[];
+  exportSettings: ExportSetting[]
   /**
    * Bounding box of the node in absolute space coordinates
    */
-  absoluteBoundingBox: Rectangle;
+  absoluteBoundingBox: Rectangle
   /**
    * The bounds of the rendered node in the file in absolute space coordinates
    */
-  absoluteRenderBounds: Rectangle;
+  absoluteRenderBounds: Rectangle
   /**
    * Width and height of element. This is different from the width and height of the bounding box in that the absolute bounding box represents the element after scaling and rotation. Only present if geometry=paths is passed
    */
-  size: Vector;
+  size: Vector
   /**
    * The top two rows of a matrix that represents the 2D transform of this node relative to its parent. The bottom row of the matrix is implicitly always (0, 0, 1). Use to transform coordinates in geometry. Only present if geometry=paths is passed
    */
-  relativeTransform: Transform;
-};
+  relativeTransform: Transform
+}
 
 export type ComponentNode = FrameNode & {
   /**
    * A mapping of name to ComponentPropertyDefinition for every component property on this component. Each property has a type, defaultValue, and other optional values
    */
-  componentProperties: Record<string, ComponentPropertyDefinition>;
-};
+  componentProperties: Record<string, ComponentPropertyDefinition>
+}
 
-export type ComponentSetNode = ComponentNode;
+export type ComponentSetNode = ComponentNode
 
 export type InstanceNode = FrameNode & {
   /**
    * ID of component that this instance came from, refers to components table (see endpoints section below)
    */
-  componentId: string;
+  componentId: string
   /**
    * If true, this node has been marked as exposed to its containing component or component set
    * @default false
    */
-  isExposedInstance: boolean;
+  isExposedInstance: boolean
   /**
    * IDs of instances that have been exposed to this node's level
    * @default []
    */
-  exposedInstances: string[];
+  exposedInstances: string[]
   /**
    * A mapping of name to ComponentProperty for all component properties on this instance. Each property has a type, value, and other optional values (see properties type section below)
    * @default {}
    */
-  componentProperties: Record<string, ComponentProperty>;
+  componentProperties: Record<string, ComponentProperty>
   /**
    * An array of all of the fields directly overridden on this instance. Inherited overrides are not included.
    */
-  overrides: Overrides[];
-};
+  overrides: Overrides[]
+}
 
 /**
  * Fields directly overridden on an instance. Inherited overrides are not included.
@@ -1047,12 +1047,12 @@ type Overrides = {
   /**
    * A unique ID for a node
    */
-  id: string;
+  id: string
   /**
    * An array of properties
    */
-  overriddenFields: string[];
-};
+  overriddenFields: string[]
+}
 
 /**
  * Component property definition
@@ -1061,20 +1061,20 @@ type ComponentPropertyDefinition = {
   /**
    * Type of this component property
    */
-  type: ComponentPropertyType;
+  type: ComponentPropertyType
   /**
    * Initial value of this property for instances
    */
-  defaultValue: boolean | string;
+  defaultValue: boolean | string
   /**
    * All possible values for this property. Only exists on VARIANT properties
    */
-  variantOptions?: string[];
+  variantOptions?: string[]
   /**
    * List of user-defined preferred values for this property. Only exists on INSTANCE_SWAP properties
    */
-  preferredValues?: InstanceSwapPreferredValue[];
-};
+  preferredValues?: InstanceSwapPreferredValue[]
+}
 
 /**
  * Component property
@@ -1083,21 +1083,21 @@ type ComponentProperty = {
   /**
    * Type of this component property
    */
-  type: ComponentPropertyType;
+  type: ComponentPropertyType
   /**
    * Value of this property set on this instance
    */
-  value: boolean | string;
+  value: boolean | string
   /**
    * List of user-defined preferred values for this property. Only exists on INSTANCE_SWAP properties
    */
-  preferredValues?: InstanceSwapPreferredValue[];
-};
+  preferredValues?: InstanceSwapPreferredValue[]
+}
 
 /**
  * Component property type
  */
-type ComponentPropertyType = "BOOLEAN" | "INSTANCE_SWAP" | "TEXT" | "VARIANT";
+type ComponentPropertyType = "BOOLEAN" | "INSTANCE_SWAP" | "TEXT" | "VARIANT"
 
 /**
  * Instance swap preferred value
@@ -1106,12 +1106,12 @@ type InstanceSwapPreferredValue = {
   /**
    * Type of node for this preferred value
    */
-  type: "COMPONENT" | "COMPONENT_SET";
+  type: "COMPONENT" | "COMPONENT_SET"
   /**
    * Key of this component or component set
    */
-  key: string;
-};
+  key: string
+}
 
 /**
  * Metadata for character formatting
@@ -1120,38 +1120,38 @@ type TypeStyle = {
   /**
    * Font family of text (standard name)
    */
-  fontFamily: string;
+  fontFamily: string
   /**
    * PostScript font name
    */
-  fontPostScriptName: string;
+  fontPostScriptName: string
   /**
    * Space between paragraphs in px, 0 if not present
    * @default 0
    */
-  paragraphSpacing: number;
+  paragraphSpacing: number
   /**
    * Paragraph indentation in px, 0 if not present
    * @default 0
    */
-  paragraphIndent: number;
+  paragraphIndent: number
   /**
    * Space between list items in px, 0 if not present
    * @default 0
    */
-  listSpacing: number;
+  listSpacing: number
   /**
    * Whether or not text is italicized
    */
-  italic: boolean;
+  italic: boolean
   /**
    * Numeric font weight
    */
-  fontWeight: number;
+  fontWeight: number
   /**
    * Font size in px
    */
-  fontSize: number;
+  fontSize: number
   /**
    * Text casing applied to the node, default is the original casing
    * @default "ORIGINAL"
@@ -1162,13 +1162,13 @@ type TypeStyle = {
     | "LOWER"
     | "TITLE"
     | "SMALL_CAPS"
-    | "SMALL_CAPS_FORCED";
+    | "SMALL_CAPS_FORCED"
 
   /**
    * Text decoration applied to the node, default is none
    * @default "NONE"
    */
-  textDecoration: "NONE" | "STRIKETHROUGH" | "UNDERLINE";
+  textDecoration: "NONE" | "STRIKETHROUGH" | "UNDERLINE"
   /**
    * Dimensions along which text will auto resize, default is that the text does not auto-resize. TRUNCATE means that the text will be shortened and trailing text will be replaced with "…" if the text contents is larger than the bounds.
    * @default "NONE"
@@ -1178,37 +1178,37 @@ type TypeStyle = {
     | "WIDTH_AND_HEIGHT"
     | "HEIGHT"
     | "WIDTH_AND_HEIGHT"
-    | "TRUNCATE";
+    | "TRUNCATE"
 
   /**
    * Horizontal text alignment as string enum
    */
-  textAlignHorizontal: "LEFT" | "RIGHT" | "CENTER" | "JUSTIFIED";
+  textAlignHorizontal: "LEFT" | "RIGHT" | "CENTER" | "JUSTIFIED"
   /**
    * Vertical text alignment as string enum
    */
-  textAlignVertical: "TOP" | "CENTER" | "BOTTOM";
+  textAlignVertical: "TOP" | "CENTER" | "BOTTOM"
   /**
    * Space between characters in px
    */
-  letterSpacing: number;
+  letterSpacing: number
   /**
    * Paints applied to characters
    */
-  fills: Paint[];
+  fills: Paint[]
   /**
    * Link to a URL or frame
    */
-  hyperlink: Hyperlink;
+  hyperlink: Hyperlink
   /**
    * A map of OpenType feature flags to 1 or 0, 1 if it is enabled and 0 if it is disabled. Note that some flags aren't reflected here. For example, SMCP (small caps) is still represented by the textCase field.
    * @default {}
    */
-  opentypeFlags: Record<string, number>;
+  opentypeFlags: Record<string, number>
   /**
    * Line height in px
    */
-  lineHeightPx: number;
+  lineHeightPx: number
   /**
    * Line height as a percentage of normal line height. This is deprecated; in a future version of the API only lineHeightPx and lineHeightPercentFontSize will be returned.
    * @deprecated
@@ -1216,19 +1216,19 @@ type TypeStyle = {
    * @min 0
    * @max 100
    */
-  lineHeightPercent: number;
+  lineHeightPercent: number
   /**
    * Line height as a percentage of the font size. Only returned when lineHeightPercent is not 100.
    */
-  lineHeightPercentFontSize: number;
+  lineHeightPercentFontSize: number
   /**
    * The unit of the line height value specified by the user.
    * - PIXELS: Line height is in pixels
    * - FONT_SIZE_%: Line height is a percentage of the font size
    * - INTRINSIC_%: Line height is a percentage of the font's intrinsic line height
    */
-  lineHeightUnit: string;
-};
+  lineHeightUnit: string
+}
 
 /**
  * A link to either a URL or another frame (node) in the document
@@ -1237,17 +1237,17 @@ type Hyperlink = {
   /**
    * Type of hyperlink
    */
-  type: "URL" | "NODE";
+  type: "URL" | "NODE"
 
   /**
    * URL being linked to, if URL type
    */
-  url: string;
+  url: string
   /**
    * ID of frame hyperlink points to, if NODE type
    */
-  nodeID: string;
-};
+  nodeID: string
+}
 
 /**
  * Information about the arc properties of an ellipse. 0° is the x axis and increasing angles rotate clockwise
@@ -1256,20 +1256,20 @@ type ArcData = {
   /**
    * Start of the sweep in radians
    */
-  startingAngle: number;
+  startingAngle: number
   /**
    * End of the sweep in radians
    */
-  endingAngle: number;
+  endingAngle: number
   /**
    * Inner radius value between 0 and 1
    * @min 0
    * @max 1
    */
-  innerRadius: number;
-};
+  innerRadius: number
+}
 
-type Path = any;
+type Path = any
 
 /**
  * Paint metadata to override default paints
@@ -1278,12 +1278,12 @@ type PaintOverride = {
   /**
    * Paints applied to characters
    */
-  fills: Paint[];
+  fills: Paint[]
   /**
    * ID of style node, if any, that this inherits fill data from
    */
-  inheritFillStyleId?: string;
-};
+  inheritFillStyleId?: string
+}
 
 /**
  * Individual stroke weights
@@ -1292,311 +1292,311 @@ type StrokeWeights = {
   /**
    * The top stroke weight
    */
-  top: number;
+  top: number
   /**
    * The bottom stroke weight
    */
-  bottom: number;
+  bottom: number
   /**
    * The left stroke weight
    */
-  left: number;
+  left: number
   /**
    * The right stroke weight
    */
-  right: number;
-};
+  right: number
+}
 
 export type FrameInfo = {
   /**
    * Id of the frame node within the file
    */
-  nodeId: string;
+  nodeId: string
   /**
    * Name of the frame
    */
-  name: string;
+  name: string
   /**
    * Background colour of the frame
    */
-  backgroundColour: string;
+  backgroundColour: string
   /**
    * Id of the frame's residing page
    */
-  pageId: string;
+  pageId: string
   /**
    * Name of the frame's residing page
    */
-  pageName: string;
-};
+  pageName: string
+}
 
 export type User = {
   /**
    * Unique stable id of the user
    */
-  id: string;
+  id: string
   /**
    * Name of the user
    */
-  handle: string;
+  handle: string
   /**
    * URL link to the user's profile image
    */
-  img_url: string;
+  img_url: string
   /**
    * Email associated with the user's account. This will only be present on the /v1/me endpoint.
    */
-  email: string;
-};
+  email: string
+}
 
-export type UserNoEmail = Omit<User, "email">;
+export type UserNoEmail = Omit<User, "email">
 
-export type StyleType = "FILL" | "TEXT" | "EFFECT" | "GRID";
+export type StyleType = "FILL" | "TEXT" | "EFFECT" | "GRID"
 
 export type LibraryItemData = {
   /**
    * Unique identifier of library item
    */
-  key: string;
+  key: string
   /**
    * Name of library item
    */
-  name: string;
-};
+  name: string
+}
 
 export type Component = {
   /**
    * The unique identifier of the component
    */
-  key: string;
+  key: string
   /**
    * Then unique identifier of the figma file which contains the component
    */
-  file_key: string;
+  file_key: string
   /**
    * Id of the component node within the figma file
    */
-  node_id: string;
+  node_id: string
   /**
    * URL link to the component's thumbnail image
    */
-  thumbnail_url: string;
+  thumbnail_url: string
   /**
    * Name of the component
    */
-  name: string;
+  name: string
   /**
    * The description of the component as entered by the publisher
    */
-  description: string;
+  description: string
   /**
    * The UTC ISO 8601 time at which the component was created
    */
-  created_at: string;
+  created_at: string
   /**
    * The UTC ISO 8601 time at which the component was updated
    */
-  updated_at: string;
+  updated_at: string
   /**
    * The user who last updated the component
    */
-  user: UserNoEmail;
+  user: UserNoEmail
   /**
    * Data on the component's containing frame, if component resides within a frame
    * @default {}
    */
-  containing_frame: FrameInfo | {};
-};
+  containing_frame: FrameInfo | {}
+}
 
 export type ComponentSet = {
   /**
    * The unique identifier of the component set
    */
-  key: string;
+  key: string
   /**
    * The unique identifier of the figma file which contains the component set
    */
-  file_key: string;
+  file_key: string
   /**
    * Id of the component set node within the figma file
    */
-  node_id: string;
+  node_id: string
   /**
    * URL link to the component set's thumbnail image
    */
-  thumbnail_url: string;
+  thumbnail_url: string
   /**
    * Name of the component set
    */
-  name: string;
+  name: string
   /**
    * The description of the component set as entered by the publisher
    */
-  description: string;
+  description: string
   /**
    * The UTC ISO 8601 time at which the component set was created
    */
-  created_at: string;
+  created_at: string
   /**
    * The UTC ISO 8601 time at which the component set was updated
    */
-  updated_at: string;
+  updated_at: string
   /**
    * The user who last updated the component set
    */
-  user: UserNoEmail;
+  user: UserNoEmail
   /**
    * Data on the component set's containing frame, if component set resides within a frame
    * @default {}
    */
-  containing_frame: FrameInfo | {};
-};
+  containing_frame: FrameInfo | {}
+}
 
 export type Style = {
   /**
    * The unique identifier of the style
    */
-  key: string;
+  key: string
   /**
    * The unique identifier of the figma file which contains the style
    */
-  file_key: string;
+  file_key: string
   /**
    * Id of the style node within the figma file
    */
-  node_id: string;
+  node_id: string
   /**
    * The type of style
    */
-  style_type: StyleType;
+  style_type: StyleType
   /**
    * URL link to the style's thumbnail image
    */
-  thumbnail_url: string;
+  thumbnail_url: string
   /**
    * Name of the style
    */
-  name: string;
+  name: string
   /**
    * The description of the style as entered by the publisher
    */
-  description: string;
+  description: string
   /**
    * The UTC ISO 8601 time at which the style was created
    */
-  created_at: string;
+  created_at: string
   /**
    * The UTC ISO 8601 time at which the style was updated
    */
-  updated_at: string;
+  updated_at: string
   /**
    * The user who last updated the style
    */
-  user: UserNoEmail;
+  user: UserNoEmail
   /**
    * A user specified order number by which the style can be sorted
    */
-  sort_position: string;
-};
+  sort_position: string
+}
 
 export type GetFileComponentsResponse = {
-  error: boolean;
-  status: HttpStatusCode;
+  error: boolean
+  status: HttpStatusCode
   meta: {
-    components: Component[];
-  };
-};
+    components: Component[]
+  }
+}
 
 export type GetFileComponentSetsResponse = {
-  error: boolean;
-  status: HttpStatusCode;
+  error: boolean
+  status: HttpStatusCode
   meta: {
-    component_sets: ComponentSet[];
-  };
-};
+    component_sets: ComponentSet[]
+  }
+}
 
 export type GetFileStylesResponse = {
-  error: boolean;
-  status: HttpStatusCode;
+  error: boolean
+  status: HttpStatusCode
   meta: {
-    styles: Style[];
-  };
-};
+    styles: Style[]
+  }
+}
 
 type Branch = {
-  key: string;
-  name: string;
-  thumbnail_url: string;
-  last_modified: string;
-  link_access: string;
-};
+  key: string
+  name: string
+  thumbnail_url: string
+  last_modified: string
+  link_access: string
+}
 
 export type GetFileParams = {
-  ids: string[];
-  version?: string;
-  depth?: number;
-  geometry?: "paths" | "bounds";
-  plugin_data?: string;
-  branch_data: boolean;
-};
+  ids: string[]
+  version?: string
+  depth?: number
+  geometry?: "paths" | "bounds"
+  plugin_data?: string
+  branch_data: boolean
+}
 
 export type GetFileResponse = {
-  name: string;
-  role: string;
-  lastModified: string;
-  editorType: string;
-  thumbnailUrl: string;
-  version: string;
-  document: DocumentNode;
-  components: Record<string, Component>;
-  componentSets: Record<string, ComponentSet>;
-  schemaVersion: number;
-  styles: Record<string, Style>;
-  mainFileKey: string;
-  branches: Branch[];
-};
+  name: string
+  role: string
+  lastModified: string
+  editorType: string
+  thumbnailUrl: string
+  version: string
+  document: DocumentNode
+  components: Record<string, Component>
+  componentSets: Record<string, ComponentSet>
+  schemaVersion: number
+  styles: Record<string, Style>
+  mainFileKey: string
+  branches: Branch[]
+}
 
 export type GetFileNodesParams = {
-  ids: string[];
-  version?: string;
-  depth?: number;
-  geometry?: "paths" | "bounds";
-  plugin_data?: string;
-};
+  ids: string[]
+  version?: string
+  depth?: number
+  geometry?: "paths" | "bounds"
+  plugin_data?: string
+}
 
 export type GetFileNodesResponse = {
-  name: string;
-  role: string;
-  lastModified: string;
-  editorType: string;
-  thumbnailUrl: string;
-  err: string | null;
+  name: string
+  role: string
+  lastModified: string
+  editorType: string
+  thumbnailUrl: string
+  err: string | null
   nodes: {
     [id: string]: {
-      document: Node;
-      components: Record<string, Component>;
-      schemaVersion: number;
-      styles: Record<string, Style>;
-    };
-  };
-};
+      document: Node
+      components: Record<string, Component>
+      schemaVersion: number
+      styles: Record<string, Style>
+    }
+  }
+}
 
 export type GetImageParams = {
-  ids: string[];
-  scale?: number;
-  format?: "jpg" | "png" | "svg" | "pdf";
-  svg_include_id?: boolean;
-  svg_simplify_stroke?: boolean;
-  use_absolute_bounds?: boolean;
-  version?: string;
-};
+  ids: string[]
+  scale?: number
+  format?: "jpg" | "png" | "svg" | "pdf"
+  svg_include_id?: boolean
+  svg_simplify_stroke?: boolean
+  use_absolute_bounds?: boolean
+  version?: string
+}
 
 export type GetImageResponse = {
-  err: string | null;
-  images: Record<string, string>;
-  status: HttpStatusCode;
-};
+  err: string | null
+  images: Record<string, string>
+  status: HttpStatusCode
+}
 
 export type GetImageFillsResponse = {
-  images: Record<string, string>;
-};
+  images: Record<string, string>
+}

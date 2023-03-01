@@ -15,4 +15,4 @@ export const backgroundsDark = {
   bgBaseHover: "rgba(35, 35, 38, 1)",
   bgSubtleHover: "rgba(28, 28, 31, 1)",
   bgBasePressed: "rgba(40, 40, 44, 1)",
-};
+}

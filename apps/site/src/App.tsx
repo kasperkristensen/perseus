@@ -1,6 +1,6 @@
-import { Stack } from "@medusa-ui/core";
-import { Sidebar } from "./components/sidebar";
-import { app } from "./index.css";
+import { Stack } from "@medusa-ui/core"
+import { Sidebar } from "./components/sidebar"
+import { app } from "./index.css"
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Sidebar />
       <Stack></Stack>
     </Stack>
-  );
+  )
 }
 
-export default App;
+export default App

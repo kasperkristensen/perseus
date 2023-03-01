@@ -1,5 +1,5 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { sprinkles, vars } from "../../../lib";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { sprinkles, vars } from "../../../lib"
 
 export const variants = recipe({
   base: [
@@ -21,6 +21,6 @@ export const variants = recipe({
       shortcut: sprinkles({ px: "xsmall", py: "xsmall" }),
     },
   },
-});
+})
 
-export type TooltipVariants = RecipeVariants<typeof variants>;
+export type TooltipVariants = RecipeVariants<typeof variants>

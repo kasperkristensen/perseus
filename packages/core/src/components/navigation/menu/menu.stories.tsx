@@ -1,15 +1,15 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { useTheme } from "../../theme";
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { useTheme } from "../../theme"
 
-import { Menu } from "./menu";
+import { Menu } from "./menu"
 
 export default {
   title: "Navigation/Menu",
   component: Menu.Root,
-} as ComponentMeta<typeof Menu.Root>;
+} as ComponentMeta<typeof Menu.Root>
 
 const Template: ComponentStory<typeof Menu.Root> = (args) => {
-  const { theme, themes, setTheme } = useTheme();
+  const { theme, themes, setTheme } = useTheme()
 
   return (
     <Menu.Root>
@@ -43,16 +43,16 @@ const Template: ComponentStory<typeof Menu.Root> = (args) => {
           icon={"ArrowRightOnRectangle"}
           keyboardShortcut={["Alt", "Shift", "Q"]}
           onSelect={() => {
-            alert("You logged out!");
+            alert("You logged out!")
           }}
           label="Log out"
         />
       </Menu.Content>
     </Menu.Root>
-  );
-};
+  )
+}
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   open: true,
-};
+}

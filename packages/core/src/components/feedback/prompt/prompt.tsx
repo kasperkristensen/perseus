@@ -1,36 +1,36 @@
-import * as Primitive from "@radix-ui/react-alert-dialog";
-import * as React from "react";
-import { Box, Stack } from "../../layout";
-import { Heading, Label } from "../../typography";
-import { extraConfirmation, footer, header, prompt } from "./styles.css";
+import * as Primitive from "@radix-ui/react-alert-dialog"
+import * as React from "react"
+import { Box, Stack } from "../../layout"
+import { Heading, Label } from "../../typography"
+import { extraConfirmation, footer, header, prompt } from "./styles.css"
 
 export type PromptProps = {
   /**
    * The title of the prompt
    */
-  title: string;
+  title: string
   /**
    * The message to display in the prompt
    */
-  message: string;
+  message: string
   /**
    * An optional text that the user will have to type to confirm the action
    */
-  confirmationText?: string;
+  confirmationText?: string
   /**
    * The label of the action button
    * @default "Confirm"
    */
-  actionLabel?: string;
+  actionLabel?: string
   /**
    * The action to perform when the user confirms the action
    */
-  onConfirm: () => void;
+  onConfirm: () => void
   /**
    * The action to perform when the user cancels the action
    */
-  onCancel: () => void;
-};
+  onCancel: () => void
+}
 
 export const Prompt = React.forwardRef<HTMLDivElement, PromptProps>(
   (
@@ -42,7 +42,7 @@ export const Prompt = React.forwardRef<HTMLDivElement, PromptProps>(
       onCancel,
       onConfirm,
     },
-    forwardedRef
+    forwardedRef,
   ) => {
     return (
       <Primitive.Root open={true}>
@@ -94,8 +94,8 @@ export const Prompt = React.forwardRef<HTMLDivElement, PromptProps>(
           </Box>
         </Primitive.Content>
       </Primitive.Root>
-    );
-  }
-);
+    )
+  },
+)
 
-Prompt.displayName = "Prompt";
+Prompt.displayName = "Prompt"

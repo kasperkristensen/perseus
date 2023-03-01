@@ -1,14 +1,14 @@
-import * as Primitive from "@radix-ui/react-avatar";
-import * as React from "react";
-import { Box, Stack } from "../../layout";
-import { Label } from "../../typography";
-import { avatar, AvatarVariants, inner } from "./styles.css";
+import * as Primitive from "@radix-ui/react-avatar"
+import * as React from "react"
+import { Box, Stack } from "../../layout"
+import { Label } from "../../typography"
+import { avatar, AvatarVariants, inner } from "./styles.css"
 
 export type AvatarProps = Primitive.AvatarProps & {
-  src?: string;
-  alt?: string;
-  fallback?: React.ReactNode;
-} & AvatarVariants;
+  src?: string
+  alt?: string
+  fallback?: React.ReactNode
+} & AvatarVariants
 
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   ({ children, src, alt, fallback, size, ...props }, ref) => {
@@ -23,9 +23,9 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
           </Box>
         </Box>
       </Primitive.Root>
-    );
-  }
-);
+    )
+  },
+)
 
 const AvatarFallback = ({ children }: React.PropsWithChildren) => {
   const Component =
@@ -33,9 +33,9 @@ const AvatarFallback = ({ children }: React.PropsWithChildren) => {
       <Label size="small" weight="plus" color="secondary" />
     ) : (
       <Stack alignItems="center" justifyContent="center" />
-    );
+    )
 
-  return React.cloneElement(Component, {}, children);
-};
+  return React.cloneElement(Component, {}, children)
+}
 
-Avatar.displayName = "Avatar";
+Avatar.displayName = "Avatar"

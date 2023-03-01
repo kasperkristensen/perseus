@@ -1,6 +1,6 @@
-import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
-import { sprinkles, vars } from "../../../lib";
+import { style } from "@vanilla-extract/css"
+import { recipe } from "@vanilla-extract/recipes"
+import { sprinkles, vars } from "../../../lib"
 
 export const modal = recipe({
   base: [
@@ -22,7 +22,7 @@ export const modal = recipe({
       borderRadius: "mellow",
     }),
   ],
-});
+})
 
 export const header = style([
   {
@@ -33,7 +33,7 @@ export const header = style([
     px: "xlarge",
     py: "large",
   }),
-]);
+])
 
 export const headerAction = style([
   {
@@ -58,7 +58,7 @@ export const headerAction = style([
     w: "xlarge",
     h: "xlarge",
   }),
-]);
+])
 
 export const overlay = style([
   {
@@ -67,14 +67,14 @@ export const overlay = style([
   sprinkles({
     inset: "none",
   }),
-]);
+])
 
 export const content = style([
   sprinkles({
     px: "xlarge",
     py: "large",
   }),
-]);
+])
 
 export const footer = style([
   {
@@ -86,4 +86,4 @@ export const footer = style([
     pb: "large",
     px: "xlarge",
   }),
-]);
+])

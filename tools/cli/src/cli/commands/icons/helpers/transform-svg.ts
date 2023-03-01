@@ -1,14 +1,14 @@
-import { transform } from "@svgr/core";
-import { defaultTemplate, fixedColorTemplate } from "../templates";
+import { transform } from "@svgr/core"
+import { defaultTemplate, fixedColorTemplate } from "../templates"
 
 export async function transformSVG({
   DOM,
   componentName,
   fixedColor,
 }: {
-  DOM: string;
-  componentName: string;
-  fixedColor: boolean;
+  DOM: string
+  componentName: string
+  fixedColor: boolean
 }) {
   return await transform(
     DOM,
@@ -32,6 +32,6 @@ export async function transformSVG({
     },
     {
       componentName,
-    }
-  );
+    },
+  )
 }

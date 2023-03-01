@@ -1,6 +1,6 @@
-import { style } from "@vanilla-extract/css";
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { sprinkles, vars } from "../../../lib";
+import { style } from "@vanilla-extract/css"
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { sprinkles, vars } from "../../../lib"
 
 export const buttonColors = recipe({
   variants: {
@@ -65,7 +65,7 @@ export const buttonColors = recipe({
       },
     },
   },
-});
+})
 
 export const button = style([
   {
@@ -79,6 +79,6 @@ export const button = style([
     px: "small",
     borderRadius: "mellow",
   }),
-]);
+])
 
-export type ButtonColorVariants = RecipeVariants<typeof buttonColors>;
+export type ButtonColorVariants = RecipeVariants<typeof buttonColors>

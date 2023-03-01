@@ -1,7 +1,7 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { vars } from "../../../lib";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { vars } from "../../../lib"
 
-const kbdFontFamily = `${vars.typography.labels.small.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`;
+const kbdFontFamily = `${vars.typography.labels.small.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`
 
 export const kbd = recipe({
   base: {
@@ -37,6 +37,6 @@ export const kbd = recipe({
     variant: "default",
     size: "base",
   },
-});
+})
 
-export type KbdVariants = RecipeVariants<typeof kbd>;
+export type KbdVariants = RecipeVariants<typeof kbd>

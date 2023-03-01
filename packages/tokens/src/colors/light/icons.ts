@@ -10,4 +10,4 @@ export const icons = {
   iconSecondary: "rgba(104, 112, 118, 1)",
   iconPrimary: "rgba(17, 24, 28, 1)",
   iconInteractiveHover: "rgba(100, 79, 193, 1)",
-};
+}

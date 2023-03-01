@@ -1,6 +1,6 @@
-import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
-import { sprinkles, vars } from "../../../lib";
+import { style } from "@vanilla-extract/css"
+import { recipe } from "@vanilla-extract/recipes"
+import { sprinkles, vars } from "../../../lib"
 
 export const prompt = style([
   {
@@ -13,7 +13,7 @@ export const prompt = style([
   sprinkles({
     borderRadius: "mellow",
   }),
-]);
+])
 
 export const header = recipe({
   base: [
@@ -33,7 +33,7 @@ export const header = recipe({
   defaultVariants: {
     hasConfirmation: false,
   },
-});
+})
 
 export const footer = recipe({
   base: [
@@ -55,7 +55,7 @@ export const footer = recipe({
   defaultVariants: {
     hasConfirmation: false,
   },
-});
+})
 
 export const extraConfirmation = style([
   {
@@ -65,4 +65,4 @@ export const extraConfirmation = style([
   sprinkles({
     p: "large",
   }),
-]);
+])

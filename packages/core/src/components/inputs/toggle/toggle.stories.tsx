@@ -1,6 +1,6 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 
-import { Toggle } from "./toggle";
+import { Toggle } from "./toggle"
 
 export default {
   /* 👇 The title prop is optional.
@@ -20,8 +20,8 @@ export default {
   parameters: {
     layout: "centered",
   },
-} as ComponentMeta<typeof Toggle>;
+} as ComponentMeta<typeof Toggle>
 
-const Template: ComponentStory<typeof Toggle> = (args) => <Toggle {...args} />;
+const Template: ComponentStory<typeof Toggle> = (args) => <Toggle {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})

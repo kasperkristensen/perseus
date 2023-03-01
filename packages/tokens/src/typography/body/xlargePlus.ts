@@ -7,4 +7,4 @@ export const xlargePlus = {
   fontWeight: "500",
   letterSpacing: "0px",
   lineHeight: "32px",
-};
+}

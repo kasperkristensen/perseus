@@ -10,4 +10,4 @@ export const texts = {
   textInteractive: "rgba(110, 86, 207, 1)",
   textError: "rgba(229, 72, 77, 1)",
   textSecondary: "rgba(104, 112, 118, 1)",
-};
+}

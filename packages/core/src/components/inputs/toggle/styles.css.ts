@@ -1,5 +1,5 @@
-import { style } from "@vanilla-extract/css";
-import { sprinkles, vars } from "../../../lib";
+import { style } from "@vanilla-extract/css"
+import { sprinkles, vars } from "../../../lib"
 
 export const track = style(
   [
@@ -29,8 +29,8 @@ export const track = style(
   ],
   sprinkles({
     borderRadius: "circle",
-  })
-);
+  }),
+)
 
 export const thumb = style([
   {
@@ -50,4 +50,4 @@ export const thumb = style([
     h: "xsmall",
     borderRadius: "circle",
   }),
-]);
+])

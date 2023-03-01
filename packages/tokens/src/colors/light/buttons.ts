@@ -18,4 +18,4 @@ export const buttons = {
   buttonTertiaryPressed: "rgba(38, 41, 43, 1)",
   buttonTertiaryHover: "rgba(32, 36, 37, 1)",
   buttonDangerHover: "rgba(220, 61, 67, 1)",
-};
+}

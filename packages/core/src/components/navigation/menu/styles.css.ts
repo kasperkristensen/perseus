@@ -1,6 +1,6 @@
-import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
-import { sprinkles, vars } from "../../../lib";
+import { style } from "@vanilla-extract/css"
+import { recipe } from "@vanilla-extract/recipes"
+import { sprinkles, vars } from "../../../lib"
 
 export const menu = recipe({
   base: [
@@ -28,12 +28,12 @@ export const menu = recipe({
       },
     },
   },
-});
+})
 
 export const trigger = style({
   outline: "none",
   cursor: "pointer",
-});
+})
 
 export const separator = style([
   {
@@ -41,7 +41,7 @@ export const separator = style([
     height: "1px",
     width: "100%",
   },
-]);
+])
 
 export const item = style([
   {
@@ -65,7 +65,7 @@ export const item = style([
     borderRadius: "mellow",
     mx: "2xsmall",
   }),
-]);
+])
 
 export const iconContainer = style({
   width: "20px",
@@ -74,4 +74,4 @@ export const iconContainer = style({
   justifyContent: "center",
   alignItems: "center",
   color: vars.colors.icons.iconSecondary,
-});
+})

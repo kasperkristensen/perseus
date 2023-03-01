@@ -16,4 +16,4 @@ export const codeDark = {
   codeSyntaxBlue: "rgba(82, 169, 255, 1)",
   codeBgHeader: "rgba(22, 22, 24, 1)",
   codeTextTertiary: "rgba(112, 111, 120, 1)",
-};
+}

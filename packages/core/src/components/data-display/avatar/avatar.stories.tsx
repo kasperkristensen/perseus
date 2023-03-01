@@ -1,6 +1,6 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 
-import { Avatar } from "./avatar";
+import { Avatar } from "./avatar"
 
 export default {
   /* 👇 The title prop is optional.
@@ -12,8 +12,8 @@ export default {
   parameters: {
     layout: "centered",
   },
-} as ComponentMeta<typeof Avatar>;
+} as ComponentMeta<typeof Avatar>
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
+const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})

@@ -1,4 +1,4 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
 
 export const variants = recipe({
   base: [
@@ -16,6 +16,6 @@ export const variants = recipe({
       },
     },
   },
-});
+})
 
-export type StackVariants = RecipeVariants<typeof variants>;
+export type StackVariants = RecipeVariants<typeof variants>

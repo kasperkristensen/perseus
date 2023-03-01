@@ -1,16 +1,16 @@
-import clsx from "clsx";
-import * as React from "react";
-import { BoxProps } from "../../layout";
-import { Typography, TypographyColorVariants } from "../base-typography";
-import { body, BodyVariants } from "./styles.css";
+import clsx from "clsx"
+import * as React from "react"
+import { BoxProps } from "../../layout"
+import { Typography, TypographyColorVariants } from "../base-typography"
+import { body, BodyVariants } from "./styles.css"
 
-const allowedElements = ["p", "span", "div", "a"] as const;
+const allowedElements = ["p", "span", "div", "a"] as const
 
 type Props = {
-  as?: typeof allowedElements[number];
+  as?: (typeof allowedElements)[number]
 } & TypographyColorVariants &
   BodyVariants &
-  Omit<BoxProps, "as" | "size">;
+  Omit<BoxProps, "as" | "size">
 
 export const Body = React.forwardRef<HTMLElement, Props>(
   (
@@ -23,9 +23,9 @@ export const Body = React.forwardRef<HTMLElement, Props>(
       children,
       ...rest
     },
-    ref
+    ref,
   ) => {
-    const combinedClasses = clsx(className, body({ size, weight }));
+    const combinedClasses = clsx(className, body({ size, weight }))
 
     return (
       <Typography
@@ -37,8 +37,8 @@ export const Body = React.forwardRef<HTMLElement, Props>(
       >
         {children}
       </Typography>
-    );
-  }
-);
+    )
+  },
+)
 
-Body.displayName = "Body";
+Body.displayName = "Body"
