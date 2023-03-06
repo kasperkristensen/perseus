@@ -10,4 +10,4 @@ export const textsDark = {
   textSecondary: "rgba(126, 125, 134, 1)",
   textInteractiveHover: "rgba(158, 140, 252, 1)",
   textInteractive: "rgba(124, 102, 220, 1)",
-};
+}

@@ -1,16 +1,16 @@
-import clsx from "clsx";
-import * as React from "react";
-import { BoxProps } from "../../layout";
-import { Typography, TypographyColorVariants } from "../base-typography";
-import { label, LabelVariants } from "./styles.css";
+import clsx from "clsx"
+import * as React from "react"
+import { BoxProps } from "../../layout"
+import { Typography, TypographyColorVariants } from "../base-typography"
+import { label, LabelVariants } from "./styles.css"
 
-const allowedElements = ["p", "span", "label", "a"] as const;
+const allowedElements = ["p", "span", "label", "a"] as const
 
 type Props = {
-  as?: typeof allowedElements[number];
+  as?: (typeof allowedElements)[number]
 } & TypographyColorVariants &
   LabelVariants &
-  Omit<BoxProps, "as" | "size">;
+  Omit<BoxProps, "as" | "size">
 
 export const Label = React.forwardRef<HTMLElement, Props>(
   (
@@ -23,9 +23,9 @@ export const Label = React.forwardRef<HTMLElement, Props>(
       children,
       ...rest
     },
-    ref
+    ref,
   ) => {
-    const combinedClasses = clsx(className, label({ size, weight }));
+    const combinedClasses = clsx(className, label({ size, weight }))
 
     return (
       <Typography
@@ -37,8 +37,8 @@ export const Label = React.forwardRef<HTMLElement, Props>(
       >
         {children}
       </Typography>
-    );
-  }
-);
+    )
+  },
+)
 
-Label.displayName = "Label";
+Label.displayName = "Label"

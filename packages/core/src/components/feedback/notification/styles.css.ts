@@ -1,6 +1,6 @@
-import { style } from "@vanilla-extract/css";
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { sprinkles, vars } from "../../../lib";
+import { style } from "@vanilla-extract/css"
+import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
+import { sprinkles, vars } from "../../../lib"
 
 export const icon = recipe({
   base: [
@@ -28,9 +28,9 @@ export const icon = recipe({
       },
     },
   },
-});
+})
 
-export type NotificationVariants = RecipeVariants<typeof icon>;
+export type NotificationVariants = RecipeVariants<typeof icon>
 
 export const notification = style([
   {
@@ -45,4 +45,4 @@ export const notification = style([
     p: "base",
     borderRadius: "mellow",
   }),
-]);
+])

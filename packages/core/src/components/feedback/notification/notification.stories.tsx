@@ -1,6 +1,6 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 
-import { Notification } from "./notification";
+import { Notification } from "./notification"
 
 export default {
   /* 👇 The title prop is optional.
@@ -34,28 +34,28 @@ export default {
     layout: "centered",
     controls: { sort: "requiredFirst" },
   },
-} as ComponentMeta<typeof Notification>;
+} as ComponentMeta<typeof Notification>
 
 const Template: ComponentStory<typeof Notification> = (args) => (
   <Notification {...args} />
-);
+)
 
-export const Info = Template.bind({});
+export const Info = Template.bind({})
 Info.args = {
   variant: "info",
-};
+}
 
-export const Success = Template.bind({});
+export const Success = Template.bind({})
 Success.args = {
   variant: "success",
-};
+}
 
-export const Warning = Template.bind({});
+export const Warning = Template.bind({})
 Warning.args = {
   variant: "warning",
-};
+}
 
-export const Error = Template.bind({});
+export const Error = Template.bind({})
 Error.args = {
   variant: "error",
-};
+}

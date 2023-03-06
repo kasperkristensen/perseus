@@ -1,9 +1,12 @@
-import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
+import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles"
 
 const spacing = {
   auto: "auto",
   none: 0,
   "2xsmall": 4,
+  /**
+   * 8px
+   */
   xsmall: 8,
   small: 12,
   base: 16,
@@ -15,7 +18,7 @@ const spacing = {
   "4xlarge": 56,
   "5xlarge": 64,
   "6xlarge": 96,
-};
+}
 
 const sizes = {
   ...spacing,
@@ -35,7 +38,7 @@ const sizes = {
   "4/6": "66.666667%",
   "5/6": "83.333333%",
   full: "100%",
-};
+}
 
 const borderRadii = {
   sharp: 0,
@@ -43,14 +46,14 @@ const borderRadii = {
   mellow: 8,
   rounded: 16,
   circle: 9999,
-};
+}
 
 const breakpointConditions = {
   mobile: {},
   tablet: { "@media": "screen and (min-width: 768px)" },
   laptop: { "@media": "screen and (min-width: 1024px)" },
   desktop: { "@media": "screen and (min-width: 1464px)" },
-};
+}
 
 const layoutProperties = defineProperties({
   conditions: breakpointConditions,
@@ -93,7 +96,7 @@ const layoutProperties = defineProperties({
     minW: ["minWidth"],
     minH: ["minHeight"],
   },
-});
+})
 
 const positioningProperties = defineProperties({
   conditions: breakpointConditions,
@@ -111,12 +114,30 @@ const positioningProperties = defineProperties({
     gapX: ["rowGap"],
     gapY: ["columnGap"],
   },
-});
+})
 
 const responsiveProperties = defineProperties({
   conditions: breakpointConditions,
   defaultCondition: "mobile",
   properties: {
+    display: {
+      none: "none",
+      block: "block",
+      inlineBlock: "inline-block",
+      flex: "flex",
+      inlineFlex: "inline-flex",
+      grid: "grid",
+      inlineGrid: "inline-grid",
+      table: "table",
+      tableRow: "table-row",
+      tableCell: "table-cell",
+    },
+    flexDirection: {
+      row: "row",
+      rowReverse: "row-reverse",
+      column: "column",
+      columnReverse: "column-reverse",
+    },
     justifyContent: {
       start: "flex-start",
       end: "flex-end",
@@ -168,18 +189,18 @@ const responsiveProperties = defineProperties({
   shorthands: {
     gridCols: ["gridTemplateColumns"],
   },
-});
+})
 
 const unresponsiveProperties = defineProperties({
   properties: {
     borderRadius: borderRadii,
   },
-});
+})
 
 export const sprinkles = createSprinkles(
   layoutProperties,
   positioningProperties,
   responsiveProperties,
-  unresponsiveProperties
-);
-export type Sprinkles = Parameters<typeof sprinkles>[0];
+  unresponsiveProperties,
+)
+export type Sprinkles = Parameters<typeof sprinkles>[0]

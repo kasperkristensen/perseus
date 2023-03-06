@@ -1,16 +1,14 @@
-import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
-import { sprinkles, vars } from "../../../lib";
+import { style, variants } from "../../../lib"
 
-export const menu = recipe({
+export const menu = variants(({ theme, css }) => ({
   base: [
     {
-      backgroundColor: vars.colors.backgrounds.bgBase,
+      backgroundColor: theme.colors.backgrounds.bgBase,
       border: "1px solid",
-      borderColor: vars.colors.borders.borderBase,
-      boxShadow: vars.effects.shadows.overlay,
+      borderColor: theme.colors.borders.borderBase,
+      boxShadow: theme.effects.shadows.overlay,
     },
-    sprinkles({
+    css({
       py: "xsmall",
       borderRadius: "mellow",
       gap: "xsmall",
@@ -28,50 +26,50 @@ export const menu = recipe({
       },
     },
   },
-});
+}))
 
 export const trigger = style({
   outline: "none",
   cursor: "pointer",
-});
+})
 
-export const separator = style([
+export const separator = style(({ theme }) => [
   {
-    backgroundColor: vars.colors.borders.borderBase,
+    backgroundColor: theme.colors.borders.borderBase,
     height: "1px",
     width: "100%",
   },
-]);
+])
 
-export const item = style([
+export const item = style(({ theme, css }) => [
   {
     cursor: "pointer",
     paddingTop: "6px",
     paddingBottom: "6px",
-    backgroundColor: vars.colors.backgrounds.bgBase,
+    backgroundColor: theme.colors.backgrounds.bgBase,
     outline: "none",
     ":hover": {
-      backgroundColor: vars.colors.backgrounds.bgBaseHover,
+      backgroundColor: theme.colors.backgrounds.bgBaseHover,
     },
     ":focus": {
-      backgroundColor: vars.colors.backgrounds.bgBaseHover,
+      backgroundColor: theme.colors.backgrounds.bgBaseHover,
     },
     ":active": {
-      backgroundColor: vars.colors.backgrounds.bgBasePressed,
+      backgroundColor: theme.colors.backgrounds.bgBasePressed,
     },
   },
-  sprinkles({
+  css({
     px: "base",
     borderRadius: "mellow",
     mx: "2xsmall",
   }),
-]);
+])
 
-export const iconContainer = style({
+export const iconContainer = style(({ theme }) => ({
   width: "20px",
   height: "20px",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  color: vars.colors.icons.iconSecondary,
-});
+  color: theme.colors.icons.iconSecondary,
+}))

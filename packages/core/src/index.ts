@@ -1,4 +1,4 @@
-import "./lib/css/atoms";
+import "./lib/css/atoms"
 
-export * from "./components";
-export * from "./lib";
+export * from "./components"
+export * from "./lib"

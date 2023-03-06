@@ -16,4 +16,4 @@ export const code = {
   codeBorderStrong: "rgba(58, 63, 66, 1)",
   codeIcon: "rgba(105, 113, 119, 1)",
   codeTextTertiary: "rgba(105, 113, 119, 1)",
-};
+}

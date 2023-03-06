@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from "react"
 
 const ThemeContainer = ({
   className,
@@ -8,7 +8,7 @@ const ThemeContainer = ({
     <div className={className ?? "no_theme"} id="theme_container">
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default ThemeContainer;
+export default ThemeContainer

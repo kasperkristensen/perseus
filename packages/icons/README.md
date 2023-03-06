@@ -13,13 +13,13 @@ yarn add @medusa-ui/icons
 ## Usage
 
 ```tsx
-import { Adjustment } from "@medusa-ui/icons";
+import { Adjustment } from "@medusa-ui/icons"
 
 const App = () => (
   <div>
     <Adjustment />
   </div>
-);
+)
 ```
 
 ## Development

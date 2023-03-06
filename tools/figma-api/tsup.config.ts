@@ -1,4 +1,4 @@
-import type { Options } from "tsup";
+import type { Options } from "tsup"
 
 const config: Options = {
   entry: ["src/**/*.ts"],
@@ -11,6 +11,6 @@ const config: Options = {
   target: "es2020",
   skipNodeModulesBundle: true,
   tsconfig: "./tsconfig.json",
-};
+}
 
-export default config;
+export default config

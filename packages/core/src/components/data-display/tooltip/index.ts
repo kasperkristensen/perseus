@@ -1,2 +1,2 @@
-export { ShortcutTooltip } from "./shortcut-tooltip";
-export { Tooltip } from "./tooltip";
+export { ShortcutTooltip } from "./shortcut-tooltip"
+export { Tooltip } from "./tooltip"

@@ -1,1 +1,1 @@
-export * from "./use-prompt";
+export * from "./use-prompt"

@@ -1,17 +1,14 @@
-import { style } from "@vanilla-extract/css";
-import { sprinkles, vars } from "../../../lib";
+import { style } from "../../../lib"
 
-export const iconContainer = style([
-  {
+export const iconContainer = style(({ css }) => [
+  css({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-  },
-  sprinkles({
     w: "full",
     h: "full",
   }),
-]);
+])
 
 export const checkmark = style({
   display: "none",
@@ -20,7 +17,7 @@ export const checkmark = style({
       display: "block",
     },
   },
-});
+})
 
 export const indeterminate = style({
   display: "none",
@@ -29,46 +26,46 @@ export const indeterminate = style({
       display: "block",
     },
   },
-});
+})
 
-export const checkbox = style([
+export const checkbox = style(({ theme, css }) => [
   {
     cursor: "pointer",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: vars.colors.backgrounds.bgBase,
+    backgroundColor: theme.colors.backgrounds.bgBase,
     border: "1px solid",
-    borderColor: vars.colors.borders.borderBase,
-    color: vars.colors.icons.iconOnColor,
+    borderColor: theme.colors.borders.borderBase,
+    color: theme.colors.icons.iconOnColor,
     ":focus": {
-      boxShadow: vars.effects.shadows.focus,
+      boxShadow: theme.effects.shadows.focus,
     },
     ":disabled": {
       cursor: "default",
-      backgroundColor: vars.colors.backgrounds.bgComponent,
-      color: vars.colors.icons.iconDisabled,
+      backgroundColor: theme.colors.backgrounds.bgComponent,
+      color: theme.colors.icons.iconDisabled,
     },
     selectors: {
       '&[data-state="checked"]:disabled': {
-        backgroundColor: vars.colors.backgrounds.bgComponent,
-        color: vars.colors.icons.iconDisabled,
+        backgroundColor: theme.colors.backgrounds.bgComponent,
+        color: theme.colors.icons.iconDisabled,
       },
       '&[data-state="checked"]': {
-        backgroundColor: vars.colors.backgrounds.bgInteractive,
+        backgroundColor: theme.colors.backgrounds.bgInteractive,
       },
       '&[data-state="indeterminate"]:disabled': {
-        backgroundColor: vars.colors.backgrounds.bgComponent,
-        color: vars.colors.icons.iconDisabled,
+        backgroundColor: theme.colors.backgrounds.bgComponent,
+        color: theme.colors.icons.iconDisabled,
       },
       '&[data-state="indeterminate"]': {
-        backgroundColor: vars.colors.backgrounds.bgInteractive,
+        backgroundColor: theme.colors.backgrounds.bgInteractive,
       },
     },
   },
-  sprinkles({
+  css({
     w: "medium",
     h: "medium",
     borderRadius: "soft",
   }),
-]);
+])

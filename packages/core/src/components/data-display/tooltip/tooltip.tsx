@@ -1,14 +1,14 @@
-import * as Primitive from "@radix-ui/react-tooltip";
-import * as React from "react";
-import { Box } from "../../layout";
-import { Label } from "../../typography";
-import { TooltipVariants, variants } from "./styles.css";
+import * as Primitive from "@radix-ui/react-tooltip"
+import * as React from "react"
+import { Box } from "../../layout"
+import { Label } from "../../typography"
+import { TooltipVariants, variants } from "./styles.css"
 
 export type TooltipProps =
   React.PropsWithChildren<Primitive.TooltipContentProps> & {
-    content: React.ReactNode;
-    providerSettings?: Primitive.TooltipProviderProps;
-  } & TooltipVariants;
+    content: React.ReactNode
+    providerSettings?: Primitive.TooltipProviderProps
+  } & TooltipVariants
 
 export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
   (
@@ -23,7 +23,7 @@ export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
       },
       ...rest
     },
-    forwardedRef
+    forwardedRef,
   ) => {
     return (
       <Primitive.Provider {...providerSettings}>
@@ -45,8 +45,8 @@ export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
           </Primitive.Content>
         </Primitive.Root>
       </Primitive.Provider>
-    );
-  }
-);
+    )
+  },
+)
 
-Tooltip.displayName = "Tooltip";
+Tooltip.displayName = "Tooltip"

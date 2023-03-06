@@ -1,14 +1,12 @@
-import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
-import { sprinkles, vars } from "../../../lib";
+import { style, variants } from "../../../lib"
 
-export const modal = recipe({
+export const modal = variants(({ theme, css }) => ({
   base: [
     {
-      boxShadow: vars.effects.shadows.overlay,
-      backgroundColor: vars.colors.backgrounds.bgBase,
+      boxShadow: theme.effects.shadows.overlay,
+      backgroundColor: theme.colors.backgrounds.bgBase,
       border: "1px solid",
-      borderColor: vars.colors.borders.borderBase,
+      borderColor: theme.colors.borders.borderBase,
       width: "90vw",
       height: "90vh",
       maxWidth: "560px",
@@ -18,72 +16,72 @@ export const modal = recipe({
       left: "50%",
       transform: "translate(-50%, -50%)",
     },
-    sprinkles({
+    css({
       borderRadius: "mellow",
     }),
   ],
-});
+}))
 
-export const header = style([
+export const header = style(({ theme, css }) => [
   {
     borderBottom: "1px solid",
-    borderColor: vars.colors.borders.borderBase,
+    borderColor: theme.colors.borders.borderBase,
   },
-  sprinkles({
+  css({
     px: "xlarge",
     py: "large",
   }),
-]);
+])
 
-export const headerAction = style([
+export const headerAction = style(({ theme, css }) => [
   {
     cursor: "pointer",
-    color: vars.colors.icons.iconPlaceholder,
-    backgroundColor: vars.colors.buttons.buttonTransparent,
+    color: theme.colors.icons.iconPlaceholder,
+    backgroundColor: theme.colors.buttons.buttonTransparent,
     outline: "none",
     ":hover": {
-      backgroundColor: vars.colors.buttons.buttonTransparentHover,
+      backgroundColor: theme.colors.buttons.buttonTransparentHover,
     },
     ":focus": {
-      backgroundColor: vars.colors.buttons.buttonTransparentHover,
+      backgroundColor: theme.colors.buttons.buttonTransparentHover,
     },
     ":active": {
-      backgroundColor: vars.colors.buttons.buttonTransparentPressed,
+      backgroundColor: theme.colors.buttons.buttonTransparentPressed,
     },
   },
-  sprinkles({
+  css({
     borderRadius: "mellow",
     justifyContent: "center",
     alignItems: "center",
     w: "xlarge",
     h: "xlarge",
   }),
-]);
+])
 
-export const overlay = style([
+export const overlay = style(({ css }) => [
   {
     position: "fixed",
   },
-  sprinkles({
+  css({
     inset: "none",
   }),
-]);
+])
 
-export const content = style([
-  sprinkles({
+export const content = style(({ css }) => [
+  css({
     px: "xlarge",
     py: "large",
   }),
-]);
+])
 
-export const footer = style([
+export const footer = style(({ css, theme }) => [
   {
     borderTop: "1px solid",
-    borderColor: vars.colors.borders.borderBase,
+    borderColor: theme.colors.borders.borderBase,
   },
-  sprinkles({
+  css({
     pt: "base",
     pb: "large",
     px: "xlarge",
   }),
-]);
+])

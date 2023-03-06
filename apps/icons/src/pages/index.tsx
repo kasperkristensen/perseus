@@ -1,7 +1,7 @@
-import Overview from "@/components/overview";
-import { TestButton } from "@/components/TestButton/TestButton";
-import { ThemeProvider } from "@medusa-ui/core";
-import Head from "next/head";
+import Overview from "@/components/overview"
+import { TestButton } from "@/components/TestButton/TestButton"
+import { ThemeProvider } from "@medusa-ui/core"
+import Head from "next/head"
 
 export default function Home() {
   return (
@@ -22,5 +22,5 @@ export default function Home() {
         </main>
       </ThemeProvider>
     </>
-  );
+  )
 }

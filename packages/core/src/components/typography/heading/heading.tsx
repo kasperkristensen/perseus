@@ -1,19 +1,19 @@
-import clsx from "clsx";
-import * as React from "react";
-import { BoxProps } from "../../layout";
-import { Typography, TypographyColorVariants } from "../base-typography";
-import { heading } from "./styles.css";
+import clsx from "clsx"
+import * as React from "react"
+import { BoxProps } from "../../layout"
+import { Typography, TypographyColorVariants } from "../base-typography"
+import { heading } from "./styles.css"
 
-const allowedElements = ["h1", "h2", "h3"] as const;
+const allowedElements = ["h1", "h2", "h3"] as const
 
 export type HeadingProps = {
-  as?: typeof allowedElements[number];
+  as?: (typeof allowedElements)[number]
 } & TypographyColorVariants &
-  Omit<BoxProps, "as" | "size">;
+  Omit<BoxProps, "as" | "size">
 
 export const Heading = React.forwardRef<HTMLElement, HeadingProps>(
   ({ as = "h1", color = "primary", className, children, ...rest }, ref) => {
-    const combinedClasses = clsx(className, heading({ importance: as }));
+    const combinedClasses = clsx(className, heading({ importance: as }))
 
     return (
       <Typography
@@ -25,8 +25,8 @@ export const Heading = React.forwardRef<HTMLElement, HeadingProps>(
       >
         {children}
       </Typography>
-    );
-  }
-);
+    )
+  },
+)
 
-Heading.displayName = "Heading";
+Heading.displayName = "Heading"

@@ -1,2 +1,2 @@
-export { generateIcons } from "./icons";
-export { generateTokens } from "./tokens";
+export { generateIcons } from "./icons"
+export { generateTokens } from "./tokens"

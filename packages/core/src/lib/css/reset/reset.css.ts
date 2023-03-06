@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css"
 
 export const base = style({
   margin: 0,
@@ -9,20 +9,20 @@ export const base = style({
   verticalAlign: "baseline",
   boxSizing: "border-box",
   WebkitTapHighlightColor: "transparent",
-});
+})
 
 // HTML5 display-role reset for older browsers
 const block = style({
   display: "block",
-});
+})
 
 const body = style({
   lineHeight: 1,
-});
+})
 
 const list = style({
   listStyle: "none",
-});
+})
 
 const quote = style({
   quotes: "none",
@@ -31,22 +31,22 @@ const quote = style({
       content: "''",
     },
   },
-});
+})
 
 const table = style({
   borderCollapse: "collapse",
   borderSpacing: 0,
-});
+})
 
 const appearance = style({
   appearance: "none",
-});
+})
 
 const transparent = style({
   backgroundColor: "transparent",
-});
+})
 
-const field = style([block, appearance, transparent]);
+const field = style([block, appearance, transparent])
 
 // Custom reset rules
 const mark = style([
@@ -54,7 +54,7 @@ const mark = style([
   {
     color: "inherit",
   },
-]);
+])
 
 const select = style([
   field,
@@ -68,7 +68,7 @@ const select = style([
       },
     },
   }),
-]);
+])
 
 const input = style([
   field,
@@ -92,14 +92,14 @@ const input = style([
       },
     },
   }),
-]);
+])
 
-const button = style([transparent]);
+const button = style([transparent])
 
 const a = style({
   textDecoration: "none",
   color: "inherit",
-});
+})
 
 export const element = {
   article: block,
@@ -125,4 +125,4 @@ export const element = {
   button,
   textarea: field,
   input,
-};
+}

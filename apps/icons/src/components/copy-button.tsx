@@ -1,20 +1,20 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react"
 
 const CopyButton = ({ children }: PropsWithChildren<{}>) => {
   const onClick = (event: React.MouseEvent) => {
-    const svg = event.currentTarget.querySelector("svg");
-    const code = svg && svg.parentElement ? svg.parentElement.innerHTML : null;
+    const svg = event.currentTarget.querySelector("svg")
+    const code = svg && svg.parentElement ? svg.parentElement.innerHTML : null
 
     // Copy code to clipboard via a hidden textarea element
     if (code) {
       // Temporary shim until a proper focus-visible handler is added
       if (document.activeElement instanceof HTMLButtonElement) {
-        document.activeElement.blur();
+        document.activeElement.blur()
       }
 
-      console.log(code);
+      console.log(code)
     }
-  };
+  }
 
   return (
     <button
@@ -23,7 +23,7 @@ const CopyButton = ({ children }: PropsWithChildren<{}>) => {
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
-export default CopyButton;
+export default CopyButton

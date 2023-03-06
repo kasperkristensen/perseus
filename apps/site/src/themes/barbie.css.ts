@@ -1,4 +1,4 @@
-import { createTheme } from "@medusa-ui/core";
+import { createTheme } from "@medusa-ui/core"
 
 export const barbie = createTheme({
   displayName: "Barbie",
@@ -10,4 +10,4 @@ export const barbie = createTheme({
       bgSubtle: "#B66878",
     },
   },
-});
+})

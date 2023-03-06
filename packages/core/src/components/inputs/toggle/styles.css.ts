@@ -1,53 +1,50 @@
-import { style } from "@vanilla-extract/css";
-import { sprinkles, vars } from "../../../lib";
+import { style } from "../../../lib"
 
-export const track = style(
-  [
-    {
-      display: "flex",
-      position: "relative",
-      paddingLeft: "5px",
-      paddingRight: "5px",
-      backgroundColor: vars.colors.backgrounds.bgToggleOff,
-      alignItems: "center",
-      width: "32px",
-      height: "18px",
+export const track = style(({ theme, css }) => [
+  {
+    display: "flex",
+    position: "relative",
+    paddingLeft: "5px",
+    paddingRight: "5px",
+    backgroundColor: theme.colors.backgrounds.bgToggleOff,
+    alignItems: "center",
+    width: "32px",
+    height: "18px",
 
-      ":focus": {
-        boxShadow: vars.effects.shadows.focus,
+    ":focus": {
+      boxShadow: theme.effects.shadows.focus,
+    },
+
+    selectors: {
+      '&[data-state="checked"]': {
+        backgroundColor: theme.colors.backgrounds.bgInteractive,
       },
-
-      selectors: {
-        '&[data-state="checked"]': {
-          backgroundColor: vars.colors.backgrounds.bgInteractive,
-        },
-        "&[data-disabled]": {
-          backgroundColor: vars.colors.backgrounds.bgToggleOff,
-        },
+      "&[data-disabled]": {
+        backgroundColor: theme.colors.backgrounds.bgToggleOff,
       },
     },
-  ],
-  sprinkles({
+  },
+  css({
     borderRadius: "circle",
-  })
-);
+  }),
+])
 
-export const thumb = style([
+export const thumb = style(({ theme, css }) => [
   {
-    backgroundColor: vars.colors.icons.iconOnColor,
+    backgroundColor: theme.colors.icons.iconOnColor,
     transition: "transform 100ms",
     transform: "translateX(0)",
     willChange: "transform",
     selectors: {
       '&[data-state="checked"]': { transform: "translateX(14px)" },
       "&[data-disabled]": {
-        backgroundColor: vars.colors.icons.iconPlaceholder,
+        backgroundColor: theme.colors.icons.iconPlaceholder,
       },
     },
   },
-  sprinkles({
+  css({
     w: "xsmall",
     h: "xsmall",
     borderRadius: "circle",
   }),
-]);
+])

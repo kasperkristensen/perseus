@@ -94,65 +94,65 @@
 //   }
 // );
 
-import { colors } from "@medusa-ui/tokens";
-import plugin from "tailwindcss/plugin";
+import { colors } from "@medusa-ui/tokens"
+import plugin from "tailwindcss/plugin"
 import {
   getDomain,
   getIdentifier,
   kebabCaseIdentifier,
-} from "./utils/kebab-case-identifier";
+} from "./utils/kebab-case-identifier"
 
 export default plugin.withOptions(
   () => {
-    let rootColors: Record<string, string> = {};
-    let darkModeColors: Record<string, string> = {};
+    let rootColors: Record<string, string> = {}
+    let darkModeColors: Record<string, string> = {}
 
     for (const [colorName, colorObj] of Object.entries(colors)) {
-      const colorMap = colorName.includes("Dark") ? darkModeColors : rootColors;
+      const colorMap = colorName.includes("Dark") ? darkModeColors : rootColors
       for (const [key, value] of Object.entries(colorObj)) {
-        colorMap[`--${kebabCaseIdentifier(key)}`] = value;
+        colorMap[`--${kebabCaseIdentifier(key)}`] = value
       }
     }
 
     return ({ addBase, config }) => {
       const [darkMode, className = ".dark"] = ([] as string[]).concat(
-        config("darkMode", "media")
-      );
+        config("darkMode", "media"),
+      )
 
       if (darkMode === "class") {
         addBase({
           ":root": rootColors,
           [className]: darkModeColors,
-        });
+        })
       } else {
         addBase({
           ":root": rootColors,
           "@media (prefers-color-scheme: dark)": {
             ":root": darkModeColors,
           },
-        });
+        })
       }
-    };
+    }
   },
   () => {
-    const themeColors: Record<string, Record<string, string>> = {};
+    const themeColors: Record<string, Record<string, string>> = {}
 
     for (const [colorName, colorObj] of Object.entries(colors)) {
       if (colorName.includes("Dark")) {
-        continue;
+        continue
       }
 
-      const domain = getDomain(colorName);
+      const domain = getDomain(colorName)
 
       if (!themeColors[domain]) {
-        themeColors[domain] = {};
+        themeColors[domain] = {}
       }
 
       themeColors[domain] = Object.keys(colorObj).reduce((acc, key) => {
-        const identifier = getIdentifier(key);
-        acc[identifier] = `var(--${kebabCaseIdentifier(key)})`;
-        return acc;
-      }, {} as Record<string, string>);
+        const identifier = getIdentifier(key)
+        acc[identifier] = `var(--${kebabCaseIdentifier(key)})`
+        return acc
+      }, {} as Record<string, string>)
     }
 
     return {
@@ -161,6 +161,6 @@ export default plugin.withOptions(
           colors: themeColors,
         },
       },
-    };
-  }
-);
+    }
+  },
+)

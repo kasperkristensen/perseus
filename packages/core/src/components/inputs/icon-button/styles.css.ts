@@ -1,27 +1,26 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { sprinkles } from "../../../lib";
+import { Variants, variants } from "../../../lib"
 
-export const iconButton = recipe({
+export const iconButton = variants(({ css }) => ({
   base: [
     {
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
     },
-    sprinkles({
+    css({
       borderRadius: "mellow",
     }),
   ],
   variants: {
     size: {
       base: [
-        sprinkles({
+        css({
           w: "xlarge",
           h: "xlarge",
         }),
       ],
     },
   },
-});
+}))
 
-export type IconButtonVariants = RecipeVariants<typeof iconButton>;
+export type IconButtonVariants = Variants<typeof iconButton>

@@ -1,5 +1,5 @@
-import { sprinkles, vars } from "@medusa-ui/core";
-import { style } from "@vanilla-extract/css";
+import { sprinkles, vars } from "@medusa-ui/core"
+import { style } from "@vanilla-extract/css"
 
 export const sidebar = style([
   {
@@ -13,4 +13,4 @@ export const sidebar = style([
     px: "large",
     py: "4xlarge",
   }),
-]);
+])

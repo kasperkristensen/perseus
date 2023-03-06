@@ -6,4 +6,4 @@ export const supportDark = {
   supportInfo: "rgba(0, 145, 255, 1)",
   supportSuccess: "rgba(48, 164, 108, 1)",
   supportWarning: "rgba(255, 178, 36, 1)",
-};
+}

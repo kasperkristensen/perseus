@@ -1,12 +1,9 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { vars } from "../../../lib";
+import { Variants, variants, vars } from "../../../lib"
 
-const labelFontFamily = `${vars.typography.labels.large.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`;
-
-export const label = recipe({
+export const label = variants(({ theme }) => ({
   base: [
     {
-      fontFamily: labelFontFamily,
+      fontFamily: `${theme.typography.labels.large.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`,
     },
   ],
   variants: {
@@ -79,6 +76,6 @@ export const label = recipe({
       },
     },
   ],
-});
+}))
 
-export type LabelVariants = RecipeVariants<typeof label>;
+export type LabelVariants = Variants<typeof label>

@@ -7,4 +7,4 @@ export const smallPlus = {
   fontWeight: "500",
   letterSpacing: "0px",
   lineHeight: "20px",
-};
+}

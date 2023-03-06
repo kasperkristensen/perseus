@@ -1,7 +1,7 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Button } from "../../inputs/button/button";
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Button } from "../../inputs/button/button"
 
-import { Tooltip } from "./tooltip";
+import { Tooltip } from "./tooltip"
 
 export default {
   /* 👇 The title prop is optional.
@@ -13,16 +13,16 @@ export default {
   parameters: {
     layout: "centered",
   },
-} as ComponentMeta<typeof Tooltip>;
+} as ComponentMeta<typeof Tooltip>
 
 const Template: ComponentStory<typeof Tooltip> = (args) => (
   <Tooltip {...args}>
     <Button variant="primary">Hover me</Button>
   </Tooltip>
-);
+)
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   title: "Tooltip",
   content: "This is a tooltip",
-};
+}

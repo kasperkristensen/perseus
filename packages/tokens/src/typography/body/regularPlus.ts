@@ -7,4 +7,4 @@ export const regularPlus = {
   fontWeight: "500",
   letterSpacing: "0px",
   lineHeight: "24px",
-};
+}

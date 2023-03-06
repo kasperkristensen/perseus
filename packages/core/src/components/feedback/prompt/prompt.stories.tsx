@@ -1,6 +1,6 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 
-import { Prompt } from "./prompt";
+import { Prompt } from "./prompt"
 
 export default {
   /* 👇 The title prop is optional.
@@ -12,21 +12,21 @@ export default {
   parameters: {
     layout: "centered",
   },
-} as ComponentMeta<typeof Prompt>;
+} as ComponentMeta<typeof Prompt>
 
 const Template: ComponentStory<typeof Prompt> = (args) => {
-  return <Prompt {...args} />;
-};
+  return <Prompt {...args} />
+}
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   title: "Delete something",
   message: "Are you sure? This cannot be undone.",
-};
+}
 
-export const WithConfirmationText = Template.bind({});
+export const WithConfirmationText = Template.bind({})
 WithConfirmationText.args = {
   title: "Delete something",
   message: "Are you sure? This cannot be undone.",
   confirmationText: "medusa-design-system",
-};
+}

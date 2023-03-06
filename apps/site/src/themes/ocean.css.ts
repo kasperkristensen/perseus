@@ -1,4 +1,4 @@
-import { createTheme } from "@medusa-ui/core";
+import { createTheme } from "@medusa-ui/core"
 
 export const ocean = createTheme({
   displayName: "Ocean",
@@ -10,4 +10,4 @@ export const ocean = createTheme({
       bgSubtle: "#064273",
     },
   },
-});
+})

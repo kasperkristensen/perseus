@@ -7,4 +7,4 @@ export const xlarge = {
   fontWeight: "400",
   letterSpacing: "0px",
   lineHeight: "32px",
-};
+}

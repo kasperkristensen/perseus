@@ -1,18 +1,16 @@
-import { style } from "@vanilla-extract/css";
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { sprinkles, vars } from "../../../lib";
+import { style, Variants, variants } from "../../../lib"
 
-export const avatar = recipe({
+export const avatar = variants(({ theme, css }) => ({
   base: [
     {
       overflow: "hidden",
       border: "1px solid",
-      borderColor: vars.colors.borders.borderStrong,
+      borderColor: theme.colors.borders.borderStrong,
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
     },
-    sprinkles({
+    css({
       borderRadius: "circle",
     }),
   ],
@@ -22,7 +20,7 @@ export const avatar = recipe({
         {
           padding: "3px",
         },
-        sprinkles({
+        css({
           width: "xlarge",
           height: "xlarge",
         }),
@@ -32,43 +30,43 @@ export const avatar = recipe({
   defaultVariants: {
     size: "large",
   },
-});
+}))
 
-export const inner = style([
+export const inner = style(({ theme, css }) => [
   {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
     height: "100%",
-    backgroundColor: vars.colors.backgrounds.bgComponent,
+    backgroundColor: theme.colors.backgrounds.bgComponent,
   },
-  sprinkles({
+  css({
     borderRadius: "circle",
   }),
-]);
+])
 
-export const image = style([
+export const image = style(({ css }) => [
   {
     objectFit: "cover",
     objectPosition: "center",
   },
-  sprinkles({
+  css({
     borderRadius: "circle",
     w: "full",
     h: "full",
   }),
-]);
+])
 
-export const fallback = style([
+export const fallback = style(({ theme, css }) => [
   {
-    backgroundColor: vars.colors.borders.borderStrong,
+    backgroundColor: theme.colors.borders.borderStrong,
   },
-  sprinkles({
+  css({
     borderRadius: "circle",
     w: "full",
     h: "full",
   }),
-]);
+])
 
-export type AvatarVariants = RecipeVariants<typeof avatar>;
+export type AvatarVariants = Variants<typeof avatar>

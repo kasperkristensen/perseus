@@ -1,4 +1,4 @@
-import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
+import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin"
 
 const config = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -12,10 +12,10 @@ const config = {
     builder: "@storybook/builder-webpack5",
   },
   webpackFinal: async (config) => {
-    config.plugins = [...config.plugins, new VanillaExtractPlugin()];
+    config.plugins = [...config.plugins, new VanillaExtractPlugin()]
 
-    return config;
+    return config
   },
-};
+}
 
-export default config;
+export default config

@@ -1,2 +1,2 @@
-export { darkMode } from "./dark.css";
-export { lightMode } from "./light.css";
+export { darkMode } from "./dark.css"
+export { lightMode } from "./light.css"

@@ -1,22 +1,22 @@
-import { DecoratorFn } from "@storybook/react";
-import React from "react";
-import { useDarkMode } from "storybook-dark-mode";
-import { darkMode, lightMode, ThemeProvider, useTheme } from "../src";
+import { DecoratorFn } from "@storybook/react"
+import React from "react"
+import { useDarkMode } from "storybook-dark-mode"
+import { darkMode, lightMode, ThemeProvider, useTheme } from "../src"
 
 const ThemeListenser = () => {
-  const { setTheme } = useTheme();
-  const isDarkMode = useDarkMode();
+  const { setTheme } = useTheme()
+  const isDarkMode = useDarkMode()
 
   React.useEffect(() => {
     if (isDarkMode) {
-      setTheme(darkMode.identifier);
+      setTheme(darkMode.identifier)
     } else {
-      setTheme(lightMode.identifier);
+      setTheme(lightMode.identifier)
     }
-  }, [setTheme, isDarkMode]);
+  }, [setTheme, isDarkMode])
 
-  return <></>;
-};
+  return <></>
+}
 
 export const decorators: DecoratorFn[] = [
   (Story) => (
@@ -25,7 +25,7 @@ export const decorators: DecoratorFn[] = [
       <ThemeListenser />
     </ThemeProvider>
   ),
-];
+]
 
 // const lightTheme: typeof themes.light = {
 //   ...themes.light,

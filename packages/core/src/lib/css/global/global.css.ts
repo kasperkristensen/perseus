@@ -1,7 +1,7 @@
 import {
   createGlobalTheme,
   createGlobalThemeContract,
-} from "@vanilla-extract/css";
+} from "@vanilla-extract/css"
 
 export const globalVars = createGlobalThemeContract({
   font: {
@@ -12,7 +12,7 @@ export const globalVars = createGlobalThemeContract({
   spacing: {
     none: "",
   },
-});
+})
 
 createGlobalTheme(":root", globalVars, {
   font: {
@@ -23,4 +23,4 @@ createGlobalTheme(":root", globalVars, {
   spacing: {
     none: "0",
   },
-});
+})

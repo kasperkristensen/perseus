@@ -41,4 +41,4 @@ export const tagsDark = {
   tagBlueBgHover: "rgba(15, 48, 88, 1)",
   tagOrangeBg: "rgba(63, 34, 0, 1)",
   tagOrangeBgHover: "rgba(74, 41, 0, 1)",
-};
+}

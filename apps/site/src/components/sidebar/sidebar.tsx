@@ -1,7 +1,7 @@
-import { IconButton, Label, Stack, Tooltip } from "@medusa-ui/core";
-import { BarsThree } from "@medusa-ui/icons";
-import { SidebarMenu } from "../sidebar-menu";
-import { sidebar } from "./styles.css";
+import { IconButton, Label, Stack, Tooltip } from "@medusa-ui/core"
+import { BarsThree } from "@medusa-ui/icons"
+import { SidebarMenu } from "../sidebar-menu"
+import { sidebar } from "./styles.css"
 
 export const Sidebar = () => {
   return (
@@ -26,5 +26,5 @@ export const Sidebar = () => {
       </Stack>
       <Stack></Stack>
     </Stack>
-  );
-};
+  )
+}
