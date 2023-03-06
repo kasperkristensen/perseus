@@ -5,6 +5,7 @@
   "workspaces": [
     "apps/*",
     "packages/*",
+    "configs/*",
     "tools/*"
   ],
   "scripts": {
@@ -14,7 +15,6 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@medusa-ui/eslint-config": "*",
     "prettier": "^2.8.4",
     "turbo": "latest"
   },
