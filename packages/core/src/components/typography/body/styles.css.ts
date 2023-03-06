@@ -1,33 +1,30 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
-import { vars } from "../../../lib"
+import { variants, Variants } from "../../../lib"
 
-const bodyFontFamily = `${vars.typography.body.large.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`
-
-export const body = recipe({
+export const body = variants(({ theme }) => ({
   base: [
     {
-      fontFamily: bodyFontFamily,
+      fontFamily: `${theme.typography.body.regular.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`,
     },
   ],
   variants: {
     size: {
       xlarge: {
-        fontSize: vars.typography.body.xlarge.fontSize,
-        lineHeight: vars.typography.body.xlarge.lineHeight,
-        fontWeight: vars.typography.body.xlarge.fontWeight,
-        letterSpacing: vars.typography.body.xlarge.letterSpacing,
+        fontSize: theme.typography.body.xlarge.fontSize,
+        lineHeight: theme.typography.body.xlarge.lineHeight,
+        fontWeight: theme.typography.body.xlarge.fontWeight,
+        letterSpacing: theme.typography.body.xlarge.letterSpacing,
       },
       large: {
-        fontSize: vars.typography.body.large.fontSize,
-        lineHeight: vars.typography.body.large.lineHeight,
-        fontWeight: vars.typography.body.large.fontWeight,
-        letterSpacing: vars.typography.body.large.letterSpacing,
+        fontSize: theme.typography.body.large.fontSize,
+        lineHeight: theme.typography.body.large.lineHeight,
+        fontWeight: theme.typography.body.large.fontWeight,
+        letterSpacing: theme.typography.body.large.letterSpacing,
       },
       regular: {
-        fontSize: vars.typography.body.regular.fontSize,
-        lineHeight: vars.typography.body.regular.lineHeight,
-        fontWeight: vars.typography.body.regular.fontWeight,
-        letterSpacing: vars.typography.body.regular.letterSpacing,
+        fontSize: theme.typography.body.regular.fontSize,
+        lineHeight: theme.typography.body.regular.lineHeight,
+        fontWeight: theme.typography.body.regular.fontWeight,
+        letterSpacing: theme.typography.body.regular.letterSpacing,
       },
     },
     weight: {
@@ -42,7 +39,7 @@ export const body = recipe({
         weight: "plus",
       },
       style: {
-        fontWeight: vars.typography.body.xlargePlus.fontWeight,
+        fontWeight: theme.typography.body.xlargePlus.fontWeight,
       },
     },
     {
@@ -51,7 +48,7 @@ export const body = recipe({
         weight: "plus",
       },
       style: {
-        fontWeight: vars.typography.body.largePlus.fontWeight,
+        fontWeight: theme.typography.body.largePlus.fontWeight,
       },
     },
     {
@@ -60,10 +57,10 @@ export const body = recipe({
         weight: "plus",
       },
       style: {
-        fontWeight: vars.typography.body.regularPlus.fontWeight,
+        fontWeight: theme.typography.body.regularPlus.fontWeight,
       },
     },
   ],
-})
+}))
 
-export type BodyVariants = RecipeVariants<typeof body>
+export type BodyVariants = Variants<typeof body>

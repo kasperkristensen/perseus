@@ -1,42 +1,24 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
-import { vars } from "../../../lib"
+import { variants, Variants } from "../../../lib"
 
-const kbdFontFamily = `${vars.typography.labels.small.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`
-
-export const kbd = recipe({
-  base: {
-    fontFamily: kbdFontFamily,
-  },
+export const kbd = variants(({ theme }) => ({
   variants: {
     variant: {
       default: {
-        backgroundColor: vars.colors.tags.tagNeutralBg,
+        backgroundColor: theme.colors.tags.tagNeutralBg,
         borderWidth: "1px",
         borderStyle: "solid",
-        borderColor: vars.colors.tags.tagNeutralBorder,
-        color: vars.colors.tags.tagNeutralText,
+        borderColor: theme.colors.tags.tagNeutralBorder,
+        color: theme.colors.tags.tagNeutralText,
       },
       ghost: {
-        color: vars.colors.texts.textPlaceholder,
+        color: theme.colors.texts.textPlaceholder,
       },
     },
-    size: {
-      base: {
-        fontSize: vars.typography.labels.smallPlus.fontSize,
-        lineHeight: vars.typography.labels.smallPlus.lineHeight,
-        fontWeight: vars.typography.labels.smallPlus.fontWeight,
-      },
-      small: {
-        fontSize: vars.typography.labels.xsmallPlus.fontSize,
-        lineHeight: vars.typography.labels.xsmallPlus.lineHeight,
-        fontWeight: vars.typography.labels.xsmallPlus.fontWeight,
-      },
+    defaultVariants: {
+      variant: "default",
+      size: "small",
     },
   },
-  defaultVariants: {
-    variant: "default",
-    size: "base",
-  },
-})
+}))
 
-export type KbdVariants = RecipeVariants<typeof kbd>
+export type KbdVariants = Variants<typeof kbd>

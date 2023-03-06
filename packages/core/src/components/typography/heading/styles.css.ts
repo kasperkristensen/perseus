@@ -1,12 +1,9 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
-import { vars } from "../../../lib"
+import { Variants, variants, vars } from "../../../lib"
 
-const headingFontFamily = `${vars.typography.heading.h1.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`
-
-export const heading = recipe({
+export const heading = variants(({ theme }) => ({
   base: [
     {
-      fontFamily: headingFontFamily,
+      fontFamily: `${theme.typography.heading.h1.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif`,
     },
   ],
   variants: {
@@ -31,6 +28,6 @@ export const heading = recipe({
       },
     },
   },
-})
+}))
 
-export type HeadingVariants = RecipeVariants<typeof heading>
+export type HeadingVariants = Variants<typeof heading>

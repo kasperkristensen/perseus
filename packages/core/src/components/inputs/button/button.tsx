@@ -1,10 +1,9 @@
 import clsx from "clsx"
 import * as React from "react"
-import { Box } from "../../layout"
+import { Box, BoxProps } from "../../layout"
 import { button, buttonColors, ButtonColorVariants } from "./styles.css"
 
-export type ButtonProps = React.ComponentPropsWithoutRef<"button"> &
-  ButtonColorVariants
+export type ButtonProps = Omit<BoxProps, "as"> & ButtonColorVariants
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = "primary", className, children, ...props }, forwardedRef) => {

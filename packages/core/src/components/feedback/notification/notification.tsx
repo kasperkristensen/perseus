@@ -5,7 +5,7 @@ import {
   XCircleSolid,
 } from "@medusa-ui/icons"
 import * as React from "react"
-import { Box, Stack } from "../../layout"
+import { Box } from "../../layout"
 import { Label } from "../../typography"
 import { icon, notification, NotificationVariants } from "./styles.css"
 
@@ -14,39 +14,6 @@ type Props = {
   message: string
   action?: () => void
 } & NotificationVariants
-
-export const Notification = React.forwardRef<HTMLDivElement, Props>(
-  ({ variant = "info", title, message, action }, ref) => {
-    const role = {
-      info: "dialog",
-      success: "dialog",
-      warning: action !== undefined ? "alertdialog" : "alert",
-      error: action !== undefined ? "alertdialog" : "alert",
-    }[variant]
-
-    return (
-      <Stack
-        as="div"
-        direction="row"
-        ref={ref}
-        className={notification}
-        role={role}
-      >
-        <Stack gap="base" direction="row">
-          <Icon variant={variant} />
-          <Stack direction="column" alignItems="start" gap="2xsmall">
-            <Label as="p" size="small" weight="plus" color="primary">
-              {title}
-            </Label>
-            <Label as="p" size="small" color="secondary">
-              {message}
-            </Label>
-          </Stack>
-        </Stack>
-      </Stack>
-    )
-  },
-)
 
 const Icon = ({ variant = "info" }: {} & NotificationVariants) => {
   const Component = {
@@ -62,5 +29,45 @@ const Icon = ({ variant = "info" }: {} & NotificationVariants) => {
     </Box>
   )
 }
+
+export const Notification = React.forwardRef<HTMLDivElement, Props>(
+  ({ variant = "info", title, message, action }, ref) => {
+    const role = {
+      info: "dialog",
+      success: "dialog",
+      warning: action !== undefined ? "alertdialog" : "alert",
+      error: action !== undefined ? "alertdialog" : "alert",
+    }[variant]
+
+    return (
+      <Box as="div" ref={ref} className={notification} role={role}>
+        <Box
+          css={{
+            display: "flex",
+            alignItems: "center",
+            gap: "base",
+          }}
+        >
+          <Icon variant={variant} />
+          <Box
+            css={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "start",
+              gap: "2xsmall",
+            }}
+          >
+            <Label as="p" size="small" weight="plus" color="primary">
+              {title}
+            </Label>
+            <Label as="p" size="small" color="secondary">
+              {message}
+            </Label>
+          </Box>
+        </Box>
+      </Box>
+    )
+  },
+)
 
 Notification.displayName = "Notification"

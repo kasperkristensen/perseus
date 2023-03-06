@@ -1,41 +1,40 @@
-import { recipe, RecipeVariants } from "@vanilla-extract/recipes"
-import { vars } from "../../../lib"
+import { Variants, variants } from "../../../lib"
 
-export const colorVariants = recipe({
+export const colorVariants = variants(({ theme }) => ({
   base: {
     cursor: "inherit",
   },
   variants: {
     color: {
       primary: {
-        color: vars.colors.texts.textPrimary,
+        color: theme.colors.texts.textPrimary,
       },
       secondary: {
-        color: vars.colors.texts.textSecondary,
+        color: theme.colors.texts.textSecondary,
       },
       placeholder: {
-        color: vars.colors.texts.textPlaceholder,
+        color: theme.colors.texts.textPlaceholder,
       },
       disabled: {
-        color: vars.colors.texts.textDisabled,
+        color: theme.colors.texts.textDisabled,
       },
       onColor: {
-        color: vars.colors.texts.textOnColor,
+        color: theme.colors.texts.textOnColor,
       },
       interactive: {
-        color: vars.colors.texts.textInteractive,
+        color: theme.colors.texts.textInteractive,
       },
       interactiveHover: {
-        color: vars.colors.texts.textInteractiveHover,
+        color: theme.colors.texts.textInteractiveHover,
       },
       error: {
-        color: vars.colors.texts.textError,
+        color: theme.colors.texts.textError,
       },
     },
   },
   defaultVariants: {
     color: "primary",
   },
-})
+}))
 
-export type TypographyColorVariants = RecipeVariants<typeof colorVariants>
+export type TypographyColorVariants = Variants<typeof colorVariants>

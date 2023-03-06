@@ -4,5 +4,6 @@
     "declarationDir": "dist"
   },
   "extends": "@medusa-ui/tsconfig/react-library.json",
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", ".turbo", "coverage", "dist", "src/**/*.test.ts"]
 }

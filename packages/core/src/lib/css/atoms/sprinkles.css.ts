@@ -4,6 +4,9 @@ const spacing = {
   auto: "auto",
   none: 0,
   "2xsmall": 4,
+  /**
+   * 8px
+   */
   xsmall: 8,
   small: 12,
   base: 16,
@@ -117,6 +120,24 @@ const responsiveProperties = defineProperties({
   conditions: breakpointConditions,
   defaultCondition: "mobile",
   properties: {
+    display: {
+      none: "none",
+      block: "block",
+      inlineBlock: "inline-block",
+      flex: "flex",
+      inlineFlex: "inline-flex",
+      grid: "grid",
+      inlineGrid: "inline-grid",
+      table: "table",
+      tableRow: "table-row",
+      tableCell: "table-cell",
+    },
+    flexDirection: {
+      row: "row",
+      rowReverse: "row-reverse",
+      column: "column",
+      columnReverse: "column-reverse",
+    },
     justifyContent: {
       start: "flex-start",
       end: "flex-end",

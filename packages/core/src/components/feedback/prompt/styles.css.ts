@@ -1,30 +1,28 @@
-import { style } from "@vanilla-extract/css"
-import { recipe } from "@vanilla-extract/recipes"
-import { sprinkles, vars } from "../../../lib"
+import { style, variants } from "../../../lib"
 
-export const prompt = style([
+export const prompt = style(({ theme, css }) => [
   {
     width: "400px",
-    boxShadow: vars.effects.shadows.overlay,
+    boxShadow: theme.effects.shadows.overlay,
     border: "1px solid",
-    borderColor: vars.colors.borders.borderBase,
-    backgroundColor: vars.colors.backgrounds.bgBase,
+    borderColor: theme.colors.borders.borderBase,
+    backgroundColor: theme.colors.backgrounds.bgBase,
   },
-  sprinkles({
+  css({
     borderRadius: "mellow",
   }),
 ])
 
-export const header = recipe({
+export const header = variants(({ css }) => ({
   base: [
-    sprinkles({
+    css({
       px: "large",
       pt: "large",
     }),
   ],
   variants: {
     hasConfirmation: {
-      true: sprinkles({
+      true: css({
         pb: "large",
       }),
       false: {},
@@ -33,11 +31,11 @@ export const header = recipe({
   defaultVariants: {
     hasConfirmation: false,
   },
-})
+}))
 
-export const footer = recipe({
+export const footer = variants(({ css, theme }) => ({
   base: [
-    sprinkles({
+    css({
       px: "large",
       pb: "large",
       pt: "base",
@@ -47,7 +45,7 @@ export const footer = recipe({
     hasConfirmation: {
       true: {
         borderTop: "1px solid",
-        borderColor: vars.colors.borders.borderBase,
+        borderColor: theme.colors.borders.borderBase,
       },
       false: {},
     },
@@ -55,14 +53,14 @@ export const footer = recipe({
   defaultVariants: {
     hasConfirmation: false,
   },
-})
+}))
 
-export const extraConfirmation = style([
+export const extraConfirmation = style(({ css, theme }) => [
   {
     borderTop: "1px solid",
-    borderColor: vars.colors.borders.borderBase,
+    borderColor: theme.colors.borders.borderBase,
   },
-  sprinkles({
+  css({
     p: "large",
   }),
 ])

@@ -1,3 +1,4 @@
+/*eslint import/namespace: [2, { allowComputed: true }]*/
 import * as Icons from "@medusa-ui/icons"
 import { CheckMini } from "@medusa-ui/icons"
 import * as Primitive from "@radix-ui/react-dropdown-menu"
@@ -5,7 +6,7 @@ import clsx from "clsx"
 import * as React from "react"
 import { useHotkeys } from "react-hotkeys-hook"
 import { Kbd } from "../../data-display"
-import { Box, Stack } from "../../layout"
+import { Box } from "../../layout"
 import { Label } from "../../typography"
 import { iconContainer, item, menu, separator, trigger } from "./styles.css"
 
@@ -53,9 +54,15 @@ const Content = React.forwardRef<
           asChild
           {...rest}
         >
-          <Stack className={combinedClasses} direction="column">
+          <Box
+            css={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+            className={combinedClasses}
+          >
             {children}
-          </Stack>
+          </Box>
         </Primitive.Content>
       </Primitive.Portal>
     )
@@ -76,10 +83,10 @@ type IconProps = {
 
 const Icon = ({ icon }: IconProps) => {
   if (typeof icon === "string" && Icons[icon as keyof typeof Icons]) {
-    const Icon = Icons[icon as keyof typeof Icons]
+    const Component = Icons[icon as keyof typeof Icons]
     return (
       <Box className={iconContainer}>
-        <Icon />
+        <Component />
       </Box>
     )
   }
@@ -106,7 +113,12 @@ const KeyboardShortcut = ({ keys, onTrigger }: KeyboardShortcutProps) => {
   useHotkeys(keys.join("+"), handleTrigger)
 
   return (
-    <Stack gap="2xsmall">
+    <Box
+      css={{
+        display: "flex",
+        gap: "2xsmall",
+      }}
+    >
       {keys.map((key, index) => {
         return (
           <React.Fragment key={index}>
@@ -114,7 +126,7 @@ const KeyboardShortcut = ({ keys, onTrigger }: KeyboardShortcutProps) => {
           </React.Fragment>
         )
       })}
-    </Stack>
+    </Box>
   )
 }
 
@@ -138,25 +150,35 @@ const Item = React.forwardRef<HTMLDivElement, ItemProps>(
 
     return (
       <Primitive.Item ref={forwardedRef} {...props} asChild>
-        <Stack
+        <Box
           as="button"
-          direction="row"
-          gap="xsmall"
+          css={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "xsmall",
+          }}
           className={combinedClasses}
         >
           <Icon icon={icon} />
-          <Stack alignItems="center" justifyItems="start" flex={1}>
+          <Box
+            css={{
+              display: "flex",
+              alignItems: "center",
+              justifyItems: "start",
+              flex: 1,
+            }}
+          >
             <Label as="label" size="small">
               {label}
             </Label>
-          </Stack>
+          </Box>
           {keyboardShortcut && (
             <KeyboardShortcut
               keys={keyboardShortcut}
               onTrigger={props.onSelect}
             />
           )}
-        </Stack>
+        </Box>
       </Primitive.Item>
     )
   },
@@ -190,24 +212,30 @@ const ExternalLink = React.forwardRef<HTMLDivElement, ExternalLinkProps>(
     const combinedClasses = clsx(item, className)
     return (
       <Primitive.Item ref={forwardedRef} {...props} asChild>
-        <Stack
+        <Box
           as="a"
           href={href}
           target={target}
           rel={rel}
-          direction="row"
-          alignItems="center"
-          gap="xsmall"
+          css={{
+            display: "flex",
+            alignItems: "center",
+            gap: "xsmall",
+          }}
           className={combinedClasses}
         >
           <Icon icon={icon} />
-          <Box flex={1}>
+          <Box
+            css={{
+              flex: 1,
+            }}
+          >
             <Label as="label" size="small">
               {label}
             </Label>
           </Box>
           <Icon icon="ArrowUpRightMini" />
-        </Stack>
+        </Box>
       </Primitive.Item>
     )
   },
@@ -257,15 +285,26 @@ const SubTrigger = React.forwardRef<HTMLDivElement, SubTriggerProps>(
         className={combinedClasses}
         asChild
       >
-        <Stack direction="row" gap="xsmall">
+        <Box
+          css={{
+            display: "flex",
+            gap: "xsmall",
+          }}
+        >
           <Icon icon={icon} />
-          <Stack alignItems="center" justifyItems="start" flex={1}>
+          <Box
+            css={{
+              alignItems: "center",
+              justifyItems: "start",
+              flex: 1,
+            }}
+          >
             <Label as="label" size="small">
               {label}
             </Label>
-          </Stack>
+          </Box>
           <Icon icon={"ChevronRightMini"} />
-        </Stack>
+        </Box>
       </Primitive.SubTrigger>
     )
   },
@@ -305,9 +344,15 @@ const SubContent = React.forwardRef<
           asChild
           {...rest}
         >
-          <Stack className={combinedClasses} direction="column">
+          <Box
+            css={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+            className={combinedClasses}
+          >
             {children}
-          </Stack>
+          </Box>
         </Primitive.SubContent>
       </Primitive.Portal>
     )
@@ -322,9 +367,15 @@ const OptionGroup = React.forwardRef<HTMLDivElement, OptionGroupProps>(
   ({ children, ...props }, ref) => {
     return (
       <Primitive.RadioGroup asChild ref={ref} {...props}>
-        <Stack direction="column" gap="xsmall">
+        <Box
+          css={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "xsmall",
+          }}
+        >
           {children}
-        </Stack>
+        </Box>
       </Primitive.RadioGroup>
     )
   },
@@ -342,7 +393,13 @@ const OptionItem = React.forwardRef<HTMLDivElement, OptionItemsProps>(
 
     return (
       <Primitive.RadioItem ref={ref} asChild {...rest}>
-        <Stack direction="row" gap="xsmall" className={combinedClasses}>
+        <Box
+          css={{
+            display: "flex",
+            gap: "xsmall",
+          }}
+          className={combinedClasses}
+        >
           <Box className={iconContainer}>
             <Primitive.ItemIndicator>
               <CheckMini />
@@ -351,7 +408,7 @@ const OptionItem = React.forwardRef<HTMLDivElement, OptionItemsProps>(
           <Label as="label" size="small">
             {label}
           </Label>
-        </Stack>
+        </Box>
       </Primitive.RadioItem>
     )
   },

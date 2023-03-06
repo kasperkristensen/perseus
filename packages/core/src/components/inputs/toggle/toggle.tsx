@@ -9,9 +9,21 @@ export const Toggle = React.forwardRef<HTMLButtonElement, Props>(
   (props, ref) => {
     return (
       <Primitive.Root ref={ref} asChild {...props}>
-        <Box as="button" type="button" className={track} borderRadius="circle">
+        <Box
+          as="button"
+          type="button"
+          className={track}
+          css={{
+            borderRadius: "circle",
+          }}
+        >
           <Primitive.Thumb className={thumb} asChild>
-            <Box className={thumb} borderRadius="circle" />
+            <Box
+              className={thumb}
+              css={{
+                borderRadius: "circle",
+              }}
+            />
           </Primitive.Thumb>
         </Box>
       </Primitive.Root>

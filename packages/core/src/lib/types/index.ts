@@ -1,4 +1,6 @@
 import { colors, effects } from "@medusa-ui/tokens"
+import { Atoms } from "../css"
+import { vars } from "../theme"
 
 export type Theme = {
   identifier: string
@@ -45,3 +47,11 @@ export type ThemeOptions = {
    */
   overrides?: DeepPartial<ColorScheme>
 }
+
+export type CSS = Omit<Atoms, "reset">
+
+export type CSSFn = (css: CSS) => string
+
+export type ThemeVariables = typeof vars
+
+export type { RecipeVariants as Variants } from "@vanilla-extract/recipes"

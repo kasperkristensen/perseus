@@ -1,16 +1,18 @@
 import * as React from "react"
 import { Box } from "../../layout/box"
+import { Label } from "../../typography"
+import { LabelVariants } from "../../typography/label/styles.css"
 import { kbd, KbdVariants } from "./styles.css"
 
-// Children should accept valid key names
 type KbdProps = {
-  children: React.KeyboardEvent["key"]
-} & KbdVariants
+  children: string
+} & KbdVariants &
+  LabelVariants
 
-export const Kbd = ({ children, variant }: KbdProps) => {
+export const Kbd = ({ children, variant, size, weight }: KbdProps) => {
   let key = children
 
-  // check if user is on a Mac
+  // check the users OS
   const os = React.useMemo(() => {
     if (window === undefined) {
       return "win"
@@ -67,7 +69,9 @@ export const Kbd = ({ children, variant }: KbdProps) => {
 
   return (
     <Box as="span" className={kbd({ variant })}>
-      {key}
+      <Label size={size} weight={weight}>
+        {key}
+      </Label>
     </Box>
   )
 }

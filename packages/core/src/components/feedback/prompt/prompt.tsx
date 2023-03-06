@@ -1,6 +1,6 @@
 import * as Primitive from "@radix-ui/react-alert-dialog"
 import * as React from "react"
-import { Box, Stack } from "../../layout"
+import { Box } from "../../layout"
 import { Heading, Label } from "../../typography"
 import { extraConfirmation, footer, header, prompt } from "./styles.css"
 
@@ -49,9 +49,12 @@ export const Prompt = React.forwardRef<HTMLDivElement, PromptProps>(
         <Primitive.Overlay />
         <Primitive.Content aria-label="Prompt" asChild ref={forwardedRef}>
           <Box className={prompt}>
-            <Stack
-              direction="column"
-              gap="2xsmall"
+            <Box
+              css={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "2xsmall",
+              }}
               className={header({ hasConfirmation: !!confirmationText })}
             >
               <Primitive.Title asChild>
@@ -62,11 +65,14 @@ export const Prompt = React.forwardRef<HTMLDivElement, PromptProps>(
                   {message}
                 </Label>
               </Primitive.Description>
-            </Stack>
+            </Box>
             {confirmationText && (
-              <Stack
-                direction="column"
-                gap="base"
+              <Box
+                css={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "2xsmall",
+                }}
                 className={extraConfirmation}
               >
                 <Label color="secondary">
@@ -76,12 +82,15 @@ export const Prompt = React.forwardRef<HTMLDivElement, PromptProps>(
                   </Label>{" "}
                   to confirm.
                 </Label>
-              </Stack>
+              </Box>
             )}
-            <Stack
-              justifyContent="end"
-              gap="xsmall"
-              w="full"
+            <Box
+              css={{
+                display: "flex",
+                justifyContent: "end",
+                gap: "xsmall",
+                w: "full",
+              }}
               className={footer({ hasConfirmation: !!confirmationText })}
             >
               <Primitive.Cancel type="button" onClick={onCancel}>
@@ -90,7 +99,7 @@ export const Prompt = React.forwardRef<HTMLDivElement, PromptProps>(
               <Primitive.Action type="button" onClick={onConfirm}>
                 {actionLabel}
               </Primitive.Action>
-            </Stack>
+            </Box>
           </Box>
         </Primitive.Content>
       </Primitive.Root>
