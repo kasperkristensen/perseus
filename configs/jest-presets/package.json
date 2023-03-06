@@ -1,0 +1,10 @@
+{
+  "name": "@medusa-ui/jest-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kasper Kristensen <kasper@medusajs.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
